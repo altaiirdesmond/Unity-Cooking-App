@@ -1,0 +1,1 @@
+INSERT INTO FoodTable VALUES(1, "ginataang yapyap", "region 4-a", 1, "ginataan", "test trivia")

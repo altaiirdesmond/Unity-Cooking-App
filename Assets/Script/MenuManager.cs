@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+/* For SQLite namespaces */
+using Mono.Data.Sqlite;
+using System.Data;
+using System;
 
 public class MenuManager : MonoBehaviour {
     public void GoToSetting() {

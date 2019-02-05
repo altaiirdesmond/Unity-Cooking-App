@@ -1,0 +1,1 @@
+INSERT INTO Recipe VALUES(1, 7)
