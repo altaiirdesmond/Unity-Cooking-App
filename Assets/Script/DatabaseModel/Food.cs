@@ -11,5 +11,7 @@
         public string Category { get; set; }
 
         public string Trivia { get; set; }
+
+        public string Instruction { get; set; }
     }
 }

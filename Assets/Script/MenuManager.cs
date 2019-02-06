@@ -1,36 +1,68 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-/* For SQLite namespaces */
-using Mono.Data.Sqlite;
-using System.Data;
-using System;
-using Assets.Script.DatabaseModel;
+using TMPro;
 
 public class MenuManager : MonoBehaviour {
 
-    public void GoToSetting() {
-        SceneManager.LoadScene("Setting");
+    private string sceneOrigin;
+    private readonly bool show = true;
+    private bool dropped = true;
+
+    /// <summary>
+    /// Set origin to what scene comes first before going to setting
+    /// </summary>
+    /// <param name="origin">scene origin</param>
+    public void GoToSetting(string origin) {
+        sceneOrigin = origin;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Setting");
     }
 
-    public void SetLanguage(string language) {
-        
-    }
-
+    /// <summary>
+    /// The scene that will be loaded is the sceneOrigin after apply
+    /// </summary>
     public void ApplySetting() {
-        SceneManager.LoadScene("Main menu");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneOrigin);
+    }
+
+    public void Exit() {
+        Application.Quit();
     }
 
     public void GotoCategories() {
-        SceneManager.LoadScene("Categories");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Categories");
+    }
+
+    public void GoToMainMenu() {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main menu");
     }
 
     public void PopulateCategoryResult(string category) {
-        DatabaseManager databaseManager = new DatabaseManager(
-            "SELECT * FROM FoodTable WHERE Category = @category", 
-            new string[] { category });
+        CategorySceneManager dataObserver = GameObject.Find("SceneManager").GetComponent<CategorySceneManager>();
+        dataObserver.Panels[1].SetActive(true);
+        dataObserver.Panels[0].SetActive(false);
 
-        foreach (var item in databaseManager.GetAll()) {
-            Debug.Log(item.FoodName);
+        DatabaseManager databaseManager = new DatabaseManager();
+        // Fetch data from database
+        foreach (var item in databaseManager.GetFoodsByCategory(category)) {
+            // Instantiate the result gameobject containing the database result
+            dataObserver.Result.GetComponentInChildren<TextMeshProUGUI>().text = item.FoodName;
+            Instantiate(dataObserver.Result, dataObserver.Panels[1].transform);
         }
+    }
+
+    public void ShowOptions() {
+        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[2].GetComponent<UIAnimation>().Animator.SetBool("show", show);
+    }
+
+    public void HideOptions() {
+        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[2].GetComponent<UIAnimation>().Animator.SetBool("show", !show);
+    }
+
+    public void ShowLanguageDropdown() {
+        // Invert active state
+        var isActive = !(GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Buttons[0].activeSelf && dropped);
+        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Buttons[0].SetActive(isActive);
+        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Buttons[1].SetActive(isActive);
+
+        dropped = isActive;
     }
 }
