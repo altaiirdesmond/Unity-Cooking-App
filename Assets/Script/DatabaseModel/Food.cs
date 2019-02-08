@@ -6,12 +6,14 @@
 
         public string Region { get; set; }
 
-        public int RecipeId { get; set; }
+        public string Ingredients { get; set; }
 
         public string Category { get; set; }
 
         public string Trivia { get; set; }
 
         public string Instruction { get; set; }
+
+        public byte[] Image { get; set; }
     }
 }

@@ -31,6 +31,10 @@ public class DatabaseManager {
         connection = new SQLiteConnection(filepath, SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
     }
 
+    /// <summary>
+    /// Gets all 
+    /// </summary>
+    /// <returns></returns>
     public IEnumerable<Food> GetFoods() {
         return connection.Table<Food>();
     }

@@ -1,7 +1,7 @@
-﻿using Assets.Script.DatabaseModel;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CategorySceneManager : MonoBehaviour {
 
@@ -37,9 +37,5 @@ public class CategorySceneManager : MonoBehaviour {
         set {
             buttons = value;
         }
-    }
-
-    private void Update() {
-        
     }
 }

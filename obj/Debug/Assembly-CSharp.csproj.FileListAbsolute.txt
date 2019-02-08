@@ -1,10 +1,8 @@
 C:\Users\cdtekk\Documents\Unity\Unity-Cooking-App\Temp\bin\Debug\Assembly-CSharp.dll
 C:\Users\cdtekk\Documents\Unity\Unity-Cooking-App\Temp\bin\Debug\Assembly-CSharp.pdb
 C:\Users\cdtekk\Documents\Unity\Unity-Cooking-App\Temp\bin\Debug\Boo.Lang.dll
-C:\Users\cdtekk\Documents\Unity\Unity-Cooking-App\Temp\bin\Debug\Mono.Data.Sqlite.dll
 C:\Users\cdtekk\Documents\Unity\Unity-Cooking-App\Temp\bin\Debug\mscorlib.dll
 C:\Users\cdtekk\Documents\Unity\Unity-Cooking-App\Temp\bin\Debug\System.Core.dll
-C:\Users\cdtekk\Documents\Unity\Unity-Cooking-App\Temp\bin\Debug\System.Data.dll
 C:\Users\cdtekk\Documents\Unity\Unity-Cooking-App\Temp\bin\Debug\System.dll
 C:\Users\cdtekk\Documents\Unity\Unity-Cooking-App\Temp\bin\Debug\System.Runtime.Serialization.dll
 C:\Users\cdtekk\Documents\Unity\Unity-Cooking-App\Temp\bin\Debug\System.Xml.dll
