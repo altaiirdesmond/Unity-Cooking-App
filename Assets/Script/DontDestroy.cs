@@ -1,11 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour {
-
-    private Scene currentScene;
 
     private void Awake() {
         DontDestroyOnLoad(gameObject);
@@ -13,10 +9,8 @@ public class DontDestroy : MonoBehaviour {
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            switch (SceneManager.GetActiveScene().name) {
-            case "Categories":
-                SceneManager.LoadScene("Main menu");
-                break;
+            if (SceneManager.GetActiveScene().buildIndex > 0) {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
             }
         }
     }

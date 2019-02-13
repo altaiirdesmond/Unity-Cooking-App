@@ -766,7 +766,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: WIKA
+  m_text: Wika
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -970,7 +970,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1349736764}
+      - m_Target: {fileID: 2127006700}
         m_MethodName: SetCurrentLanguage
         m_Mode: 5
         m_Arguments:
@@ -979,6 +979,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Tagalog
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114639559107424554, guid: a5ae08a1846e8b447b3efa93688fd806,
+          type: 2}
+        m_MethodName: HideBlockingPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1064,6 +1076,46 @@ MonoBehaviour:
   m_Script: {fileID: -146154839, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &412413200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 412413202}
+  - component: {fileID: 412413201}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &412413201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 412413200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfed9f3d194be9e45a29d262327c9927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &412413202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 412413200}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 345.1583, y: 1552.5508, z: 4.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &436732327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,7 +1411,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: ENGLISH
+  m_text: English
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -1694,6 +1746,18 @@ MonoBehaviour:
       - m_Target: {fileID: 114639559107424554, guid: a5ae08a1846e8b447b3efa93688fd806,
           type: 2}
         m_MethodName: HideOptions
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114639559107424554, guid: a5ae08a1846e8b447b3efa93688fd806,
+          type: 2}
+        m_MethodName: HideBlockingPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2806,7 +2870,7 @@ GameObject:
   - component: {fileID: 1107185557}
   - component: {fileID: 1107185556}
   m_Layer: 0
-  m_Name: ButtonMore
+  m_Name: ButtonOptions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2872,6 +2936,18 @@ MonoBehaviour:
       - m_Target: {fileID: 114639559107424554, guid: a5ae08a1846e8b447b3efa93688fd806,
           type: 2}
         m_MethodName: ShowOptions
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114639559107424554, guid: a5ae08a1846e8b447b3efa93688fd806,
+          type: 2}
+        m_MethodName: ShowBlockingPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3087,154 +3163,6 @@ MonoBehaviour:
   phraseName: name, region
   FallbackText: pangalan, rehiyon
   Args: []
---- !u!1 &1349736763
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1349736765}
-  - component: {fileID: 1349736764}
-  m_Layer: 0
-  m_Name: LeanLocalization
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1349736764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1349736763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DefaultLanguage: Tagalog
-  DetectLanguage: 1
-  SaveLanguage: 1
-  Languages:
-  - English
-  - Tagalog
-  Cultures:
-  - Language: English
-    Alias: en
-  - Language: English
-    Alias: en-GB
-  - Language: English
-    Alias: en-US
-  - Language: English
-    Alias: en-AU
-  - Language: English
-    Alias: en-CA
-  - Language: English
-    Alias: en-NZ
-  - Language: English
-    Alias: en-IE
-  - Language: English
-    Alias: en-ZA
-  - Language: English
-    Alias: en-JM
-  - Language: English
-    Alias: en-en029
-  - Language: English
-    Alias: en-BZ
-  - Language: English
-    Alias: en-TT
-  - Language: English
-    Alias: en-ZW
-  - Language: English
-    Alias: en-PH
-  Phrases:
-  - Name: are you sure
-    Translations:
-    - Language: English
-      Text: Are you sure?
-      Object: {fileID: 0}
-    - Language: Tagalog
-      Text: Sigurado ka ba?
-      Object: {fileID: 0}
-  - Name: yes
-    Translations:
-    - Language: English
-      Text: Yes
-      Object: {fileID: 0}
-    - Language: Tagalog
-      Text: Oo
-      Object: {fileID: 0}
-  - Name: no
-    Translations:
-    - Language: English
-      Text: No
-      Object: {fileID: 0}
-    - Language: Tagalog
-      Text: Hindi
-      Object: {fileID: 0}
-  - Name: quit
-    Translations:
-    - Language: English
-      Text: Quit
-      Object: {fileID: 0}
-    - Language: Tagalog
-      Text: Umalis
-      Object: {fileID: 0}
-  - Name: start
-    Translations:
-    - Language: English
-      Text: Start
-      Object: {fileID: 0}
-    - Language: Tagalog
-      Text: Magsimula
-      Object: {fileID: 0}
-  - Name: settings
-    Translations:
-    - Language: English
-      Text: SETTINGS
-      Object: {fileID: 0}
-    - Language: Tagalog
-      Text: PAGTATAKDA
-      Object: {fileID: 0}
-  - Name: language
-    Translations:
-    - Language: English
-      Text: LANGUAGE
-      Object: {fileID: 0}
-    - Language: Tagalog
-      Text: WIKA
-      Object: {fileID: 0}
-  - Name: name, region
-    Translations:
-    - Language: English
-      Text: name, region
-      Object: {fileID: 0}
-    - Language: Tagalog
-      Text: pangalan, rehiyon
-      Object: {fileID: 0}
-  - Name: ingredients
-    Translations:
-    - Language: English
-      Text: INGREDIENTS
-      Object: {fileID: 0}
-    - Language: Tagalog
-      Text: SANGKAP
-      Object: {fileID: 0}
---- !u!4 &1349736765
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1349736763}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1362523682
 GameObject:
   m_ObjectHideFlags: 0
@@ -3631,7 +3559,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1349736764}
+      - m_Target: {fileID: 2127006700}
         m_MethodName: SetCurrentLanguage
         m_Mode: 5
         m_Arguments:
@@ -3640,6 +3568,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: English
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114639559107424554, guid: a5ae08a1846e8b447b3efa93688fd806,
+          type: 2}
+        m_MethodName: HideBlockingPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -3732,7 +3672,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: TAGALOG
+  m_text: Tagalog
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -4090,10 +4030,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   result: {fileID: 1511726651497902, guid: f0ef4de2dbd35be47a31270ffae0f56c, type: 2}
   panels:
-  - {fileID: 319876071}
-  - {fileID: 39227585}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 513283668}
   - {fileID: 1362523682}
+  - {fileID: 319876071}
+  - {fileID: 39227585}
   buttons:
   - {fileID: 436732327}
   - {fileID: 650340203}
@@ -4511,6 +4453,162 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2115622220}
   m_CullTransparentMesh: 0
+--- !u!1 &2127006699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2127006701}
+  - component: {fileID: 2127006700}
+  m_Layer: 0
+  m_Name: LeanLocalization
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2127006700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2127006699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultLanguage: Tagalog
+  DetectLanguage: 1
+  SaveLanguage: 1
+  Languages:
+  - English
+  - Tagalog
+  Cultures:
+  - Language: English
+    Alias: en
+  - Language: English
+    Alias: en-GB
+  - Language: English
+    Alias: en-US
+  - Language: English
+    Alias: en-AU
+  - Language: English
+    Alias: en-CA
+  - Language: English
+    Alias: en-NZ
+  - Language: English
+    Alias: en-IE
+  - Language: English
+    Alias: en-ZA
+  - Language: English
+    Alias: en-JM
+  - Language: English
+    Alias: en-en029
+  - Language: English
+    Alias: en-BZ
+  - Language: English
+    Alias: en-TT
+  - Language: English
+    Alias: en-ZW
+  - Language: English
+    Alias: en-PH
+  Phrases:
+  - Name: are you sure
+    Translations:
+    - Language: English
+      Text: Are you sure?
+      Object: {fileID: 0}
+    - Language: Tagalog
+      Text: Sigurado ka ba?
+      Object: {fileID: 0}
+  - Name: yes
+    Translations:
+    - Language: English
+      Text: Yes
+      Object: {fileID: 0}
+    - Language: Tagalog
+      Text: Oo
+      Object: {fileID: 0}
+  - Name: no
+    Translations:
+    - Language: English
+      Text: No
+      Object: {fileID: 0}
+    - Language: Tagalog
+      Text: Hindi
+      Object: {fileID: 0}
+  - Name: quit
+    Translations:
+    - Language: English
+      Text: Quit
+      Object: {fileID: 0}
+    - Language: Tagalog
+      Text: Umalis
+      Object: {fileID: 0}
+  - Name: start
+    Translations:
+    - Language: English
+      Text: Start
+      Object: {fileID: 0}
+    - Language: Tagalog
+      Text: Magsimula
+      Object: {fileID: 0}
+  - Name: settings
+    Translations:
+    - Language: English
+      Text: SETTINGS
+      Object: {fileID: 0}
+    - Language: Tagalog
+      Text: PAGTATAKDA
+      Object: {fileID: 0}
+  - Name: language
+    Translations:
+    - Language: English
+      Text: Language
+      Object: {fileID: 0}
+    - Language: Tagalog
+      Text: Wika
+      Object: {fileID: 0}
+  - Name: name, region
+    Translations:
+    - Language: English
+      Text: name, region
+      Object: {fileID: 0}
+    - Language: Tagalog
+      Text: pangalan, rehiyon
+      Object: {fileID: 0}
+  - Name: ingredients
+    Translations:
+    - Language: English
+      Text: Ingredients
+      Object: {fileID: 0}
+    - Language: Tagalog
+      Text: Mga sangkap
+      Object: {fileID: 0}
+  - Name: category
+    Translations:
+    - Language: English
+      Text: Category
+      Object: {fileID: 0}
+    - Language: Tagalog
+      Text: Kategorya
+      Object: {fileID: 0}
+--- !u!4 &2127006701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2127006699}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2145865376
 GameObject:
   m_ObjectHideFlags: 0

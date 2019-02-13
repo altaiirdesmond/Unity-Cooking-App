@@ -1,9 +1,19 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Assets.Script.DatabaseModel;
 
 public class MenuManager : MonoBehaviour {
+
+    /// <summary>
+    /// Reference of Ingredients scene for food ingredients
+    /// </summary>
     public static string FoodIngredients { get; set; }
+
+    /// <summary>
+    /// Reference of Cooking scene for Food instance
+    /// </summary>
+    public static Food Food { get; set; }
 
     public void Exit() {
         Application.Quit();
@@ -28,6 +38,8 @@ public class MenuManager : MonoBehaviour {
             foreach (var item in databaseManager.GetFood(gameObject.GetComponent<TextMeshProUGUI>().text)) {
                 // English
                 FoodIngredients = item.IngredientsTranslated;
+                // Get food instance for Cooking scene
+                Food = item;
             }
         } else {
             // Query food ingredients before proceeding
@@ -35,6 +47,8 @@ public class MenuManager : MonoBehaviour {
             foreach (var item in databaseManager.GetFood(gameObject.GetComponent<TextMeshProUGUI>().text)) {
                 // Tagalog
                 FoodIngredients = item.Ingredients;
+                // Get food instance for Cooking scene
+                Food = item;
             }
         }
         
@@ -45,8 +59,8 @@ public class MenuManager : MonoBehaviour {
         CategorySceneManager dataObserver = GameObject.Find("SceneManager").GetComponent<CategorySceneManager>();
         dataObserver.Buttons[0].SetActive(true);
         dataObserver.Buttons[1].SetActive(false);
-        dataObserver.Panels[1].SetActive(true);
-        dataObserver.Panels[0].SetActive(false);
+        dataObserver.Panels[5].SetActive(true);
+        dataObserver.Panels[4].SetActive(false);
 
         DatabaseManager databaseManager = new DatabaseManager();
         int i = 0;
@@ -54,7 +68,7 @@ public class MenuManager : MonoBehaviour {
         foreach (var item in databaseManager.GetFoodsByCategory(category)) {
             dataObserver.Result.GetComponentInChildren<TextMeshProUGUI>().text = item.FoodName;
             // Instantiate first before setting the image
-            Instantiate(dataObserver.Result, dataObserver.Panels[1].transform);
+            Instantiate(dataObserver.Result, dataObserver.Panels[5].transform);
             // Reference for database image(blob) file
             Texture2D texture2D = new Texture2D(2, 2);
             // Load retrieved image(byte)
@@ -67,31 +81,25 @@ public class MenuManager : MonoBehaviour {
 
     public void ShowOptions() {
         GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[2].GetComponent<UIAnimation>().Animator.SetBool("show", true);
-        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[3].SetActive(true);
     }
 
     public void HideOptions() {
         GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[2].GetComponent<UIAnimation>().Animator.SetBool("show", false);
-        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[3].SetActive(false);
     }
 
     public void ShowQuit() {
-        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[3].GetComponent<UIAnimation>().Animator.SetBool("show", true);
-        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[2].SetActive(true);
+        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[4].GetComponent<UIAnimation>().Animator.SetBool("show", true);
     }
 
     public void HideQuit() {
-        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[3].GetComponent<UIAnimation>().Animator.SetBool("show", false);
-        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[2].SetActive(false);
+        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[4].GetComponent<UIAnimation>().Animator.SetBool("show", false);
     }
 
-    public void ShowSettings() {
-        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[1].GetComponent<UIAnimation>().Animator.SetBool("show", true);
-        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[2].SetActive(true);
+    public void ShowBlockingPanel() {
+        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[3].SetActive(true);
     }
 
-    public void HideSetting() {
-        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[1].GetComponent<UIAnimation>().Animator.SetBool("show", false);
-        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[2].SetActive(false);
+    public void HideBlockingPanel() {
+        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[3].SetActive(false);
     }
 }

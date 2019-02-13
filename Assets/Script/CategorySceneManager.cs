@@ -1,12 +1,9 @@
-﻿using TMPro;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class CategorySceneManager : MonoBehaviour {
 
     [SerializeField] private GameObject result;
-    [SerializeField] private GameObject[] panels;
+    [SerializeField] private GameObject[] panels; //Panel assignment should be all the same across the scenes
     [SerializeField] private GameObject[] buttons;
 
     public GameObject Result {
