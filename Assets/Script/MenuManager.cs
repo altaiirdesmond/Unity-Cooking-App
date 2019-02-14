@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine.UI;
 using Assets.Script.DatabaseModel;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour {
 
@@ -20,39 +21,27 @@ public class MenuManager : MonoBehaviour {
     }
 
     public void GoToCooking() {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Cooking");
+        SceneManager.LoadScene("Cooking");
     }
 
     public void GotoCategories() {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Categories");
+        SceneManager.LoadScene("Categories");
     }
 
     public void GoToHome() {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Home");
+        SceneManager.LoadScene("Home");
     }
 
     public void GoToInstruction(GameObject gameObject) {
-        if (GameObject.Find("LeanLocalization").GetComponent<Lean.Localization.LeanLocalization>().CurrentSetLanguage.Equals("English")) {
-            // Query food ingredients before proceeding
-            DatabaseManager databaseManager = new DatabaseManager();
-            foreach (var item in databaseManager.GetFood(gameObject.GetComponent<TextMeshProUGUI>().text)) {
-                // English
-                FoodIngredients = item.IngredientsTranslated;
-                // Get food instance for Cooking scene
-                Food = item;
-            }
-        } else {
-            // Query food ingredients before proceeding
-            DatabaseManager databaseManager = new DatabaseManager();
-            foreach (var item in databaseManager.GetFood(gameObject.GetComponent<TextMeshProUGUI>().text)) {
-                // Tagalog
-                FoodIngredients = item.Ingredients;
-                // Get food instance for Cooking scene
-                Food = item;
-            }
+        // Query food ingredients before proceeding
+        DatabaseManager databaseManager = new DatabaseManager();
+
+        foreach (var item in databaseManager.GetFood(gameObject.GetComponent<TextMeshProUGUI>().text)) {
+            // Get food instance for Cooking and Ingredients scene
+            Food = item;
         }
-        
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Ingredients");
+
+        SceneManager.LoadScene("Ingredients");
     }
 
     public void PopulateCategoryResult(string category) {
@@ -97,9 +86,19 @@ public class MenuManager : MonoBehaviour {
 
     public void ShowBlockingPanel() {
         GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[3].SetActive(true);
+
+        // If we are at Cooking scene
+        //if (SceneManager.GetActiveScene().buildIndex == 3) {
+        //    GameObject.Find("Canvas/TimerText").GetComponent<Timer>().Start = false;
+        //}
     }
 
     public void HideBlockingPanel() {
         GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[3].SetActive(false);
+
+        // If we are at Cooking scene
+        //if (SceneManager.GetActiveScene().buildIndex == 3) {
+        //    GameObject.Find("Canvas/TimerText").GetComponent<Timer>().Start = true;
+        //}
     }
 }
