@@ -1,140 +1,74 @@
-﻿using Assets.Script.DatabaseModel;
+﻿/*
+ * @author: cdtek
+ * 
+ * modified by: cdtek
+ */
+
+using Assets.Script.DatabaseModel;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using System.Linq;
-using UnityEngine;
 using System.Collections;
 
-public class FoodIngredient : MonoBehaviour {
+public class FoodIngredient : IEnumerator {
 
-    [SerializeField] private SpriteRenderer spriteRenderer;
     private DatabaseManager databaseManager;
-    private string foodName;
-    private bool cook = false;
+    private Food food;
 
-    public List<string[]> IngredientList { get; set; }
+    private string[] instruction;
+    private int position = -1;
 
-    private void Start() {
-        //StartCoroutine(DoCook());
+    public FoodIngredient(Food food, string instruction) {
+        this.food = food; // Let see what food we get
+        this.instruction = instruction.Split('\n'); // Let see the instruction of this food... but per line
+
+        databaseManager = new DatabaseManager(); // Yes the database... we need it to check the information about the food
     }
 
-    public void SetFoodName(string foodName) {
-        this.foodName = foodName;
+    public bool MoveNext() { // Will be using this to manually iterate through the instructions
+        position++;
+        return (position < instruction.Length);
+    }
 
-        databaseManager = new DatabaseManager();
-        string foodIngredient = databaseManager.GetFood(foodName).Take(1).First().IngredientsTranslated;
-        // Get ingredients per line. IMPROVE THIS LATER
-        IngredientList = new List<string[]>();
-        foreach (var item in foodIngredient.Split('\n')) {
-            string qty = "", container = "", raw = "", time = "";
-            foreach (var word in item.Split(' ')) {
-                if(word.Contains("]")) {
-                    var w = word.Split(',')[0].ToCharArray();
-                    foreach (var i in w) {
-                        if (char.IsDigit(i) || i == '.' || i == '/') {
-                            // Quantity
-                            qty += i.ToString();
-                        } else if (i == '&') {
-                            qty += ' ';
-                        }
-                    }
+    public void Reset() {
+        position = -1;
+    }
 
-                    var x = word.Split(',')[1].ToCharArray();
-                    foreach (var i in x) {
-                        if (char.IsLetter(i)) {
-                            // Container
-                            container += i;
-                        } else if (i == '_') {
-                            container += ' ';
-                        } 
-                    }
-                } else if (word.Contains(">")) {
-                    var w = word.ToCharArray();
-                    foreach (var i in w) {
-                        if (char.IsLetter(i)) {
-                            // Raw
-                            raw += i;
-                        } else if (i == '_') {
-                            raw += ' ';
+    public Dictionary<string[], byte[]> Current { // Will contain image and animation
+        get {
+            Dictionary<string[], byte[]> dictionary = new Dictionary<string[], byte[]>();
+            string[] words = instruction[position].Split(' '); // We're gonna assign manually
+            for (int i = 0; i < words.Length; i++) {
+                // We remove the noise
+                if(words[i].Contains(",")) {
+                    words[i] = words[i].Split(',')[0];
+                } else if (words[i].Contains(".")) {
+                    words[i] = words[i].Split('.')[0];
+                }
+
+                // This will only retrieve one item
+                foreach (var item in databaseManager.GetIngredient(food.FoodId).
+                    Where(x => x.RawName.StartsWith(words[i]) && x.RawName.Contains(words[i])).Take(1)) {
+
+                    // Avoid duplication
+                    if(!dictionary.ContainsKey(new string[] { item.RawName, item.Method })) {
+                        // We get the image of that ingredient
+                        byte[] rawImage = null;
+                        foreach (var raw in databaseManager.GetRawByName(item.RawName)) {
+                            rawImage = raw.Image;
                         }
-                    }
-                } else if (word.Contains("}")) {
-                    var z = word.ToCharArray();
-                    foreach (var i in z) {
-                        if (i != '{' || i != '}') {
-                            // Time
-                            time += i;
-                        }
+
+                        dictionary.Add(new string[] { item.RawName, item.Method }, rawImage);
                     }
                 }
             }
-
-            IngredientList.Add(new string[] { qty, container, raw, time });
-        }
-
-        foreach (var item in IngredientList) {
-            Debug.Log(item[0] + " " + item[1] + " of " + item[2]);
-        }
-    }
-    
-    public void SetCookingInstruction(IEnumerable<string> instructionList) {
-        for (int i = 0; i < instructionList.Count(); i++) {
-            foreach (var ingredient in IngredientList) {
-                Debug.Log("we have " + ingredient[2]);
-                string firstWord = "", secondWord = "", thirdWord = "";
-                if (ingredient[2].Contains(' ')) {
-                    if (ingredient[2].Split(' ').Length == 3) {
-                        firstWord = ingredient[2].Split(' ')[0];
-                        secondWord = ingredient[2].Split(' ')[1];
-                        thirdWord = ingredient[2].Split(' ')[2];
-
-                        if (instructionList.ElementAt(i).Contains(firstWord) &&
-                            instructionList.ElementAt(i).Contains(secondWord) &&
-                            instructionList.ElementAt(i).Contains(thirdWord)) {
-                            Debug.Log("we need " + firstWord + " " + secondWord + " " + thirdWord);
-                        }
-                    } else if (ingredient[2].Split(' ').Length == 2) {
-                        firstWord = ingredient[2].Split(' ')[0];
-                        secondWord = ingredient[2].Split(' ')[1];
-                        if (instructionList.ElementAt(i).Contains(firstWord) &&
-                            instructionList.ElementAt(i).Contains(secondWord)) {
-                            Debug.Log("we need " + firstWord + " " + secondWord);
-
-                            // Reference for database image(blob) file
-                            //Texture2D texture2D = new Texture2D(2, 2);
-
-                            //byte[] rawImage = null;
-                            //foreach (var item in databaseManager.GetRawByName(firstWord + " " + secondWord)) {
-                            //    rawImage = item.Image;
-                            //}
-                            //// Load retrieved image(byte)
-                            //texture2D.LoadImage(rawImage);
-                            //// Set image as sprite for each prefab. Canvas/CategoryResult_Panel/Result/
-                            //GameObject.Find("Ingredient/Image").GetComponent<SpriteRenderer>().sprite = 
-                            //    Sprite.Create(texture2D, new Rect(0, 0, texture2D.width, texture2D.height), new Vector2());
-
-                            //GameObject.Find("Ingredient/Image").GetComponent<Animator>().SetTrigger("pour"); // Play animation
-                        }
-                    } else if(ingredient[2].Split(' ').Length == -1) {
-                        if (instructionList.ElementAt(i).Contains(ingredient[2])) {
-                            Debug.Log("we need " + ingredient[2]);
-                        }
-                    }
-                }
-            }
+            
+            return dictionary;
         }
     }
 
-    private void Update() {
-        // Check animation state
-        //if (GameObject.Find("Ingredient/Image").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Pour")) {
-        //    Debug.Log("pouring");
-        //} else {
-        //    Debug.Log("idle");
-        //}
+    object IEnumerator.Current {
+        get {
+            return Current;
+        }
     }
-
-    //private IEnumerator DoCook() {
-    //    yield return new WaitUntil(() => GameObject.Find("Ingredient/Image").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Idle"));
-    //}
 }

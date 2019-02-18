@@ -3,7 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour {
 
+    private static DontDestroy dontDestroy;
+
     private void Awake() {
+        // Singleton. This prevents multiple instances
+        if(dontDestroy != null) {
+            Destroy(gameObject);
+        } else {
+            dontDestroy = this;
+        }
+
         DontDestroyOnLoad(gameObject);
     }
 

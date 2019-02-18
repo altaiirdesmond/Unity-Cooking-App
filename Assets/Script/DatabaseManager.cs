@@ -46,4 +46,15 @@ public class DatabaseManager {
     public IEnumerable<Raw> GetRawByName(string rawName) {
         return connection.Table<Raw>().Where(i => i.RawName.Equals(rawName));
     }
+
+    /// <summary>
+    /// Get all ingredients with foodId number n
+    /// </summary>
+    /// <param name="foodId"></param>
+    /// <returns></returns>
+    public IEnumerable<Ingredient> GetIngredient(int foodId) {
+        return (from ingredient in connection.Table<Ingredient>()
+                where ingredient.FoodId == foodId
+                select ingredient);
+    }
 }
