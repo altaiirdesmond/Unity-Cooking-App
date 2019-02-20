@@ -930,7 +930,7 @@ GameObject:
   - component: {fileID: 385827366}
   m_Layer: 0
   m_Name: ButtonTagalog
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1133,7 +1133,7 @@ GameObject:
   - component: {fileID: 436732329}
   m_Layer: 0
   m_Name: ButtonBack
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1708,7 +1708,7 @@ GameObject:
   - component: {fileID: 548620744}
   m_Layer: 0
   m_Name: ButtonCancel
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1849,7 +1849,7 @@ GameObject:
   - component: {fileID: 650340205}
   m_Layer: 0
   m_Name: ButtonHome
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2212,7 +2212,7 @@ GameObject:
   - component: {fileID: 752055493}
   m_Layer: 0
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2959,7 +2959,7 @@ GameObject:
   - component: {fileID: 1107185556}
   m_Layer: 0
   m_Name: ButtonOptions
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3600,7 +3600,7 @@ GameObject:
   - component: {fileID: 1731166333}
   m_Layer: 0
   m_Name: ButtonEnglish
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4037,7 +4037,7 @@ GameObject:
   - component: {fileID: 1890999629}
   m_Layer: 0
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4380,7 +4380,7 @@ GameObject:
   - component: {fileID: 2071702929}
   m_Layer: 0
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4509,7 +4509,7 @@ GameObject:
   - component: {fileID: 2115622222}
   m_Layer: 0
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

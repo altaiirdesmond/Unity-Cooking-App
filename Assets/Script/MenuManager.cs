@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using Assets.Script.DatabaseModel;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class MenuManager : MonoBehaviour {
 
@@ -15,6 +16,8 @@ public class MenuManager : MonoBehaviour {
     /// Reference of Cooking scene for Food instance
     /// </summary>
     public static Food Food { get; set; }
+
+    public static bool IsPaused { get; set; }
 
     public void Exit() {
         Application.Quit();

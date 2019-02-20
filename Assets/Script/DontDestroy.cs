@@ -21,6 +21,10 @@ public class DontDestroy : MonoBehaviour {
             if (SceneManager.GetActiveScene().buildIndex > 0) {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
             }
+            else if(SceneManager.GetActiveScene().buildIndex == 0) {
+                FindObjectOfType<MenuManager>().ShowBlockingPanel();
+                FindObjectOfType<MenuManager>().ShowQuit();
+            }
         }
     }
 }

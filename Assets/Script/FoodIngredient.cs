@@ -8,6 +8,7 @@ using Assets.Script.DatabaseModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
+using UnityEngine;
 
 public class FoodIngredient : IEnumerator {
 
@@ -38,6 +39,13 @@ public class FoodIngredient : IEnumerator {
             Dictionary<string[], byte[]> dictionary = new Dictionary<string[], byte[]>();
             string[] words = instruction[position].Split(' '); // We're gonna assign manually
             for (int i = 0; i < words.Length; i++) {
+
+                // If the ingredient is not instructed to be poured. Checks for tag {skip}
+                if (words[i].Contains("skip")) {
+                    Debug.Log("<color=red>" + words[i] + "</color> has been skipped");
+                    continue;
+                }
+                
                 // We remove the noise
                 if(words[i].Contains(",")) {
                     words[i] = words[i].Split(',')[0];

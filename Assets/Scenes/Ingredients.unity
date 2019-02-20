@@ -1284,7 +1284,7 @@ GameObject:
   - component: {fileID: 1698602519}
   m_Layer: 5
   m_Name: ButtonStart
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1414,7 +1414,7 @@ GameObject:
   - component: {fileID: 1715298834}
   m_Layer: 0
   m_Name: ButtonBack
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
