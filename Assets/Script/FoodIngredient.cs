@@ -1,94 +1,88 @@
-﻿using System.Collections.Generic;
+﻿/*
+ * @author: cdtek
+ * 
+ * modified by: cdtek
+ */
+
+using Assets.Script.DatabaseModel;
+using System.Collections.Generic;
 using System.Linq;
+using System.Collections;
 using UnityEngine;
 
-public class FoodIngredient : MonoBehaviour {
+public class FoodIngredient : IEnumerator {
 
-    /// <summary>
-    /// Listed ingredients of the food by ParseIngredient
-    /// </summary>
-    public List<string[]> IngredientList { get; set; }
+    private DatabaseManager databaseManager;
+    private Food food;
 
-    /// <summary>
-    /// This resolves every line of Ingredient to parse the quantity and required raw material of the Food
-    /// </summary>
-    /// <param name="foodName">The food name</param>
-    public void SetFoodName(string foodName) {
-        DatabaseManager databaseManager = new DatabaseManager();
-        string foodIngredient = databaseManager.GetFood(foodName).Take(1).First().IngredientsTranslated;
-        // Get ingredients per line
-        IngredientList = new List<string[]>();
-        foreach (var item in foodIngredient.Split('\n')) {
-            //Debug.Log(item);
-            string qty = "", container = "", raw = "", time = "";
-            foreach (var word in item.Split(' ')) {
-                if(word.Contains("]")) {
-                    var w = word.Split(',')[0].ToCharArray();
-                    foreach (var i in w) {
-                        if (char.IsDigit(i) || i == '.' || i == '/') {
-                            // Quantity
-                            qty += i.ToString();
-                        } else if (i == '&') {
-                            qty += ' ';
-                        }
-                    }
+    private string[] instruction;
+    private int position = -1;
 
-                    var x = word.Split(',')[1].ToCharArray();
-                    foreach (var i in x) {
-                        if (char.IsLetter(i)) {
-                            // Container
-                            container += i;
-                        } else if (i == '_') {
-                            container += ' ';
-                        } 
-                    }
-                } else if (word.Contains(">")) {
-                    var w = word.ToCharArray();
-                    foreach (var i in w) {
-                        if (char.IsLetter(i)) {
-                            // Raw
-                            raw += i;
-                        } else if (i == '_') {
-                            raw += ' ';
-                        }
-                    }
-                } else if (word.Contains("}")) {
-                    var z = word.ToCharArray();
-                    foreach (var i in z) {
-                        if (i != '{' || i != '}') {
-                            // Time
-                            time += i;
-                        }
-                    }
-                }
-            }
+    public FoodIngredient(Food food, string instruction) {
+        this.food = food; // Let see what food we get
+        this.instruction = instruction.Split('\n'); // Let see the instruction of this food... but per line
 
-            IngredientList.Add(new string[] { qty, container, raw, time });
-        }
-
-        //foreach (var item in IngredientList) {
-        //    Debug.Log(item[0] + "," + item[1] + "," + item[2]);
-        //}
+        databaseManager = new DatabaseManager(); // Yes the database... we need it to check the information about the food
     }
-    
-    public void SetCookingInstruction(IEnumerable<string> instructionList) {
-        for (int i = 0; i < instructionList.Count(); i++) {
-            Debug.Log(instructionList.ElementAt(i));
-            foreach (var ingredient in IngredientList) {
-                string firstWord, secondWord;
-                if (ingredient[2].Contains(' ')) {
-                    firstWord = ingredient[2].Split(' ')[0];
-                    secondWord = ingredient[2].Split(' ')[1];
 
-                    if (instructionList.ElementAt(i).Contains(firstWord) && instructionList.ElementAt(i).Contains(secondWord)) {
-                        Debug.Log("We need " + firstWord + " " + secondWord);
+    public bool MoveNext() { // Will be using this to manually iterate through the instructions
+        position++;
+        return (position < instruction.Length);
+    }
+
+    public void Reset() {
+        position = -1;
+    }
+
+        public Dictionary<string[], string> Current { // Will contain image and animation
+        get {
+            Dictionary<string[], string> dictionary = new Dictionary<string[], string>();
+            string exclude = "";
+            string[] words = instruction[position].Split(' '); // We're gonna assign manually
+            for (int i = 0; i < words.Length; i++) {
+                
+                // If the ingredient is not instructed to be poured. Checks for tag {skip}
+                if (words[i].Contains("skip")) {
+                    foreach (var item in databaseManager.GetIngredient(food.FoodId).
+                    Where(x => x.RawName.StartsWith(words[i + 1]) && x.RawName.Contains(words[i + 1])).Take(1)) {
+                        // Blacklist that ingredient
+                        exclude = item.RawName + " " + "{skip}";
+
+                        Debug.Log("<color=blue>" + exclude + "</color> has been blacklisted");
                     }
-                } else {
-                    if (instructionList.ElementAt(i).Contains(ingredient[2])) {
-                        Debug.Log("We need " + ingredient[2]);
+                }
+                
+                // We remove the noise
+                if(words[i].Contains(",")) {
+                    words[i] = words[i].Split(',')[0];
+                } else if (words[i].Contains(".")) {
+                    words[i] = words[i].Split('.')[0];
+                }
+
+                // This will only retrieve one item
+                foreach (var item in databaseManager.GetIngredient(food.FoodId).
+                    Where(x => x.RawName.StartsWith(words[i]) && x.RawName.Contains(words[i])).Take(1)) {
+
+                    // Avoid duplication
+                    if(!dictionary.ContainsKey(new string[] { item.RawName, item.Method })) {
+                        // If the word[i] is on Blacklist skip it
+                        if (exclude.Contains(words[i])) {
+                            Debug.Log("<color=red>" + words[i] + "</color> cannot be added");
+                            continue;
+                        } else {
+                            dictionary.Add(new string[] { item.RawName, item.Method }, "");
+                        }
                     }
                 }
             }
+            
+            return dictionary;
+        }
+    }
+
+    object IEnumerator.Current {
+        get {
+            return Current;
         }
     }
 }
