@@ -34,16 +34,22 @@ public class FoodIngredient : IEnumerator {
         position = -1;
     }
 
-    public Dictionary<string[], byte[]> Current { // Will contain image and animation
+        public Dictionary<string[], string> Current { // Will contain image and animation
         get {
-            Dictionary<string[], byte[]> dictionary = new Dictionary<string[], byte[]>();
+            Dictionary<string[], string> dictionary = new Dictionary<string[], string>();
+            string exclude = "";
             string[] words = instruction[position].Split(' '); // We're gonna assign manually
             for (int i = 0; i < words.Length; i++) {
-
+                
                 // If the ingredient is not instructed to be poured. Checks for tag {skip}
                 if (words[i].Contains("skip")) {
-                    Debug.Log("<color=red>" + words[i] + "</color> has been skipped");
-                    continue;
+                    foreach (var item in databaseManager.GetIngredient(food.FoodId).
+                    Where(x => x.RawName.StartsWith(words[i + 1]) && x.RawName.Contains(words[i + 1])).Take(1)) {
+                        // Blacklist that ingredient
+                        exclude = item.RawName + " " + "{skip}";
+
+                        Debug.Log("<color=blue>" + exclude + "</color> has been blacklisted");
+                    }
                 }
                 
                 // We remove the noise
@@ -59,13 +65,13 @@ public class FoodIngredient : IEnumerator {
 
                     // Avoid duplication
                     if(!dictionary.ContainsKey(new string[] { item.RawName, item.Method })) {
-                        // We get the image of that ingredient
-                        byte[] rawImage = null;
-                        foreach (var raw in databaseManager.GetRawByName(item.RawName)) {
-                            rawImage = raw.Image;
+                        // If the word[i] is on Blacklist skip it
+                        if (exclude.Contains(words[i])) {
+                            Debug.Log("<color=red>" + words[i] + "</color> cannot be added");
+                            continue;
+                        } else {
+                            dictionary.Add(new string[] { item.RawName, item.Method }, "");
                         }
-
-                        dictionary.Add(new string[] { item.RawName, item.Method }, rawImage);
                     }
                 }
             }
