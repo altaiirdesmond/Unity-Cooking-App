@@ -80,6 +80,11 @@ public class MenuManager : MonoBehaviour {
         // resultPrefab will hold the image and text of a food instance
         CategorySceneManager resultPrefab = GameObject.Find("SceneManager").GetComponent<CategorySceneManager>();
 
+        // Prevent creating again the prefabs
+        if(resultPrefab.Panels[0].transform.childCount > 0) {
+            return;
+        }
+
         int i = 0;
         Debug.Log(SearchManager.Filter = "name");
         // Fetch data from database
