@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// This will contain all the panels or any other UI element to handle. 
+/// Access only this for UI manipulation
+/// </summary>
 public class CategorySceneManager : MonoBehaviour {
 
     [SerializeField] private GameObject result;

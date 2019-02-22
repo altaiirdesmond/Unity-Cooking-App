@@ -71,6 +71,36 @@ public class MenuManager : MonoBehaviour {
         }
     }
 
+    public void ShowSearch() {
+        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[1].GetComponent<UIAnimation>().Animator.SetBool("show", true);
+        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[6].SetActive(true);
+
+        DatabaseManager databaseManager = new DatabaseManager();
+
+        // resultPrefab will hold the image and text of a food instance
+        CategorySceneManager resultPrefab = GameObject.Find("SceneManager").GetComponent<CategorySceneManager>();
+
+        int i = 0;
+        // Fetch data from database
+        foreach (var item in databaseManager.GetFoods()) {
+            resultPrefab.Result.GetComponentInChildren<TextMeshProUGUI>().text = item.FoodName;
+            // Instantiate first before setting the image
+            Instantiate(resultPrefab.Result, resultPrefab.Panels[0].transform);
+            // Reference for database image(blob) file
+            Texture2D texture2D = new Texture2D(2, 2);
+            // Load retrieved image(byte)
+            texture2D.LoadImage(item.Image);
+            // Set image as sprite for each prefab. 
+            resultPrefab.Panels[0].transform.GetChild(i++).GetChild(0).GetChild(0).GetComponent<Image>().sprite =
+                Sprite.Create(texture2D, new Rect(0, 0, texture2D.width, texture2D.height), new Vector2());
+        }
+    }
+
+    public void HideSearch() {
+        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[1].GetComponent<UIAnimation>().Animator.SetBool("show", false);
+        GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[6].SetActive(false);
+    }
+
     public void ShowOptions() {
         GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[2].GetComponent<UIAnimation>().Animator.SetBool("show", true);
     }
