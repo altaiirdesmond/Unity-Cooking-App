@@ -81,9 +81,11 @@ public class MenuManager : MonoBehaviour {
         CategorySceneManager resultPrefab = GameObject.Find("SceneManager").GetComponent<CategorySceneManager>();
 
         int i = 0;
+        Debug.Log(SearchManager.Filter = "name");
         // Fetch data from database
         foreach (var item in databaseManager.GetFoods()) {
-            resultPrefab.Result.GetComponentInChildren<TextMeshProUGUI>().text = item.FoodName;
+            resultPrefab.Result.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.FoodName;
+            resultPrefab.Result.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = item.Region;
             // Instantiate first before setting the image
             Instantiate(resultPrefab.Result, resultPrefab.Panels[0].transform);
             // Reference for database image(blob) file
