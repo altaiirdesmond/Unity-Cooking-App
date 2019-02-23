@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
 using UnityEngine;
+using System;
 
 public class FoodIngredient : IEnumerator {
 
@@ -17,6 +18,8 @@ public class FoodIngredient : IEnumerator {
 
     private string[] instruction;
     private int position = -1;
+
+    public int Time { get; set; }
 
     public FoodIngredient(Food food, string instruction) {
         this.food = food; // Let see what food we get
@@ -40,7 +43,12 @@ public class FoodIngredient : IEnumerator {
             string exclude = "";
             string[] words = instruction[position].Split(' '); // We're gonna assign manually
             for (int i = 0; i < words.Length; i++) {
-                
+
+                // Check for WAIT_TIME tag to get time
+                if (words[i].Contains("WAIT_TIME")) {
+                    Time = Convert.ToInt32(words[i].Split(':')[1]);
+                }
+
                 // If the ingredient is not instructed to be poured. Checks for tag {skip}
                 if (words[i].Contains("skip")) {
                     foreach (var item in databaseManager.GetIngredient(food.FoodId).

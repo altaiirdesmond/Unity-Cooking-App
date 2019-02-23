@@ -126,19 +126,13 @@ public class MenuManager : MonoBehaviour {
 
     public void ShowBlockingPanel() {
         GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[3].SetActive(true);
-
-        // If we are at Cooking scene
-        //if (SceneManager.GetActiveScene().buildIndex == 3) {
-        //    GameObject.Find("Canvas/TimerText").GetComponent<Timer>().Start = false;
-        //}
     }
 
     public void HideBlockingPanel() {
         GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[3].SetActive(false);
+    }
 
-        // If we are at Cooking scene
-        //if (SceneManager.GetActiveScene().buildIndex == 3) {
-        //    GameObject.Find("Canvas/TimerText").GetComponent<Timer>().Start = true;
-        //}
+    public void HideTrivia() {
+        FindObjectOfType<CategorySceneManager>().Panels[8].GetComponent<UIAnimation>().Animator.SetBool("show", false);
     }
 }

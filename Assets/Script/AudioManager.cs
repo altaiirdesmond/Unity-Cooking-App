@@ -15,6 +15,12 @@ public class AudioManager : MonoBehaviour {
     [Header("Background theme")]
     [SerializeField] private AudioSource backgroundClipAudioSource;
 
+    public AudioSource BackgroundClipAudioSource {
+        get {
+            return backgroundClipAudioSource;
+        }
+    }
+
     private void Awake() {
         // Singleton. This prevents multiple instances
         if (dontDestroy != null) {
@@ -47,6 +53,16 @@ public class AudioManager : MonoBehaviour {
         Array.Find(sounds, sounds => sounds.Name == "ButtonClip").AudioSource.Play();
     }
 
+    public void TimerStartSFXPlay() {
+        // This is where we assign what clip should be played on Timer SFX
+        Array.Find(sounds, sounds => sounds.Name == "TimerStart").AudioSource.Play();
+    }
+
+    public void TimerDoneSFXPlay() {
+        // This is where we assign what clip should be played on Timer SFX
+        Array.Find(sounds, sounds => sounds.Name == "TimerDone").AudioSource.Play();
+    }
+
     private void ChangedActiveScene(Scene current, Scene next) {
         string currentName = current.name;
 
@@ -64,9 +80,9 @@ public class AudioManager : MonoBehaviour {
 
     public void Playbackground(bool play) {
         if (play) {
-            backgroundClipAudioSource.Play();
+            BackgroundClipAudioSource.Play();
         } else {
-            backgroundClipAudioSource.Pause();
+            BackgroundClipAudioSource.Pause();
         }
     }
 }

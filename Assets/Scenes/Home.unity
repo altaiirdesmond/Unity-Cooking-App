@@ -3025,63 +3025,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438813102}
   m_CullTransparentMesh: 1
---- !u!1001 &1487813700
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1569405521144358, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_Name
-      value: ButtonManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 350.17847
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 608.3745
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.1721414
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
 --- !u!1 &1593489303
 GameObject:
   m_ObjectHideFlags: 0
@@ -3117,6 +3060,14 @@ MonoBehaviour:
     AudioClip: {fileID: 8300000, guid: 37528143b2b8ed047b913161c6d62dba, type: 3}
     Volume: 0.2
     AudioSource: {fileID: 0}
+  - Name: TimerStart
+    AudioClip: {fileID: 8300000, guid: 2a87ce96e9659fe4b80bf69051e079dd, type: 3}
+    Volume: 1
+    AudioSource: {fileID: 0}
+  - Name: TimerDone
+    AudioClip: {fileID: 8300000, guid: d499ba91b4de8654abf0cc4160340cdc, type: 3}
+    Volume: 1
+    AudioSource: {fileID: 0}
   backgroundClipAudioSource: {fileID: 1593489308}
 --- !u!4 &1593489306
 Transform:
@@ -3144,7 +3095,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 63961c170c7de0541899b199b7e3b17a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.211
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4159,7 +4110,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}

@@ -10,14 +10,16 @@ public class InstructionManager : MonoBehaviour {
     private void Start() {
         Food food = MenuManager.Food;
 
-        foreach (var item in food.InstructionTranslated.Split('\n')) {
-            instructions += item + "\n";
-        }
-
         // Display the instructions on the ScrollRect
         if (Lean.Localization.LeanLocalization.CurrentLanguage.Equals("English")) {
+            // Clean instruction before starting CookingScene
             foreach (var item in food.InstructionTranslated.Split('\n')) {
-                instructions += item + "\n";
+                string newText = item.Replace("{skip}", string.Empty);
+                if(item.IndexOf("WAIT_TIME") != -1) {
+                    int i = item.IndexOf("WAIT_TIME");
+                    newText = newText.Remove(i, 11);
+                }
+                instructions += newText + "\n";
             }
             GetComponent<TextMeshProUGUI>().SetText(instructions);
         } else {
