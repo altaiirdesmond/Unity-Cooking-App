@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 public class SearchManager : MonoBehaviour {
 
-    [SerializeField] private TextMeshProUGUI placeHolderText;
-
     private DatabaseManager databaseManager;
     private Transform[] transforms;
 
@@ -55,7 +53,6 @@ public class SearchManager : MonoBehaviour {
 
     public void FilterBy(string filter) {
         Filter = filter;
-        placeHolderText.text = filter;
         Debug.Log("Filter changed to " + filter);
     }
 
