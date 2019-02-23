@@ -6,7 +6,9 @@ public class TextToSpeechManager : MonoBehaviour {
     [SerializeField] private AudioClip[] audioClips;
     [SerializeField] private AudioSource audioSource;
 
-    public int ClipIndex { get; set; }
+    private float clipCurrentTime;
+    private int clipIndex;
+    private float temp;
 
     public bool IsPlaying {
         get {
@@ -14,11 +16,13 @@ public class TextToSpeechManager : MonoBehaviour {
         }
     }
 
+    public float ClipMaxLength { get; set; }
+
     public void Init(int foodInstructionLength, string foodName) {
         Debug.Log("Init...");
         audioSource = GetComponent<AudioSource>();
 
-        ClipIndex = 0;
+        clipIndex = 0;
 
         audioClips = new AudioClip[foodInstructionLength];
         for (int i = 0; i < foodInstructionLength; i++) {
@@ -28,14 +32,16 @@ public class TextToSpeechManager : MonoBehaviour {
     }
 
     public void Play() {
-        Debug.Log("<color=Blue>" + ClipIndex + "</color>");
-        if(ClipIndex > audioClips.Length - 1) {
+        Debug.Log("<color=Blue>" + clipIndex + "</color>");
+        if(clipIndex > audioClips.Length - 1) {
             return;
         }
         // Assign a clip first
-        audioSource.clip = audioClips[ClipIndex++];
+        audioSource.clip = audioClips[clipIndex++];
         // Then play that clip
         audioSource.Play();
+        // Able to know whether the clip has finished playing
+        ClipMaxLength = audioSource.clip.length;
     }
 
     public void Pause() {
@@ -43,6 +49,10 @@ public class TextToSpeechManager : MonoBehaviour {
     }
     
     public void Resume() {
+        if(ClipMaxLength < 0) {
+            return;
+        }
+
         audioSource.Play();
     }
 }

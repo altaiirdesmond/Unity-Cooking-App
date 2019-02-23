@@ -15,6 +15,7 @@ public class CookingManager : MonoBehaviour {
     private Food food;
     private FoodIngredient foodIngredient;
     private bool stop = false;
+    private int temp = 0;
 
     public string Trivia { get; set; }
 
@@ -69,7 +70,13 @@ public class CookingManager : MonoBehaviour {
 
     private IEnumerator Cook() {
         while (foodIngredient.MoveNext()) { // We will move to the next instruction
-            while (speechManager.IsPlaying) {
+            while (speechManager.ClipMaxLength > 0) {
+                while (stop) {
+                    yield return null;
+                }
+
+                speechManager.ClipMaxLength -= Time.deltaTime;
+                Debug.Log("<color=Blue>" + speechManager.ClipMaxLength + "</color>");
                 FindObjectOfType<AudioManager>().BackgroundClipAudioSource.volume = 0.05f;
                 Debug.Log("<color=green>Playing</color>");
                 yield return null;
