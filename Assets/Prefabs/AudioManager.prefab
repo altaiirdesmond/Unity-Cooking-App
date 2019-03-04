@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6024006722251851894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6024006722251851899}
+  - component: {fileID: 6024006722251851896}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6024006722251851899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6024006722251851894}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6024006722251851896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6024006722251851894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b310923cdbbc5774280ca1197594c58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - Name: ButtonClip
+    AudioClip: {fileID: 8300000, guid: 37528143b2b8ed047b913161c6d62dba, type: 3}
+    Volume: 0.2
+    AudioSource: {fileID: 0}
+  - Name: TimerStart
+    AudioClip: {fileID: 8300000, guid: 2a87ce96e9659fe4b80bf69051e079dd, type: 3}
+    Volume: 1
+    AudioSource: {fileID: 0}
+  - Name: TimerDone
+    AudioClip: {fileID: 8300000, guid: d499ba91b4de8654abf0cc4160340cdc, type: 3}
+    Volume: 1
+    AudioSource: {fileID: 0}
+  - Name: Trivia
+    AudioClip: {fileID: 8300000, guid: 353ecb9be15e5174f85a32f275067efa, type: 3}
+    Volume: 1
+    AudioSource: {fileID: 0}
+  - Name: Background
+    AudioClip: {fileID: 8300000, guid: 63961c170c7de0541899b199b7e3b17a, type: 3}
+    Volume: 0.2
+    AudioSource: {fileID: 0}
+  backgroundClipAudioSource: {fileID: 0}

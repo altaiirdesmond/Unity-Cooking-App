@@ -12,15 +12,6 @@ public class AudioManager : MonoBehaviour {
     [Header("Misc. fx")]
     public Sound[] sounds;
 
-    [Header("Background theme")]
-    [SerializeField] private AudioSource backgroundClipAudioSource;
-
-    public AudioSource BackgroundClipAudioSource {
-        get {
-            return backgroundClipAudioSource;
-        }
-    }
-
     private void Awake() {
         // Singleton. This prevents multiple instances
         if (dontDestroy != null) {
@@ -53,6 +44,11 @@ public class AudioManager : MonoBehaviour {
         Array.Find(sounds, sounds => sounds.Name == "ButtonClip").AudioSource.Play();
     }
 
+    public void TriviaSFXPlay() {
+        // This is where we assign what clip should be played on Trivia SFX
+        Array.Find(sounds, sounds => sounds.Name == "Trivia").AudioSource.Play();
+    }
+
     public void TimerStartSFXPlay() {
         // This is where we assign what clip should be played on Timer SFX
         Array.Find(sounds, sounds => sounds.Name == "TimerStart").AudioSource.Play();
@@ -65,10 +61,22 @@ public class AudioManager : MonoBehaviour {
 
     private void ChangedActiveScene(Scene current, Scene next) {
         string currentName = current.name;
-
+         
         if (currentName == null) {
             // Scene1 has been removed
             currentName = "Replaced";
+        }
+
+        Debug.Log("<Color=green>" + SceneManager.GetActiveScene().name + "</Color>");
+        if (SceneManager.GetActiveScene().name.Equals("Cooking")) {
+            // Play background music only on cooking
+            BackgroundTheme().loop = true;
+            BackgroundTheme(0.2f).Play();
+
+            // If cooking scene has been loaded get the food name to fetch the file and put to list
+
+        } else {
+            BackgroundTheme().Stop();
         }
 
         // We get the buttons for each scene loaded
@@ -78,11 +86,16 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
-    public void Playbackground(bool play) {
-        if (play) {
-            BackgroundClipAudioSource.Play();
-        } else {
-            BackgroundClipAudioSource.Pause();
-        }
+    public AudioSource BackgroundTheme(float volume) {
+        // This is where we assign what clip should be played on Timer SFX
+        AudioSource audioSource = Array.Find(sounds, sounds => sounds.Name == "Background").AudioSource;
+        audioSource.volume = volume;
+
+        return audioSource;
+    }
+
+    public AudioSource BackgroundTheme() {
+        // This is where we assign what clip should be played on Timer SFX
+        return Array.Find(sounds, sounds => sounds.Name == "Background").AudioSource;
     }
 }

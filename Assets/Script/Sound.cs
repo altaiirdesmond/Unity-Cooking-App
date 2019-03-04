@@ -6,9 +6,7 @@ public class Sound {
 
     public AudioClip AudioClip;
 
-    [Range(0f, 1f)]
-    public float Volume;
+    [Range(0f, 1f)] public float Volume;
 
-    [HideInInspector]
-    public AudioSource AudioSource;
+    [HideInInspector]  public AudioSource AudioSource;
 }

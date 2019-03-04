@@ -37,9 +37,9 @@ public class FoodIngredient : IEnumerator {
         position = -1;
     }
 
-        public Dictionary<string[], string> Current { // Will contain image and animation
+    public Dictionary<string, string> Current { // Will contain image and animation
         get {
-            Dictionary<string[], string> dictionary = new Dictionary<string[], string>();
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
             string exclude = "";
             string[] words = instruction[position].Split(' '); // We're gonna assign manually
             for (int i = 0; i < words.Length; i++) {
@@ -59,9 +59,9 @@ public class FoodIngredient : IEnumerator {
                         Debug.Log("<color=blue>" + exclude + "</color> has been blacklisted");
                     }
                 }
-                
+
                 // We remove the noise
-                if(words[i].Contains(",")) {
+                if (words[i].Contains(",")) {
                     words[i] = words[i].Split(',')[0];
                 } else if (words[i].Contains(".")) {
                     words[i] = words[i].Split('.')[0];
@@ -72,18 +72,18 @@ public class FoodIngredient : IEnumerator {
                     Where(x => x.RawName.StartsWith(words[i]) && x.RawName.Contains(words[i])).Take(1)) {
 
                     // Avoid duplication
-                    if(!dictionary.ContainsKey(new string[] { item.RawName, item.Method })) {
+                    if (!dictionary.ContainsKey(item.RawName)) {
                         // If the word[i] is on Blacklist skip it
                         if (exclude.Contains(words[i])) {
                             Debug.Log("<color=red>" + words[i] + "</color> cannot be added");
                             continue;
                         } else {
-                            dictionary.Add(new string[] { item.RawName, item.Method }, "");
+                            dictionary.Add(item.RawName, item.Method);
                         }
                     }
                 }
             }
-            
+
             return dictionary;
         }
     }

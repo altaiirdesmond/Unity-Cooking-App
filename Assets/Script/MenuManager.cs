@@ -133,6 +133,6 @@ public class MenuManager : MonoBehaviour {
     }
 
     public void HideTrivia() {
-        FindObjectOfType<CategorySceneManager>().Panels[8].GetComponent<UIAnimation>().Animator.SetBool("show", false);
+        FindObjectOfType<CategorySceneManager>().Panels[7].GetComponent<UIAnimation>().Animator.SetBool("show", false);
     }
 }

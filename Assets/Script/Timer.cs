@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour {
 
     public bool HalfWay {
         get {
-            return min == Until / 2f && sec == 0; // If halfway to the time limit
+            return min == Until / 2f && sec == 0f; // If halfway to the time limit
         }
     }
 
