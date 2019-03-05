@@ -9,32 +9,13 @@ public class Timer : MonoBehaviour {
     private float min = 0;
     private float sec = 0;
 
-    private float until = 0;
-    private float halfWayMin = 0;
-    private float halfWaySec = 0;
-
     public bool HalfWay {
         get {
-            return min == halfWayMin && sec == halfWaySec; // min and a half
+            return min == Until / 2f && sec == 0f; // If halfway to the time limit
         }
     }
 
-    public float Until {
-        get {
-            return until;
-        }
-        set {
-            if(Until / 2f % 2 != 0) { // To set halfway time correctly if it includes decimal point
-                halfWayMin = Until / 2f;
-                halfWaySec = 30f;
-            } else {
-                halfWayMin = Until / 2f;
-                halfWaySec = 0f;
-            }
-
-            until = value;
-        }
-    }
+    public int Until { get; set; }
 
     public bool LimitReached {
         get {
