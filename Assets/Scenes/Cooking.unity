@@ -693,7 +693,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -1004,11 +1004,11 @@ MonoBehaviour:
     lineCount: 0
     pageCount: 0
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -1602,7 +1602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &468276066
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2079,7 +2079,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -2868,7 +2868,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -3208,7 +3208,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -3807,7 +3807,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -4403,7 +4403,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456286753}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -4469,14 +4469,14 @@ MonoBehaviour:
   textToSpeechEngines:
   - Name: ginataang yapyap
     MainAudioClips:
-    - {fileID: 8300000, guid: b21e5da680fd25b4fbbed9af6b959f91, type: 3}
-    - {fileID: 8300000, guid: 8a384c6dc21cf344791b945316b5a196, type: 3}
-    - {fileID: 8300000, guid: 087c1c9fd98742d4796137f48f905106, type: 3}
-    - {fileID: 8300000, guid: 73dfa779e9644e84e90ad4bddbaff8c9, type: 3}
-    - {fileID: 8300000, guid: 6f124208db6d45c4394f2e20b7fbddb8, type: 3}
-    - {fileID: 8300000, guid: 1baa3c79b3d4adb4bba582477cb78165, type: 3}
-    - {fileID: 8300000, guid: dfd3816ed9470dd4c8dadb832a1edc03, type: 3}
-    - {fileID: 8300000, guid: cc40e3227d2159c41806875a0bd6e594, type: 3}
+    - {fileID: 8300000, guid: 620d0d513bcb53b40a28583791df04f3, type: 3}
+    - {fileID: 8300000, guid: b2b7ea1d96699c94b9233db5b91bbe1e, type: 3}
+    - {fileID: 8300000, guid: 84bb51fde65a8e34fb0a42f4203b571e, type: 3}
+    - {fileID: 8300000, guid: 18fd04b646ba1f143ab61b8a23260b08, type: 3}
+    - {fileID: 8300000, guid: 56fefc47cd2023841a46f277e6f5220a, type: 3}
+    - {fileID: 8300000, guid: 599bd1e46eacfa34f95f21574de4e499, type: 3}
+    - {fileID: 8300000, guid: 0ab96dc503f783347aa59f5000dfa64c, type: 3}
+    - {fileID: 8300000, guid: 20cd36b4b459a0e48b4c925525ec8a78, type: 3}
   - Name: sapin sapin
     MainAudioClips:
     - {fileID: 8300000, guid: 119e954b37768774384add94de6a3f5a, type: 3}
@@ -5698,7 +5698,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Kaalaman
+  m_text: Trivia
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -5768,7 +5768,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1919745692}
-    characterCount: 8
+    characterCount: 6
     spriteCount: 0
     spaceCount: 0
     wordCount: 1

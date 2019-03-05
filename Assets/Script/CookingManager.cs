@@ -73,8 +73,47 @@ public class CookingManager : MonoBehaviour {
 
             FindObjectOfType<AudioManager>().BackgroundTheme(0.2f);
 
-            var contents = foodIngredient.Current;
-            foreach (var content in contents) { // It contains all existing(non-skip) ingredient within an instruction
+            var contents = foodIngredient.Current; // It contains all existing(non-skip) ingredient within an instruction
+            foreach (var content in contents) {
+
+                // If the content key contains Time
+                if (content.Key == "Time") {
+                    FindObjectOfType<AudioManager>().TimerStartSFXPlay();
+                    timer.Until = foodIngredient.Time;
+                    Debug.Log("<color=green>Starting time and until"+ timer.Until +"</color>");
+                    foodIngredient.Time = 0; // Clear the time from foodIngredient
+                    timer.Start = true;
+                    while (!timer.LimitReached) {
+                        if (timer.HalfWay) {
+                            // Show trivia by script
+                            FindObjectOfType<CategorySceneManager>()
+                                .Panels[7]
+                                .GetComponent<UIAnimation>()
+                                .Animator
+                                .SetBool("show", true);
+                            FindObjectOfType<AudioManager>().TriviaSFXPlay();
+                        }
+                        while (stop) {
+                            // Pause timer
+                            if (timer.Start) {
+                                timer.Start = false;
+                            }
+
+                            yield return null;
+                        }
+
+                        timer.Start = true;
+                        yield return null;
+                    }
+
+                    FindObjectOfType<AudioManager>().TimerDoneSFXPlay();
+
+                    // There's nothing else in the content just string no image so continue to the next iteration
+                    continue;
+                }
+
+                temp--;
+
                 Debug.Log("<color=orange>Changing index</color>");
                 speechManager.Play(speechManager.NextClip);
 
@@ -104,12 +143,10 @@ public class CookingManager : MonoBehaviour {
                     // yield null when using while loops within coroutine to prevent freezing
                     yield return null;
                 }
-
-                temp--;
             }
 
             // If still has clips to play for an instruction
-            while(temp > 0) {
+            while (temp > 0) {
                 speechManager.Play(speechManager.NextClip);
                 while (speechManager.ClipMaxLength > 0) {
                     while (stop) {
@@ -122,38 +159,6 @@ public class CookingManager : MonoBehaviour {
                 }
 
                 temp--;
-            }
-
-            if(foodIngredient.Time > 0) { // If a time has been set in an instruction
-                Debug.Log("<color=green>Starting time</color>");
-                FindObjectOfType<AudioManager>().TimerStartSFXPlay();
-                timer.Until = foodIngredient.Time;
-                foodIngredient.Time = 0; // Clear the time from foodIngredient
-                timer.Start = true;
-                while (!timer.LimitReached) {
-                    if (timer.HalfWay) {
-                        // Show trivia by script
-                        FindObjectOfType<CategorySceneManager>()
-                            .Panels[7]
-                            .GetComponent<UIAnimation>()
-                            .Animator
-                            .SetBool("show", true);
-                        FindObjectOfType<AudioManager>().TriviaSFXPlay();
-                    }
-                    while (stop) {
-                        // Pause timer
-                        if (timer.Start) {
-                            timer.Start = false;
-                        }
-
-                        yield return null;
-                    }
-
-                    timer.Start = true;
-                    yield return null;
-                }
-
-                FindObjectOfType<AudioManager>().TimerDoneSFXPlay();
             }
         }
         // We'll gonna use the same sfx of trivia on done cooking

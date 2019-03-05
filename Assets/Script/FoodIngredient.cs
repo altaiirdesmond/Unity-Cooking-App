@@ -47,9 +47,12 @@ public class FoodIngredient : IEnumerator {
                 // Check for WAIT_TIME tag to get time
                 if (words[i].Contains("WAIT_TIME")) {
                     Time = Convert.ToInt32(words[i].Split(':')[1]);
+
+                    // To tell whether it is time to tick
+                    dictionary.Add("Time", "start");
                 }
 
-                // If the ingredient is not instructed to be poured. Checks for tag {skip}
+                // If the ingredient is not instructed to be used. Checks for tag {skip}
                 if (words[i].Contains("skip")) {
                     foreach (var item in databaseManager.GetIngredient(food.FoodId).
                     Where(x => x.RawName.StartsWith(words[i + 1]) && x.RawName.Contains(words[i + 1])).Take(1)) {
