@@ -1,6 +1,7 @@
 ﻿using Assets.Script.DatabaseModel;
 using System;
 using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -49,14 +50,14 @@ public class CookingManager : MonoBehaviour {
         if (Lean.Localization.LeanLocalization.CurrentLanguage.Equals("English")) {
             trivia.SetText(food.TriviaTranslated);
 
-            // Clean instruction for every language change
+            // Clean instruction before starting CookingScene
             string cleanedInstruction = string.Empty;
             foreach (var item in food.InstructionTranslated.Split('\n')) {
                 string newText = item.Replace("{skip}", string.Empty);
-                if (item.IndexOf("WAIT_TIME") != -1) {
-                    int i = item.IndexOf("WAIT_TIME");
-                    //newText = newText.Remove(i, 11);
+                foreach (var waitTime in newText.Split(' ').ToList().Where(i => i.StartsWith("WAIT_TIME:")).Take(1)) {
+                    newText = newText.Replace(waitTime, string.Empty);
                 }
+
                 cleanedInstruction += newText + "\n";
             }
 
