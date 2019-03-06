@@ -15,10 +15,16 @@ public class TextToSpeechManager : MonoBehaviour {
 
     private TextToSpeechEngine currentTextToSpeechEngine;
     private float clipCurrentTime;
+    private string clipName;
     private float temp;
 
     public string ClipName {
         get {
+            if (ClipIndex > currentTextToSpeechEngine.MainAudioClips.Length - 1) {
+                // Just set the clip name with the last stored clip 
+                // within the audio source then return to avoid incrementing index
+                return audioSource.clip.name;
+            }
             return currentTextToSpeechEngine.MainAudioClips[ClipIndex].name;
         }
     }
@@ -39,7 +45,7 @@ public class TextToSpeechManager : MonoBehaviour {
     }
 
     public float ClipMaxLength { get; set; }
-    
+
     /// <summary>
     /// Get current clip
     /// </summary>
@@ -65,10 +71,10 @@ public class TextToSpeechManager : MonoBehaviour {
     }
 
     public void Play(int clip) {
-        Debug.Log("<color=Blue>" + ClipIndex + "</color>");
-        if (ClipIndex > currentTextToSpeechEngine.MainAudioClips.Length - 1) {
+        if (clip > currentTextToSpeechEngine.MainAudioClips.Length - 1) {
             return;
         }
+        Debug.Log("<color=Blue>clip:" + currentTextToSpeechEngine.MainAudioClips[clip].name + "</color>");
         // Assign a clip first
         audioSource.clip = currentTextToSpeechEngine.MainAudioClips[clip];
         // Then play that clip
@@ -80,9 +86,9 @@ public class TextToSpeechManager : MonoBehaviour {
     public void Pause() {
         audioSource.Pause();
     }
-    
+
     public void Resume() {
-        if(ClipMaxLength < 0) {
+        if (ClipMaxLength < 0) {
             return;
         }
 

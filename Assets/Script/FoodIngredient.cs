@@ -30,7 +30,7 @@ public class FoodIngredient : IEnumerator {
 
     public bool MoveNext() { // Will be using this to manually iterate through the instructions
         position++;
-        return (position < instruction.Length);
+        return (position <= instruction.Length - 1);
     }
 
     public void Reset() {
@@ -55,7 +55,7 @@ public class FoodIngredient : IEnumerator {
                 // If the ingredient is not instructed to be used. Checks for tag {skip}
                 if (words[i].Contains("skip")) {
                     foreach (var item in databaseManager.GetIngredient(food.FoodId).
-                    Where(x => x.RawName.StartsWith(words[i + 1]) && x.RawName.Contains(words[i + 1])).Take(1)) {
+                    Where(x => x.RawName.StartsWith(words[i + 1]) && x.RawName.Contains(words[i + 1])).Take(1)) { // FIX THIS
                         // Blacklist that ingredient
                         exclude = item.RawName + " " + "{skip}";
 
@@ -63,7 +63,7 @@ public class FoodIngredient : IEnumerator {
                     }
                 }
 
-                // We remove the noise
+                // We clean the word
                 if (words[i].Contains(",")) {
                     words[i] = words[i].Split(',')[0];
                 } else if (words[i].Contains(".")) {
@@ -73,7 +73,7 @@ public class FoodIngredient : IEnumerator {
                 // This will only retrieve one item
                 foreach (var item in databaseManager.GetIngredient(food.FoodId).
                     Where(x => x.RawName.StartsWith(words[i]) && x.RawName.Contains(words[i])).Take(1)) {
-
+                    Debug.Log("@word " + words[i]);
                     // Avoid duplication
                     if (!dictionary.ContainsKey(item.RawName)) {
                         // If the word[i] is on Blacklist skip it

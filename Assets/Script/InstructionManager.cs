@@ -17,7 +17,7 @@ public class InstructionManager : MonoBehaviour {
                 string newText = item.Replace("{skip}", string.Empty);
                 if(item.IndexOf("WAIT_TIME") != -1) {
                     int i = item.IndexOf("WAIT_TIME");
-                    newText = newText.Remove(i, 11);
+                    //newText = newText.Remove(i, 11);
                 }
                 instructions += newText + "\n";
             }

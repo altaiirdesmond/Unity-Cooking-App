@@ -17,7 +17,7 @@ public class CookingManager : MonoBehaviour {
     private Food food;
     private FoodIngredient foodIngredient;
     private bool stop = false;
-    private int temp = 0;
+    private int clipCountForCurInstruction = 0;
 
     public string Trivia { get; set; }
 
@@ -34,7 +34,7 @@ public class CookingManager : MonoBehaviour {
         } else {
             trivia.SetText(food.Trivia);
         }
-            
+
         // We will subscribe to an event to check of the language has been changed
         Lean.Localization.LeanLocalization.OnLocalizationChanged += CurrentLanguage;
 
@@ -55,7 +55,7 @@ public class CookingManager : MonoBehaviour {
                 string newText = item.Replace("{skip}", string.Empty);
                 if (item.IndexOf("WAIT_TIME") != -1) {
                     int i = item.IndexOf("WAIT_TIME");
-                    newText = newText.Remove(i, 11);
+                    //newText = newText.Remove(i, 11);
                 }
                 cleanedInstruction += newText + "\n";
             }
@@ -69,18 +69,70 @@ public class CookingManager : MonoBehaviour {
 
     private IEnumerator Cook() {
         while (foodIngredient.MoveNext()) { // We will move to the next instruction
-            temp = speechManager.ClipsForCurrentInstruction(speechManager.ClipName);
+            clipCountForCurInstruction = speechManager.ClipsForCurrentInstruction(speechManager.ClipName);
 
             FindObjectOfType<AudioManager>().BackgroundTheme(0.2f);
 
             var contents = foodIngredient.Current; // It contains all existing(non-skip) ingredient within an instruction
             foreach (var content in contents) {
 
+                if (content.Key == "Time" && clipCountForCurInstruction == 1) {
+
+                    // Play clip
+                    speechManager.Play(speechManager.NextClip);
+
+                    while (speechManager.ClipMaxLength > 0) {
+                        while (stop) {
+                            yield return null;
+                        }
+
+                        speechManager.ClipMaxLength -= Time.deltaTime;
+                        FindObjectOfType<AudioManager>().BackgroundTheme(0.1f);
+                        yield return null;
+                    }
+
+                    clipCountForCurInstruction--;
+
+                    // And since time is only the content immediately start timer
+                    FindObjectOfType<AudioManager>().TimerStartSFXPlay();
+                    timer.Until = foodIngredient.Time;
+                    Debug.Log("<color=green>Starting time and until " + timer.Until + "</color>");
+                    foodIngredient.Time = 0; // Clear the time from foodIngredient
+                    timer.Start = true;
+                    while (!timer.LimitReached) {
+                        if (timer.HalfWay) {
+                            // Show trivia by script
+                            FindObjectOfType<CategorySceneManager>()
+                                .Panels[7]
+                                .GetComponent<UIAnimation>()
+                                .Animator
+                                .SetBool("show", true);
+                            FindObjectOfType<AudioManager>().TriviaSFXPlay();
+                        }
+                        while (stop) {
+                            // Pause timer
+                            if (timer.Start) {
+                                timer.Start = false;
+                            }
+
+                            yield return null;
+                        }
+
+                        timer.Start = true;
+                        yield return null;
+                    }
+
+                    FindObjectOfType<AudioManager>().TimerDoneSFXPlay();
+
+                    // There's nothing else in the content just string no image so continue to the next iteration
+                    break;
+                }
+
                 // If the content key contains Time
                 if (content.Key == "Time") {
                     FindObjectOfType<AudioManager>().TimerStartSFXPlay();
                     timer.Until = foodIngredient.Time;
-                    Debug.Log("<color=green>Starting time and until"+ timer.Until +"</color>");
+                    Debug.Log("<color=green>Starting time and until " + timer.Until + "</color>");
                     foodIngredient.Time = 0; // Clear the time from foodIngredient
                     timer.Start = true;
                     while (!timer.LimitReached) {
@@ -110,43 +162,45 @@ public class CookingManager : MonoBehaviour {
 
                     // There's nothing else in the content just string no image so continue to the next iteration
                     continue;
-                }
+                } else {
+                    Debug.Log("<color=orange>Changing index</color>");
+                    speechManager.Play(speechManager.NextClip);
+                    Debug.Log("Playing after the foreach loop");
 
-                temp--;
+                    while (speechManager.ClipMaxLength > 0) {
+                        while (stop) {
+                            yield return null;
+                        }
 
-                Debug.Log("<color=orange>Changing index</color>");
-                speechManager.Play(speechManager.NextClip);
-
-                while (speechManager.ClipMaxLength > 0) {
-                    while (stop) {
+                        speechManager.ClipMaxLength -= Time.deltaTime;
+                        //Debug.Log("<color=Blue>" + speechManager.ClipMaxLength + "</color>");
+                        FindObjectOfType<AudioManager>().BackgroundTheme(0.1f);
+                        //Debug.Log("<color=green>Playing</color>");
                         yield return null;
                     }
 
-                    speechManager.ClipMaxLength -= Time.deltaTime;
-                    //Debug.Log("<color=Blue>" + speechManager.ClipMaxLength + "</color>");
-                    FindObjectOfType<AudioManager>().BackgroundTheme(0.1f);
-                    //Debug.Log("<color=green>Playing</color>");
-                    yield return null;
-                }
+                    Debug.Log(content.Key + "," + content.Value);
+                    // Get image from Resources folder
+                    Texture2D texture2D = Resources.Load("Ingredients/" + content.Key) as Texture2D;
+                    texture2D.LoadImage(texture2D.EncodeToPNG());
+                    rawImage.sprite = Sprite.Create(texture2D, new Rect(0, 0, texture2D.width, texture2D.height), new Vector2());
+                    // Get animation key
+                    cookingAnimator.SetTrigger(content.Value);
+                    // I don't know what happen but it worked... able to pause
+                    yield return new WaitForSeconds(1f);
+                    yield return new WaitUntil(() => cookingAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"));
+                    while (stop) {
+                        // yield null when using while loops within coroutine to prevent freezing
+                        yield return null;
+                    }
 
-                Debug.Log(content.Key + "," + content.Value);
-                // Get image from Resources folder
-                Texture2D texture2D = Resources.Load("Ingredients/" + content.Key) as Texture2D;
-                texture2D.LoadImage(texture2D.EncodeToPNG());
-                rawImage.sprite = Sprite.Create(texture2D, new Rect(0, 0, texture2D.width, texture2D.height), new Vector2());
-                // Get animation key
-                cookingAnimator.SetTrigger(content.Value);
-                // I don't know what happen but it worked... able to pause
-                yield return new WaitForSeconds(1f);
-                yield return new WaitUntil(() => cookingAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"));
-                while (stop) {
-                    // yield null when using while loops within coroutine to prevent freezing
-                    yield return null;
+                    clipCountForCurInstruction--;
                 }
             }
 
             // If still has clips to play for an instruction
-            while (temp > 0) {
+            while (clipCountForCurInstruction > 0) {
+                Debug.Log("Playing after the foreach loop");
                 speechManager.Play(speechManager.NextClip);
                 while (speechManager.ClipMaxLength > 0) {
                     while (stop) {
@@ -158,7 +212,7 @@ public class CookingManager : MonoBehaviour {
                     yield return null;
                 }
 
-                temp--;
+                clipCountForCurInstruction--;
             }
         }
         // We'll gonna use the same sfx of trivia on done cooking
