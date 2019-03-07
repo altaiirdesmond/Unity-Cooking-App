@@ -55,7 +55,7 @@ public class FoodIngredient : IEnumerator {
                 // If the ingredient is not instructed to be used. Checks for tag {skip}
                 if (words[i].Contains("skip")) {
                     foreach (var item in databaseManager.GetIngredient(food.FoodId).
-                    Where(x => x.RawName.StartsWith(words[i + 1]) && x.RawName.Contains(words[i + 1])).Take(1)) { // FIX THIS
+                    Where(x => x.RawName.StartsWith(words[i + 1]) && x.RawName.Contains(words[i + 1])).Take(1)) {
                         // Blacklist that ingredient
                         exclude = item.RawName + " " + "{skip}";
 
@@ -70,18 +70,55 @@ public class FoodIngredient : IEnumerator {
                     words[i] = words[i].Split('.')[0];
                 }
 
-                // This will only retrieve one item
-                foreach (var item in databaseManager.GetIngredient(food.FoodId).
-                    Where(x => x.RawName.StartsWith(words[i]) && x.RawName.Contains(words[i])).Take(1)) {
-                    Debug.Log("@word " + words[i]);
-                    // Avoid duplication
-                    if (!dictionary.ContainsKey(item.RawName)) {
-                        // If the word[i] is on Blacklist skip it
-                        if (exclude.Contains(words[i])) {
-                            Debug.Log("<color=red>" + words[i] + "</color> cannot be added");
-                            continue;
-                        } else {
-                            dictionary.Add(item.RawName, item.Method);
+                // Get the instances of the word in the ingredient
+                var collection = databaseManager.GetIngredient(food.FoodId).
+                    Where(x => x.RawName.StartsWith(words[i]) && x.RawName.Contains(words[i]));
+
+                Debug.Log("current word:" + words[i]);
+                foreach (var item in collection) {
+                    Debug.Log("searched word: " + item.RawName);
+                }
+
+                // We are checking for multiple instance of that ingredient with 
+                // word that starts with word[i]
+                if(collection.Count() > 1) {
+                    // If there are two or more instances found from the database
+                    // then we should get not only the first
+                    // word but the whole word to be accurate on what we are getting in the 
+                    // database
+                    string fullRawName = words[i] + " " + words[i + 1];
+                    fullRawName = fullRawName.Replace(".", string.Empty);
+                    fullRawName = fullRawName.Trim();
+
+                    Debug.Log("Getting the two words: " + fullRawName);
+
+                    foreach (var item in databaseManager.GetIngredient(food.FoodId).
+                        Where(x => x.RawName == fullRawName)) {
+                        Debug.Log("<color=green>adding..." + item.RawName + "</color>");
+                        // Avoid duplication
+                        if (!dictionary.ContainsKey(item.RawName)) {
+                            // If the word[i] is on Blacklist skip it
+                            if (exclude.Contains(words[i])) {
+                                Debug.Log("<color=red>" + words[i] + "</color> cannot be added");
+                                continue;
+                            } else {
+                                dictionary.Add(item.RawName, item.Method);
+                            }
+                        }
+                    }
+                } else {
+                    // This will only retrieve one item
+                    foreach (var item in collection) {
+                        // Avoid duplication
+                        if (!dictionary.ContainsKey(item.RawName)) {
+                            // If the word[i] is on Blacklist skip it
+                            if (exclude.Contains(words[i])) {
+                                Debug.Log("<color=red>" + words[i] + "</color> cannot be added");
+                                continue;
+                            } else {
+                                Debug.Log(words[i] + "has been added");
+                                dictionary.Add(item.RawName, item.Method);
+                            }
                         }
                     }
                 }

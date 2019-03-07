@@ -398,7 +398,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15.653001}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 266, y: 330.00006}
+  m_AnchoredPosition: {x: 256, y: 276}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &58258511
@@ -1358,10 +1358,10 @@ RectTransform:
   m_Father: {fileID: 1307547255}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 19, y: -38}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 4, y: 119}
+  m_SizeDelta: {x: 362.2, y: 71.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &336596141
 MonoBehaviour:
@@ -1426,8 +1426,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 63
+  m_fontSizeBase: 63
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1444,7 +1444,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -4469,14 +4469,14 @@ MonoBehaviour:
   textToSpeechEngines:
   - Name: ginataang yapyap
     MainAudioClips:
-    - {fileID: 8300000, guid: 620d0d513bcb53b40a28583791df04f3, type: 3}
+    - {fileID: 8300000, guid: 830c61021fef0df40b453200e3a73528, type: 3}
     - {fileID: 8300000, guid: b2b7ea1d96699c94b9233db5b91bbe1e, type: 3}
     - {fileID: 8300000, guid: 84bb51fde65a8e34fb0a42f4203b571e, type: 3}
     - {fileID: 8300000, guid: 18fd04b646ba1f143ab61b8a23260b08, type: 3}
     - {fileID: 8300000, guid: 56fefc47cd2023841a46f277e6f5220a, type: 3}
     - {fileID: 8300000, guid: 599bd1e46eacfa34f95f21574de4e499, type: 3}
-    - {fileID: 8300000, guid: 0ab96dc503f783347aa59f5000dfa64c, type: 3}
-    - {fileID: 8300000, guid: 20cd36b4b459a0e48b4c925525ec8a78, type: 3}
+    - {fileID: 8300000, guid: 0122067b5f91bb44d9a1797efb630801, type: 3}
+    - {fileID: 8300000, guid: 94b4672d98f36de4198132e57cfb2d11, type: 3}
   - Name: sapin sapin
     MainAudioClips:
     - {fileID: 8300000, guid: 119e954b37768774384add94de6a3f5a, type: 3}
@@ -4492,8 +4492,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 4d5541a9b5449f14aaef0335f8387148, type: 3}
     - {fileID: 8300000, guid: e84b21ecdd073fa48bed17ec570f1046, type: 3}
     - {fileID: 8300000, guid: 028109872603dd84fb19fe86ef6cea5c, type: 3}
-    - {fileID: 8300000, guid: 5b9b537cb85e9724e822d70fb9e26c18, type: 3}
-    - {fileID: 8300000, guid: 912ab14d468c3d640adfc26dd6084719, type: 3}
+    - {fileID: 8300000, guid: 5834d60bc8355ad4d8915d1f0d48d537, type: 3}
     - {fileID: 8300000, guid: 21f1427181addbb478c806b900e065f5, type: 3}
     - {fileID: 8300000, guid: 6edec27ec4184ec4db2bb7ace3edff4f, type: 3}
     - {fileID: 8300000, guid: c3727e44f37cdb44eb7d432c486d7084, type: 3}
@@ -4505,6 +4504,42 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 052010b8d4226f5449f0884201ccdf84, type: 3}
     - {fileID: 8300000, guid: 82eefb6691172ec4081997f432919ba3, type: 3}
     - {fileID: 8300000, guid: 5b94aad226cedc94dae514b0acdc0022, type: 3}
+  - Name: ginataang tilapia
+    MainAudioClips:
+    - {fileID: 8300000, guid: 5550b6d1fccfaaf45b87564bd4f61660, type: 3}
+    - {fileID: 8300000, guid: ba44a3381fa08f948ac90aa9c87e627a, type: 3}
+    - {fileID: 8300000, guid: c44f26bf7b857d04abbd5d5ac386604c, type: 3}
+    - {fileID: 8300000, guid: 5b2eb68f1c7e6044da7a997dd4d14287, type: 3}
+    - {fileID: 8300000, guid: bf5f501a77783b74f9d6ab83c9b6d4f1, type: 3}
+    - {fileID: 8300000, guid: 664fc3ac3cb9eab4ebd0627b7c0d6250, type: 3}
+    - {fileID: 8300000, guid: 53448d0e9a9746640a1b9f031c68c439, type: 3}
+    - {fileID: 8300000, guid: bd17a47bbfc35c14fa5f5f1cc7ac7571, type: 3}
+    - {fileID: 8300000, guid: d6f7ec1b878980542bafad4c65840f66, type: 3}
+    - {fileID: 8300000, guid: a3bd37855e123fa4eafd5e7c02ddaabf, type: 3}
+    - {fileID: 8300000, guid: e85ee6ee2d5620541af8147ed70bcb88, type: 3}
+    - {fileID: 8300000, guid: 74c2f7ff0e44ac846abd94f21ff96ed1, type: 3}
+    - {fileID: 8300000, guid: 381b9d32c0060a34591b9e22f08de614, type: 3}
+    - {fileID: 8300000, guid: f744d9e45df693240a4a7fb9a19a24d8, type: 3}
+    - {fileID: 8300000, guid: f06077b2a27969446967bdcad2750b32, type: 3}
+    - {fileID: 8300000, guid: 542366fe3e62af44b8a791e87704414f, type: 3}
+    - {fileID: 8300000, guid: a063157a5dac0134884e9ca9ce7f2674, type: 3}
+  - Name: laing
+    MainAudioClips:
+    - {fileID: 8300000, guid: 73fcd5fb9358ae2498c5eb918897a614, type: 3}
+    - {fileID: 8300000, guid: 300200cd6a26f0d44b69dff6f275911f, type: 3}
+    - {fileID: 8300000, guid: 092b4869c5e7dcf4bb0709afe5c0243c, type: 3}
+    - {fileID: 8300000, guid: 843b35c0334df8b4d998cd64c76cba31, type: 3}
+    - {fileID: 8300000, guid: 9f92470f128aab54cb4e4090449262c2, type: 3}
+    - {fileID: 8300000, guid: 6d238a949f4d82649840f702604bc54d, type: 3}
+    - {fileID: 8300000, guid: 908df8387dd871245af7793b5db15345, type: 3}
+    - {fileID: 8300000, guid: c5590ce8ecd4e5941a5f72bb80bf0333, type: 3}
+    - {fileID: 8300000, guid: bed316f3b82673a458e93fcb5993396c, type: 3}
+    - {fileID: 8300000, guid: ab161221b1e789043b51f17cb8a10dc6, type: 3}
+    - {fileID: 8300000, guid: 6dd6590d91721d14492a79be8b384499, type: 3}
+    - {fileID: 8300000, guid: c875b76256d285f408079cf16483e69f, type: 3}
+    - {fileID: 8300000, guid: 5a80c2ccf7ed0674aaee6c0cb91aefeb, type: 3}
+    - {fileID: 8300000, guid: d7655db3512b6bd478fcba6f7851ee71, type: 3}
+    - {fileID: 8300000, guid: 544cabbdd49d9864db69c5e1f14d5bde, type: 3}
 --- !u!82 &1492016869
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5259,7 +5294,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -5451,7 +5486,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -5781,7 +5816,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -5837,7 +5872,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15.653001}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 280, y: 379}
+  m_AnchoredPosition: {x: 261, y: 374}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1960232939
@@ -6306,7 +6341,7 @@ PrefabInstance:
     - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
         type: 3}
       propertyPath: textToSpeechEngines.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
         type: 3}
@@ -6326,7 +6361,17 @@ PrefabInstance:
     - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
         type: 3}
       propertyPath: textToSpeechEngines.Array.data[1].MainAudioClips.Array.size
-      value: 26
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
+        type: 3}
+      propertyPath: textToSpeechEngines.Array.data[2].MainAudioClips.Array.size
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
+        type: 3}
+      propertyPath: textToSpeechEngines.Array.data[3].MainAudioClips.Array.size
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
         type: 3}
@@ -6352,6 +6397,16 @@ PrefabInstance:
         type: 3}
       propertyPath: textToSpeechEngines.Array.data[1].Name
       value: sapin sapin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
+        type: 3}
+      propertyPath: textToSpeechEngines.Array.data[2].Name
+      value: ginataang tilapia
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
+        type: 3}
+      propertyPath: textToSpeechEngines.Array.data[3].Name
+      value: laing
       objectReference: {fileID: 0}
     - target: {fileID: 7203669377219896467, guid: ee98306911adf4e4db6b50dc84449121,
         type: 3}

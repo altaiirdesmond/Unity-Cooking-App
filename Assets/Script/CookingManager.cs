@@ -166,7 +166,6 @@ public class CookingManager : MonoBehaviour {
                 } else {
                     Debug.Log("<color=orange>Changing index</color>");
                     speechManager.Play(speechManager.NextClip);
-                    Debug.Log("Playing after the foreach loop");
 
                     while (speechManager.ClipMaxLength > 0) {
                         while (stop) {
@@ -201,7 +200,6 @@ public class CookingManager : MonoBehaviour {
 
             // If still has clips to play for an instruction
             while (clipCountForCurInstruction > 0) {
-                Debug.Log("Playing after the foreach loop");
                 speechManager.Play(speechManager.NextClip);
                 while (speechManager.ClipMaxLength > 0) {
                     while (stop) {
