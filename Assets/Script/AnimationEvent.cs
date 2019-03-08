@@ -1,9 +1,10 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AnimationEvent : MonoBehaviour {
 
+    [SerializeField] private SpriteRenderer spriteToRemove;
+
     public void RemoveSprite() {
-        GetComponent<SpriteRenderer>().sprite = null;
+        spriteToRemove.sprite = null;
     }
 }

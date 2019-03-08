@@ -10,6 +10,7 @@ public class CookingManager : MonoBehaviour {
     [SerializeField] private Animator cookingAnimator;
     [SerializeField] private TextMeshProUGUI instruction;
     [SerializeField] private SpriteRenderer rawImage;
+    [SerializeField] private SpriteRenderer plateImage;
     [SerializeField] private Timer timer;
     [SerializeField] private TextMeshProUGUI trivia;
     [SerializeField] private TextMeshProUGUI finish;
@@ -183,7 +184,11 @@ public class CookingManager : MonoBehaviour {
                     // Get image from Resources folder
                     Texture2D texture2D = Resources.Load("Ingredients/" + content.Key) as Texture2D;
                     texture2D.LoadImage(texture2D.EncodeToPNG());
-                    rawImage.sprite = Sprite.Create(texture2D, new Rect(0, 0, texture2D.width, texture2D.height), new Vector2());
+                    rawImage.sprite = Sprite.Create(texture2D, new Rect(0, 0, texture2D.width, texture2D.height), new Vector2(0.5f, 0.2f));
+                    // Get plate image from Resources folder
+                    texture2D = Resources.Load("Ingredients/plate_image") as Texture2D;
+                    plateImage.sprite = Sprite.Create(texture2D, new Rect(0, 0, texture2D.width, texture2D.height), new Vector2(0.5f, 0.1f));
+
                     // Get animation key
                     cookingAnimator.SetTrigger(content.Value);
                     // I don't know what happen but it worked... able to pause

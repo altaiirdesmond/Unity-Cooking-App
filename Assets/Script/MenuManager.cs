@@ -7,6 +7,8 @@ using System.Collections;
 
 public class MenuManager : MonoBehaviour {
 
+    [SerializeField] private GameObject loadingScreen;
+
     /// <summary>
     /// Reference of Ingredients scene for food ingredients
     /// </summary>
@@ -19,12 +21,13 @@ public class MenuManager : MonoBehaviour {
 
     public static bool IsPaused { get; set; }
 
+    #region Non-async
     public void Exit() {
         Application.Quit();
     }
 
     public void GoToCooking() {
-        SceneManager.LoadScene("Cooking");
+        StartCoroutine(LoadAsync("Cooking"));
     }
 
     public void GotoCategories() {
@@ -46,7 +49,23 @@ public class MenuManager : MonoBehaviour {
 
         SceneManager.LoadScene("Ingredients");
     }
+    #endregion
 
+    #region Async
+    private IEnumerator LoadAsync(string sceneName) {
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+
+        loadingScreen.SetActive(true);
+
+        yield return new WaitForSeconds(4f);
+
+        while (!asyncOperation.isDone) {
+            yield return null;
+        }
+    }
+    #endregion
+
+    #region UI manipulation
     public void PopulateCategoryResult(string category) {
         CategorySceneManager dataObserver = GameObject.Find("SceneManager").GetComponent<CategorySceneManager>();
         dataObserver.Buttons[0].SetActive(true);
@@ -135,4 +154,5 @@ public class MenuManager : MonoBehaviour {
     public void HideTrivia() {
         FindObjectOfType<CategorySceneManager>().Panels[7].GetComponent<UIAnimation>().Animator.SetBool("show", false);
     }
+    #endregion
 }
