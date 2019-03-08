@@ -5,19 +5,22 @@ public class Timer : MonoBehaviour {
 
     [SerializeField] private TextMeshProUGUI tmPro;
     [SerializeField] private bool start = false;
+
+    private int randomLimit = 0;
     private float hour = 0;
     private float min = 0;
     private float sec = 0;
 
-    public bool HalfWay {
+    // Check if a random generated limit has been reached
+    public bool RandomLimitReached {
         get {
-            return min == Until / 2f && sec == 0f; // If halfway to the time limit
+            return min == randomLimit && sec == 0;
         }
     }
 
     public int Until { get; set; }
 
-    public bool LimitReached {
+    public bool NormalLimitReached {
         get {
             bool state = false;
             if(min >= Until) {
@@ -74,5 +77,10 @@ public class Timer : MonoBehaviour {
         }
 
         TmPro.SetText(string.Format("{0:00}:{1:00}:{2:00}", hour, min, sec));
+    }
+
+    public void GenerateRandomLimit() {
+        randomLimit = Random.Range(1, Until - 1);
+        Debug.Log("randome:" + randomLimit);
     }
 }

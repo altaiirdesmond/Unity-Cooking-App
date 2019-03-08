@@ -1,12 +1,12 @@
 ﻿using Assets.Script.DatabaseModel;
-using System;
 using System.Collections;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CookingManager : MonoBehaviour {
-
+    [Header("This will contain all the action within the cooking session")]
     [SerializeField] private Animator cookingAnimator;
     [SerializeField] private TextMeshProUGUI instruction;
     [SerializeField] private SpriteRenderer rawImage;
@@ -14,6 +14,9 @@ public class CookingManager : MonoBehaviour {
     [SerializeField] private Timer timer;
     [SerializeField] private TextMeshProUGUI trivia;
     [SerializeField] private TextMeshProUGUI finish;
+    [SerializeField] private GameObject foodResultName;
+    [SerializeField] private GameObject foodResult;
+    [SerializeField] private GameObject foodResultBackPanel;
 
     private TextToSpeechManager speechManager;
     private Food food;
@@ -101,8 +104,13 @@ public class CookingManager : MonoBehaviour {
                     Debug.Log("<color=green>Starting time and until " + timer.Until + "</color>");
                     foodIngredient.Time = 0; // Clear the time from foodIngredient
                     timer.Start = true;
-                    while (!timer.LimitReached) {
-                        if (timer.HalfWay) {
+
+                    if (timer.Until > 3) { // Generate a random limit if the WAIT_TIME is more than 3 mins
+                        timer.GenerateRandomLimit();
+                    }
+
+                    while (!timer.NormalLimitReached) {
+                        if (timer.RandomLimitReached) { 
                             // Show trivia by script
                             FindObjectOfType<CategorySceneManager>()
                                 .Panels[7]
@@ -137,8 +145,13 @@ public class CookingManager : MonoBehaviour {
                     Debug.Log("<color=green>Starting time and until " + timer.Until + "</color>");
                     foodIngredient.Time = 0; // Clear the time from foodIngredient
                     timer.Start = true;
-                    while (!timer.LimitReached) {
-                        if (timer.HalfWay) {
+
+                    if(timer.Until > 3) {
+                        timer.GenerateRandomLimit();
+                    }
+
+                    while (!timer.NormalLimitReached) {
+                        if (timer.RandomLimitReached) { // Listen to a random limit if the WAIT_TIME is more than 3 mins
                             // Show trivia by script
                             FindObjectOfType<CategorySceneManager>()
                                 .Panels[7]
@@ -183,7 +196,6 @@ public class CookingManager : MonoBehaviour {
                     Debug.Log(content.Key + "," + content.Value);
                     // Get image from Resources folder
                     Texture2D texture2D = Resources.Load("Ingredients/" + content.Key) as Texture2D;
-                    texture2D.LoadImage(texture2D.EncodeToPNG());
                     rawImage.sprite = Sprite.Create(texture2D, new Rect(0, 0, texture2D.width, texture2D.height), new Vector2(0.5f, 0.2f));
                     // Get plate image from Resources folder
                     texture2D = Resources.Load("Ingredients/plate_image") as Texture2D;
@@ -224,10 +236,21 @@ public class CookingManager : MonoBehaviour {
 
         // Show "COOKING DONE!" text
         finish.GetComponent<Animator>().SetBool("done", true);
+        // Enable white background
+        foodResultBackPanel.SetActive(true);
+        // Enable foodresult gameobject first
+        foodResult.SetActive(true);
+        // Enable foodname gameobject first
+        foodResultName.SetActive(true);
+        // Set what food name to be displayed
+        foodResultName.GetComponent<TextMeshProUGUI>().SetText(food.FoodName);
+        // Get the food sprite to use by the gameobject
+        Texture2D foodSprite = Resources.Load("FoodResult/" + food.FoodName) as Texture2D;
+        foodResult.GetComponent<Image>().sprite = Sprite.Create(foodSprite, new Rect(0, 0, foodSprite.width, foodSprite.height), new Vector2(0.5f, 0.1f));
 
-        yield return new WaitForSeconds(3f);
+        //yield return new WaitForSeconds(3f);
 
-        finish.GetComponent<Animator>().SetBool("done", false);
+        //finish.GetComponent<Animator>().SetBool("done", false);
 
         yield return null;
     }
