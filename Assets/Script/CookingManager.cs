@@ -72,6 +72,7 @@ public class CookingManager : MonoBehaviour {
         }
     }
 
+    // TODO: Compress this function
     private IEnumerator Cook() {
         while (foodIngredient.MoveNext()) { // We will move to the next instruction
             clipCountForCurInstruction = speechManager.ClipsForCurrentInstruction(speechManager.ClipName);
@@ -110,6 +111,11 @@ public class CookingManager : MonoBehaviour {
                     }
 
                     while (!timer.NormalLimitReached) {
+                        if (timer.Min == timer.Until - 1 && timer.Sec == 0) {
+                            // Start animation of timer
+                            timer.GetComponent<Animator>().SetTrigger("show");
+                        }
+
                         if (timer.RandomLimitReached) { 
                             // Show trivia by script
                             FindObjectOfType<CategorySceneManager>()
@@ -146,11 +152,16 @@ public class CookingManager : MonoBehaviour {
                     foodIngredient.Time = 0; // Clear the time from foodIngredient
                     timer.Start = true;
 
-                    if(timer.Until > 3) {
+                    if (timer.Until > 3) {
                         timer.GenerateRandomLimit();
                     }
 
                     while (!timer.NormalLimitReached) {
+                        if (timer.Min == timer.Until - 1 && timer.Sec == 0) {
+                            // Start animation of timer
+                            timer.GetComponent<Animator>().SetTrigger("show");
+                        }
+
                         if (timer.RandomLimitReached) { // Listen to a random limit if the WAIT_TIME is more than 3 mins
                             // Show trivia by script
                             FindObjectOfType<CategorySceneManager>()
@@ -233,7 +244,6 @@ public class CookingManager : MonoBehaviour {
         }
         // We'll gonna use the same sfx of trivia on done cooking
         FindObjectOfType<AudioManager>().TriviaSFXPlay();
-
         // Show "COOKING DONE!" text
         finish.GetComponent<Animator>().SetBool("done", true);
         // Enable white background
@@ -247,10 +257,6 @@ public class CookingManager : MonoBehaviour {
         // Get the food sprite to use by the gameobject
         Texture2D foodSprite = Resources.Load("FoodResult/" + food.FoodName) as Texture2D;
         foodResult.GetComponent<Image>().sprite = Sprite.Create(foodSprite, new Rect(0, 0, foodSprite.width, foodSprite.height), new Vector2(0.5f, 0.1f));
-
-        //yield return new WaitForSeconds(3f);
-
-        //finish.GetComponent<Animator>().SetBool("done", false);
 
         yield return null;
     }

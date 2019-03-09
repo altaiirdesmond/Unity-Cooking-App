@@ -11,6 +11,8 @@ public class Timer : MonoBehaviour {
     private float min = 0;
     private float sec = 0;
 
+    public int Until { get; set; }
+
     // Check if a random generated limit has been reached
     public bool RandomLimitReached {
         get {
@@ -18,7 +20,17 @@ public class Timer : MonoBehaviour {
         }
     }
 
-    public int Until { get; set; }
+    public float Min {
+        get {
+            return min;
+        }
+    }
+
+    public float Sec {
+        get {
+            return sec;
+        }
+    }
 
     public bool NormalLimitReached {
         get {
