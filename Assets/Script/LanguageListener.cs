@@ -6,7 +6,7 @@ public class LanguageListener : MonoBehaviour {
     private Transform tagalogCheckboxImage;
     private Transform englishCheckboxImage;
 
-    private LanguageListener languageListener;
+    private static LanguageListener languageListener;
 
     private void Start() {
         // Singleton. This prevents multiple instances
@@ -31,12 +31,14 @@ public class LanguageListener : MonoBehaviour {
     }
 
     private void CurrentLanguage() {
-        if (Lean.Localization.LeanLocalization.CurrentLanguage.Equals("English")) {
-            tagalogCheckboxImage.gameObject.SetActive(false);
-            englishCheckboxImage.gameObject.SetActive(true);
-        } else {
-            tagalogCheckboxImage.gameObject.SetActive(true);
-            englishCheckboxImage.gameObject.SetActive(false);
+        if (tagalogCheckboxImage != null && englishCheckboxImage != null) {
+            if (Lean.Localization.LeanLocalization.CurrentLanguage.Equals("English")) {
+                tagalogCheckboxImage.gameObject.SetActive(false);
+                englishCheckboxImage.gameObject.SetActive(true);
+            } else {
+                tagalogCheckboxImage.gameObject.SetActive(true);
+                englishCheckboxImage.gameObject.SetActive(false);
+            }
         }
     }
 

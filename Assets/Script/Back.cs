@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DontDestroy : MonoBehaviour {
+public class Back : MonoBehaviour {
 
-    private static DontDestroy dontDestroy;
+    private static Back back;
 
     private void Awake() {
-        // Singleton. This prevents multiple instances
-        if(dontDestroy != null) {
+        if(back != null) {
             Destroy(gameObject);
         } else {
-            dontDestroy = this;
+            back = this;
         }
 
         DontDestroyOnLoad(gameObject);
@@ -20,8 +19,7 @@ public class DontDestroy : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (SceneManager.GetActiveScene().buildIndex > 0) {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-            }
-            else if(SceneManager.GetActiveScene().buildIndex == 0) {
+            } else if (SceneManager.GetActiveScene().buildIndex == 0) {
                 FindObjectOfType<MenuManager>().ShowBlockingPanel();
                 FindObjectOfType<MenuManager>().ShowQuit();
             }

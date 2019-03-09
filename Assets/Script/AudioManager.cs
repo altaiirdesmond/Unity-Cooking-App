@@ -21,7 +21,7 @@ public class AudioManager : MonoBehaviour {
         }
 
         DontDestroyOnLoad(gameObject);
-        
+
         foreach (GameObject button in GameObject.FindGameObjectsWithTag("Button")) {
             // Ready buttons to listen for clicks
             button.GetComponent<Button>().onClick.AddListener(TaskOnClick);

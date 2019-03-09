@@ -385,7 +385,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Sigurado ka ba?
+  m_text: Are you sure?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 197986021}
-    characterCount: 15
+    characterCount: 13
     spriteCount: 0
     spaceCount: 2
     wordCount: 3
@@ -463,12 +463,12 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
-  m_inputSource: 0
+  m_isInputParsingRequired: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -718,7 +718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &648831197
 RectTransform:
   m_ObjectHideFlags: 0
@@ -870,7 +870,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Wika
+  m_text: Language
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -940,7 +940,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 661551580}
-    characterCount: 4
+    characterCount: 8
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -1309,7 +1309,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Magsimula
+  m_text: Start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -1379,7 +1379,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 710670159}
-    characterCount: 9
+    characterCount: 5
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -1721,7 +1721,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Oo
+  m_text: Yes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -1791,7 +1791,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 784099303}
-    characterCount: 2
+    characterCount: 3
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -1799,12 +1799,12 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
-  m_inputSource: 0
+  m_isInputParsingRequired: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -1838,7 +1838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phraseName: yes
-  FallbackText: oo
+  FallbackText: Oo
   Args: []
 --- !u!1 &849891689
 GameObject:
@@ -2514,7 +2514,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: PAGTATAKDA
+  m_text: SETTINGS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -2584,7 +2584,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1185374649}
-    characterCount: 10
+    characterCount: 8
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -2691,7 +2691,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Umalis
+  m_text: Quit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -2761,7 +2761,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1335548053}
-    characterCount: 6
+    characterCount: 4
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -2810,73 +2810,6 @@ MonoBehaviour:
   phraseName: quit
   FallbackText: umalis
   Args: []
---- !u!1001 &1389192607
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1569405521144358, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_Name
-      value: ButtonManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639559107424554, guid: a5ae08a1846e8b447b3efa93688fd806,
-        type: 3}
-      propertyPath: buttonTagalogChecked
-      value: 
-      objectReference: {fileID: 1488285851}
-    - target: {fileID: 114639559107424554, guid: a5ae08a1846e8b447b3efa93688fd806,
-        type: 3}
-      propertyPath: buttonEnglishChecked
-      value: 
-      objectReference: {fileID: 185681885}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 350.17847
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 608.3745
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.1721414
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618190411011056, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a5ae08a1846e8b447b3efa93688fd806, type: 3}
 --- !u!1 &1404224723
 GameObject:
   m_ObjectHideFlags: 0
@@ -3083,17 +3016,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: LoadLevel
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Categories
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -3772,49 +3694,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836444658}
   m_CullTransparentMesh: 0
---- !u!1 &1843951714
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1843951716}
-  - component: {fileID: 1843951715}
-  m_Layer: 0
-  m_Name: PreviousScene
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1843951715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1843951714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1e5a2a439466d44294060199c509cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1843951716
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1843951714}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1849340761
 GameObject:
   m_ObjectHideFlags: 0
@@ -3924,7 +3803,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Hindi
+  m_text: No
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -3994,7 +3873,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1893964172}
-    characterCount: 5
+    characterCount: 2
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -4002,12 +3881,12 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
-  m_inputSource: 0
+  m_isInputParsingRequired: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -4101,7 +3980,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Umalis
+  m_text: Quit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -4171,7 +4050,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2065579500}
-    characterCount: 6
+    characterCount: 4
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -4179,12 +4058,12 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
-  m_inputSource: 0
+  m_isInputParsingRequired: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -4381,6 +4260,93 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101995076}
   m_CullTransparentMesh: 0
+--- !u!1 &2945832086799600668 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2945832086799600668, guid: 1eb6a4af4e5bcdf42a292314ec6328ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 4374820954186072835}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2945832086799600669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2945832086799600668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58ed377d039238f479e02fdcbf650305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &4374820954186072835
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2945832086799600668, guid: 1eb6a4af4e5bcdf42a292314ec6328ca,
+        type: 3}
+      propertyPath: m_Name
+      value: EscapeListener
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594216729877883775, guid: 1eb6a4af4e5bcdf42a292314ec6328ca,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594216729877883775, guid: 1eb6a4af4e5bcdf42a292314ec6328ca,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594216729877883775, guid: 1eb6a4af4e5bcdf42a292314ec6328ca,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594216729877883775, guid: 1eb6a4af4e5bcdf42a292314ec6328ca,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594216729877883775, guid: 1eb6a4af4e5bcdf42a292314ec6328ca,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594216729877883775, guid: 1eb6a4af4e5bcdf42a292314ec6328ca,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594216729877883775, guid: 1eb6a4af4e5bcdf42a292314ec6328ca,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594216729877883775, guid: 1eb6a4af4e5bcdf42a292314ec6328ca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594216729877883775, guid: 1eb6a4af4e5bcdf42a292314ec6328ca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594216729877883775, guid: 1eb6a4af4e5bcdf42a292314ec6328ca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594216729877883775, guid: 1eb6a4af4e5bcdf42a292314ec6328ca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1eb6a4af4e5bcdf42a292314ec6328ca, type: 3}
 --- !u!1001 &4576002730663487768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4431,7 +4397,7 @@ PrefabInstance:
     - target: {fileID: 5907102406029792710, guid: f69352bec8ca47d4495805d19d28bc17,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5907102406029792710, guid: f69352bec8ca47d4495805d19d28bc17,
         type: 3}
@@ -4569,7 +4535,7 @@ PrefabInstance:
     - target: {fileID: 6024006722251851899, guid: 7df442d9128b38447812208c7ebce91b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6024006722251851899, guid: 7df442d9128b38447812208c7ebce91b,
         type: 3}
