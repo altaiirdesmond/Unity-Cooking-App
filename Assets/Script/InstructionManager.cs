@@ -16,7 +16,7 @@ public class InstructionManager : MonoBehaviour {
             // Clean instruction before starting CookingScene
             foreach (var item in food.InstructionTranslated.Split('\n')) {
                 string newText = item.Replace("{skip}", string.Empty);
-                foreach (var waitTime in newText.Split(' ').ToList().Where(i => i.StartsWith("WAIT_TIME:")).Take(1)) {
+                foreach (var waitTime in newText.Split(' ').ToList().Where(i => i.StartsWith("WAIT_TIME:"))) {
                     newText = newText.Replace(waitTime, string.Empty);
                 }
 
