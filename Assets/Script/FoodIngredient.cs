@@ -44,12 +44,18 @@ public class FoodIngredient : IEnumerator {
             string[] words = instruction[position].Split(' '); // We're gonna assign manually
             for (int i = 0; i < words.Length; i++) {
 
+                if(words[i] == string.Empty) { // We might get white spaces that could cause error
+                    continue;
+                }
+
                 // Check for WAIT_TIME tag to get time
                 if (words[i].Contains("WAIT_TIME")) {
                     Time = Convert.ToInt32(words[i].Split(':')[1]);
 
+                    Debug.Log("<color=blue>" + Time + "</color> has been added");
+
                     // To tell whether it is time to tick
-                    dictionary.Add("Time", "start");
+                    dictionary.Add("Time" + i.ToString(), "start");
                 }
 
                 // If the ingredient is not instructed to be used. Checks for tag {skip}

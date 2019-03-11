@@ -82,7 +82,7 @@ public class CookingManager : MonoBehaviour {
             var contents = foodIngredient.Current; // It contains all existing(non-skip) ingredient within an instruction
             foreach (var content in contents) {
 
-                if (content.Key == "Time" && clipCountForCurInstruction == 1) {
+                if (content.Key.Contains("Time") && clipCountForCurInstruction == 1) {
 
                     // Play clip
                     speechManager.Play(speechManager.NextClip);
@@ -145,7 +145,7 @@ public class CookingManager : MonoBehaviour {
                 }
 
                 // If the content key contains Time
-                if (content.Key == "Time") {
+                if (content.Key.Contains("Time")) {
                     FindObjectOfType<AudioManager>().TimerStartSFXPlay();
                     timer.Until = foodIngredient.Time;
                     Debug.Log("<color=green>Starting time and until " + timer.Until + "</color>");

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour {
 
-    [SerializeField] private TextMeshProUGUI tmPro;
+    [SerializeField] private TextMeshProUGUI timerDisplay;
     [SerializeField] private bool start = false;
 
     private int randomLimit = 0;
@@ -16,7 +16,12 @@ public class Timer : MonoBehaviour {
     // Check if a random generated limit has been reached
     public bool RandomLimitReached {
         get {
-            return min == randomLimit && sec == 0;
+            bool state = false;
+            if(randomLimit > 0) { // Make sure to return true if and only if we have randomlimit set to > 0
+                state = min == randomLimit && sec == 0;
+            }
+
+            return state;
         }
     }
 
@@ -37,7 +42,7 @@ public class Timer : MonoBehaviour {
             bool state = false;
             if(min >= Until) {
                 // Clear all values
-                tmPro.SetText("00:00:00");
+                timerDisplay.SetText("00:00:00");
                 start = false;
                 min = 0;
                 hour = 0;
@@ -62,11 +67,11 @@ public class Timer : MonoBehaviour {
 
     public TextMeshProUGUI TmPro {
         get {
-            return tmPro;
+            return timerDisplay;
         }
 
         set {
-            tmPro = value;
+            timerDisplay = value;
         }
     }
 
