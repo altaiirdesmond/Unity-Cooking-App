@@ -2033,8 +2033,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.999985, y: 49}
-  m_SizeDelta: {x: 460.8, y: 94.9}
+  m_AnchoredPosition: {x: 12, y: 49}
+  m_SizeDelta: {x: 656, y: 218.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &465225877
 MonoBehaviour:
@@ -2056,7 +2056,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: ginataang yapyap
+  m_text: food name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -2100,7 +2100,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_firstOverflowCharacterIndex: -1
@@ -2126,7 +2126,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 465225877}
-    characterCount: 16
+    characterCount: 9
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
@@ -3787,7 +3787,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -4135,7 +4135,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -4406,7 +4406,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -5375,6 +5375,79 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 5a80c2ccf7ed0674aaee6c0cb91aefeb, type: 3}
     - {fileID: 8300000, guid: d7655db3512b6bd478fcba6f7851ee71, type: 3}
     - {fileID: 8300000, guid: 544cabbdd49d9864db69c5e1f14d5bde, type: 3}
+  - Name: ginataang hipon, sitaw, kalabasa
+    MainAudioClips:
+    - {fileID: 8300000, guid: 4e374bda9f3c7a541b71d7ded840ed55, type: 3}
+    - {fileID: 8300000, guid: 53d2ae849a227b14bb860a0260514c85, type: 3}
+    - {fileID: 8300000, guid: 1c6c4462b019b184ab60a88d03fc6f01, type: 3}
+    - {fileID: 8300000, guid: 9937f3d7418eb5d439e58990a7292547, type: 3}
+    - {fileID: 8300000, guid: 2f3122583003a5544b8d71f58768a971, type: 3}
+    - {fileID: 8300000, guid: 6e2debc1c89a3f647aab2b4a629868f2, type: 3}
+    - {fileID: 8300000, guid: 4db13175e4ccbb849af4d4cbdb0dffbd, type: 3}
+    - {fileID: 8300000, guid: 7c6ffd4ac4a284747ae216f82c94a14e, type: 3}
+    - {fileID: 8300000, guid: 46ba18cd923ebbe4bbe3d5716bdc6145, type: 3}
+    - {fileID: 8300000, guid: f28c75be0b6960248942a7d193a8b435, type: 3}
+    - {fileID: 8300000, guid: 74f0a42e0d9c50e4cb106cd7d458704d, type: 3}
+    - {fileID: 8300000, guid: 8c68b86535e836642a0d5ac896cdf883, type: 3}
+    - {fileID: 8300000, guid: fdab41507e54d2a4e8c9c91bfbf6dc99, type: 3}
+    - {fileID: 8300000, guid: 8561e539c9bde9142b30d08590211d71, type: 3}
+  - Name: chicken adobo sa gata
+    MainAudioClips:
+    - {fileID: 8300000, guid: 0e74f1e3c4c273b4daa78438a484720f, type: 3}
+    - {fileID: 8300000, guid: 5aea8f3e2c4bbbf40b39eed2421f81b0, type: 3}
+    - {fileID: 8300000, guid: 7aa6bc66969291b42bc2742ccf7d3ddf, type: 3}
+    - {fileID: 8300000, guid: 1cd5edec2e3e2a746b420ec6d6e59657, type: 3}
+    - {fileID: 8300000, guid: 4842a5e53f7c8a845895f7e066f37138, type: 3}
+    - {fileID: 8300000, guid: da691f688f09ae8498237579420b5fdc, type: 3}
+    - {fileID: 8300000, guid: 546f34ce8301a53448134e42ea56ac28, type: 3}
+    - {fileID: 8300000, guid: 51c99254c6cd14d42948e5798d098dbf, type: 3}
+    - {fileID: 8300000, guid: c982e4ebfdb59a34eb7e8d41b233556c, type: 3}
+    - {fileID: 8300000, guid: 23d84f2310c79e6429a5f5a56dc6f000, type: 3}
+    - {fileID: 8300000, guid: 0cd979fd16de6604d98d8672b76ec658, type: 3}
+    - {fileID: 8300000, guid: 1eb3d6ec658ec3648afc58bff4d49a3c, type: 3}
+    - {fileID: 8300000, guid: 1d19193ad7a3caa4e926e697a509d2d5, type: 3}
+    - {fileID: 8300000, guid: ad78990524dc27043b5c999288395ee9, type: 3}
+    - {fileID: 8300000, guid: 4d0019d7d9592464e8c497338aa396f4, type: 3}
+    - {fileID: 8300000, guid: d46e06e6db7c07845b14e7ab40ae241a, type: 3}
+  - Name: ginataang mais
+    MainAudioClips:
+    - {fileID: 8300000, guid: 19ce3be33e092c74cab7cf2114c21337, type: 3}
+    - {fileID: 8300000, guid: 34f5bfd8d236e5441adea80a0fc2966b, type: 3}
+    - {fileID: 8300000, guid: 5e61bd266a94f5946ab7ef3b89605d80, type: 3}
+    - {fileID: 8300000, guid: 067466b7a077f7140ac85226c85f9c8e, type: 3}
+    - {fileID: 8300000, guid: 0fa2dd2f67e392149979d693e7f0abe5, type: 3}
+    - {fileID: 8300000, guid: 80742479ce9ba97459c4e1444c981bb4, type: 3}
+    - {fileID: 8300000, guid: 2cd70399caf77e64ea551a7b275e2044, type: 3}
+    - {fileID: 8300000, guid: 23f1edd4821daa84f87452fd1b952420, type: 3}
+    - {fileID: 8300000, guid: 09dfa1cb2b7058649903fee0c1de5a44, type: 3}
+  - Name: ginataang monggo
+    MainAudioClips:
+    - {fileID: 8300000, guid: 34321a7b53b09ba4b9b45ecc51cac600, type: 3}
+    - {fileID: 8300000, guid: 698cb3bcedf070648a9b53ef9c2ad90b, type: 3}
+    - {fileID: 8300000, guid: 4689afa2cb1e5bf408b9d03a62a81c05, type: 3}
+    - {fileID: 8300000, guid: fca2108c82e169f46b015a88bf66c937, type: 3}
+    - {fileID: 8300000, guid: 893f670598336fa47a843b0b85f70e2d, type: 3}
+    - {fileID: 8300000, guid: dad7cd16babf68c4f9a9aa4573cc95c4, type: 3}
+    - {fileID: 8300000, guid: caf1c8ecb9b88664487ac2e7e82c4131, type: 3}
+    - {fileID: 8300000, guid: b7aaa35b5ef19724583179d5db17c583, type: 3}
+    - {fileID: 8300000, guid: cf0968cf372002d4fb3792b6a961f3e3, type: 3}
+    - {fileID: 8300000, guid: 04972aea2d76325409a8d45d06497a54, type: 3}
+    - {fileID: 8300000, guid: bd0900a3d9eb6cf4fa3fb95718d3f6a6, type: 3}
+    - {fileID: 8300000, guid: 9a3dc1fdbbbb34e48bb3fe8d61211ae2, type: 3}
+  - Name: palitaw
+    MainAudioClips:
+    - {fileID: 8300000, guid: 862e96e483a506e42b35606fbfe370a3, type: 3}
+    - {fileID: 8300000, guid: d8eec065ed1ae8246a85173c9d2c6212, type: 3}
+    - {fileID: 8300000, guid: 8ffe8802bb18f0140b4c9c61780b5422, type: 3}
+    - {fileID: 8300000, guid: bbb8f4d6ae86f084f82fce0e252d27d7, type: 3}
+    - {fileID: 8300000, guid: a12fb9db7270a8c41aa611f15193eb61, type: 3}
+    - {fileID: 8300000, guid: 1597b4a65ba9913419c032720d5ce480, type: 3}
+    - {fileID: 8300000, guid: cfb10320ddd95164ab1b58b6d1dc8de2, type: 3}
+    - {fileID: 8300000, guid: 4ae19f1334c63914887f86646238cfdf, type: 3}
+    - {fileID: 8300000, guid: 7b2de9af87d2478489b8cabc7cb15460, type: 3}
+    - {fileID: 8300000, guid: eca725bf4fef26e4c96de306832697c0, type: 3}
+    - {fileID: 8300000, guid: 93c23b9d545bc8848a182a9b08228aa4, type: 3}
+    - {fileID: 8300000, guid: fb07b35a1da186b45a16e0eaac1b2b5d, type: 3}
 --- !u!82 &1492016869
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6667,7 +6740,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -7267,7 +7340,7 @@ PrefabInstance:
     - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
         type: 3}
       propertyPath: textToSpeechEngines.Array.size
-      value: 4
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
         type: 3}
@@ -7298,6 +7371,31 @@ PrefabInstance:
         type: 3}
       propertyPath: textToSpeechEngines.Array.data[3].MainAudioClips.Array.size
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
+        type: 3}
+      propertyPath: textToSpeechEngines.Array.data[4].MainAudioClips.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
+        type: 3}
+      propertyPath: textToSpeechEngines.Array.data[5].MainAudioClips.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
+        type: 3}
+      propertyPath: textToSpeechEngines.Array.data[6].MainAudioClips.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
+        type: 3}
+      propertyPath: textToSpeechEngines.Array.data[7].MainAudioClips.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
+        type: 3}
+      propertyPath: textToSpeechEngines.Array.data[8].MainAudioClips.Array.size
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
         type: 3}
@@ -7333,6 +7431,31 @@ PrefabInstance:
         type: 3}
       propertyPath: textToSpeechEngines.Array.data[3].Name
       value: laing
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
+        type: 3}
+      propertyPath: textToSpeechEngines.Array.data[4].Name
+      value: ginataang hipon, sitaw, kalabasa
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
+        type: 3}
+      propertyPath: textToSpeechEngines.Array.data[5].Name
+      value: chicken adobo sa gata
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
+        type: 3}
+      propertyPath: textToSpeechEngines.Array.data[6].Name
+      value: ginataang mais
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
+        type: 3}
+      propertyPath: textToSpeechEngines.Array.data[7].Name
+      value: ginataang monggo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203669377219896465, guid: ee98306911adf4e4db6b50dc84449121,
+        type: 3}
+      propertyPath: textToSpeechEngines.Array.data[8].Name
+      value: palitaw
       objectReference: {fileID: 0}
     - target: {fileID: 7203669377219896467, guid: ee98306911adf4e4db6b50dc84449121,
         type: 3}
