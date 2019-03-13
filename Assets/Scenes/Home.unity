@@ -3117,7 +3117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1488285852
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4556,6 +4556,11 @@ PrefabInstance:
         type: 3}
       propertyPath: backgroundClipAudioSource
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024006722251851896, guid: 7df442d9128b38447812208c7ebce91b,
+        type: 3}
+      propertyPath: sounds.Array.data[4].Volume
+      value: 0.098
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7df442d9128b38447812208c7ebce91b, type: 3}
