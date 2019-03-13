@@ -1,0 +1,416 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2736985258222171881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2736985258222171884}
+  - component: {fileID: 2736985258222171887}
+  - component: {fileID: 2736985258222171886}
+  m_Layer: 0
+  m_Name: TextToSpeechManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2736985258222171884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2736985258222171881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2736985258222171887
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2736985258222171881}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &2736985258222171886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2736985258222171881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22973c0415b426342804ae703b26080a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 2736985258222171887}
+  textToSpeechEngines:
+  - Name: ginataang yapyap
+    MainAudioClips:
+    - {fileID: 8300000, guid: 830c61021fef0df40b453200e3a73528, type: 3}
+    - {fileID: 8300000, guid: b2b7ea1d96699c94b9233db5b91bbe1e, type: 3}
+    - {fileID: 8300000, guid: 84bb51fde65a8e34fb0a42f4203b571e, type: 3}
+    - {fileID: 8300000, guid: 18fd04b646ba1f143ab61b8a23260b08, type: 3}
+    - {fileID: 8300000, guid: 56fefc47cd2023841a46f277e6f5220a, type: 3}
+    - {fileID: 8300000, guid: 599bd1e46eacfa34f95f21574de4e499, type: 3}
+    - {fileID: 8300000, guid: 0122067b5f91bb44d9a1797efb630801, type: 3}
+    - {fileID: 8300000, guid: 94b4672d98f36de4198132e57cfb2d11, type: 3}
+  - Name: sapin sapin
+    MainAudioClips:
+    - {fileID: 8300000, guid: 119e954b37768774384add94de6a3f5a, type: 3}
+    - {fileID: 8300000, guid: 2f6314f7fb7558945a86f37b1ffb0cc6, type: 3}
+    - {fileID: 8300000, guid: ee68afeba39826541851d6a033bcf0c1, type: 3}
+    - {fileID: 8300000, guid: cdf90bbac8ee4fc4b935e6c13298c22e, type: 3}
+    - {fileID: 8300000, guid: c6fe3cb1a8eda784da362daea7efef42, type: 3}
+    - {fileID: 8300000, guid: 3ad4e26fd77b73542ab26952246d0ad7, type: 3}
+    - {fileID: 8300000, guid: b247eebc499099842af0207865a14b57, type: 3}
+    - {fileID: 8300000, guid: f7638202cd532674198ae6e9fd000c96, type: 3}
+    - {fileID: 8300000, guid: a650d1dc204b72e42aaa8da9c77d8059, type: 3}
+    - {fileID: 8300000, guid: e0eabcc5c48c2534aa0ee8bcf3b6b842, type: 3}
+    - {fileID: 8300000, guid: 4d5541a9b5449f14aaef0335f8387148, type: 3}
+    - {fileID: 8300000, guid: e84b21ecdd073fa48bed17ec570f1046, type: 3}
+    - {fileID: 8300000, guid: 028109872603dd84fb19fe86ef6cea5c, type: 3}
+    - {fileID: 8300000, guid: 5834d60bc8355ad4d8915d1f0d48d537, type: 3}
+    - {fileID: 8300000, guid: 21f1427181addbb478c806b900e065f5, type: 3}
+    - {fileID: 8300000, guid: 6edec27ec4184ec4db2bb7ace3edff4f, type: 3}
+    - {fileID: 8300000, guid: c3727e44f37cdb44eb7d432c486d7084, type: 3}
+    - {fileID: 8300000, guid: 4bbeeb5fd58d2d749a99fc7461c36580, type: 3}
+    - {fileID: 8300000, guid: 6f3b515261c59874dbc64a997af328b5, type: 3}
+    - {fileID: 8300000, guid: c98f4ef4f6243b94f9aa466582940aa9, type: 3}
+    - {fileID: 8300000, guid: 4888e15b810af6949827c4264da5b7b3, type: 3}
+    - {fileID: 8300000, guid: 59c268f0d97f859439d69d5ac9f8abb1, type: 3}
+    - {fileID: 8300000, guid: 052010b8d4226f5449f0884201ccdf84, type: 3}
+    - {fileID: 8300000, guid: 82eefb6691172ec4081997f432919ba3, type: 3}
+    - {fileID: 8300000, guid: 5b94aad226cedc94dae514b0acdc0022, type: 3}
+  - Name: ginataang tilapia
+    MainAudioClips:
+    - {fileID: 8300000, guid: 5550b6d1fccfaaf45b87564bd4f61660, type: 3}
+    - {fileID: 8300000, guid: ba44a3381fa08f948ac90aa9c87e627a, type: 3}
+    - {fileID: 8300000, guid: c44f26bf7b857d04abbd5d5ac386604c, type: 3}
+    - {fileID: 8300000, guid: 5b2eb68f1c7e6044da7a997dd4d14287, type: 3}
+    - {fileID: 8300000, guid: bf5f501a77783b74f9d6ab83c9b6d4f1, type: 3}
+    - {fileID: 8300000, guid: 664fc3ac3cb9eab4ebd0627b7c0d6250, type: 3}
+    - {fileID: 8300000, guid: 53448d0e9a9746640a1b9f031c68c439, type: 3}
+    - {fileID: 8300000, guid: bd17a47bbfc35c14fa5f5f1cc7ac7571, type: 3}
+    - {fileID: 8300000, guid: d6f7ec1b878980542bafad4c65840f66, type: 3}
+    - {fileID: 8300000, guid: a3bd37855e123fa4eafd5e7c02ddaabf, type: 3}
+    - {fileID: 8300000, guid: e85ee6ee2d5620541af8147ed70bcb88, type: 3}
+    - {fileID: 8300000, guid: 74c2f7ff0e44ac846abd94f21ff96ed1, type: 3}
+    - {fileID: 8300000, guid: 381b9d32c0060a34591b9e22f08de614, type: 3}
+    - {fileID: 8300000, guid: f744d9e45df693240a4a7fb9a19a24d8, type: 3}
+    - {fileID: 8300000, guid: f06077b2a27969446967bdcad2750b32, type: 3}
+    - {fileID: 8300000, guid: 542366fe3e62af44b8a791e87704414f, type: 3}
+    - {fileID: 8300000, guid: a063157a5dac0134884e9ca9ce7f2674, type: 3}
+  - Name: laing
+    MainAudioClips:
+    - {fileID: 8300000, guid: 73fcd5fb9358ae2498c5eb918897a614, type: 3}
+    - {fileID: 8300000, guid: 300200cd6a26f0d44b69dff6f275911f, type: 3}
+    - {fileID: 8300000, guid: 092b4869c5e7dcf4bb0709afe5c0243c, type: 3}
+    - {fileID: 8300000, guid: 843b35c0334df8b4d998cd64c76cba31, type: 3}
+    - {fileID: 8300000, guid: 9f92470f128aab54cb4e4090449262c2, type: 3}
+    - {fileID: 8300000, guid: 6d238a949f4d82649840f702604bc54d, type: 3}
+    - {fileID: 8300000, guid: 908df8387dd871245af7793b5db15345, type: 3}
+    - {fileID: 8300000, guid: c5590ce8ecd4e5941a5f72bb80bf0333, type: 3}
+    - {fileID: 8300000, guid: bed316f3b82673a458e93fcb5993396c, type: 3}
+    - {fileID: 8300000, guid: ab161221b1e789043b51f17cb8a10dc6, type: 3}
+    - {fileID: 8300000, guid: 6dd6590d91721d14492a79be8b384499, type: 3}
+    - {fileID: 8300000, guid: c875b76256d285f408079cf16483e69f, type: 3}
+    - {fileID: 8300000, guid: 5a80c2ccf7ed0674aaee6c0cb91aefeb, type: 3}
+    - {fileID: 8300000, guid: d7655db3512b6bd478fcba6f7851ee71, type: 3}
+    - {fileID: 8300000, guid: 544cabbdd49d9864db69c5e1f14d5bde, type: 3}
+  - Name: ginataang hipon, sitaw, kalabasa
+    MainAudioClips:
+    - {fileID: 8300000, guid: 4e374bda9f3c7a541b71d7ded840ed55, type: 3}
+    - {fileID: 8300000, guid: 53d2ae849a227b14bb860a0260514c85, type: 3}
+    - {fileID: 8300000, guid: 1c6c4462b019b184ab60a88d03fc6f01, type: 3}
+    - {fileID: 8300000, guid: 9937f3d7418eb5d439e58990a7292547, type: 3}
+    - {fileID: 8300000, guid: 2f3122583003a5544b8d71f58768a971, type: 3}
+    - {fileID: 8300000, guid: 6e2debc1c89a3f647aab2b4a629868f2, type: 3}
+    - {fileID: 8300000, guid: 4db13175e4ccbb849af4d4cbdb0dffbd, type: 3}
+    - {fileID: 8300000, guid: 7c6ffd4ac4a284747ae216f82c94a14e, type: 3}
+    - {fileID: 8300000, guid: 46ba18cd923ebbe4bbe3d5716bdc6145, type: 3}
+    - {fileID: 8300000, guid: f28c75be0b6960248942a7d193a8b435, type: 3}
+    - {fileID: 8300000, guid: 74f0a42e0d9c50e4cb106cd7d458704d, type: 3}
+    - {fileID: 8300000, guid: 8c68b86535e836642a0d5ac896cdf883, type: 3}
+    - {fileID: 8300000, guid: fdab41507e54d2a4e8c9c91bfbf6dc99, type: 3}
+    - {fileID: 8300000, guid: 8561e539c9bde9142b30d08590211d71, type: 3}
+  - Name: chicken adobo sa gata
+    MainAudioClips:
+    - {fileID: 8300000, guid: 0e74f1e3c4c273b4daa78438a484720f, type: 3}
+    - {fileID: 8300000, guid: 5aea8f3e2c4bbbf40b39eed2421f81b0, type: 3}
+    - {fileID: 8300000, guid: 7aa6bc66969291b42bc2742ccf7d3ddf, type: 3}
+    - {fileID: 8300000, guid: 1cd5edec2e3e2a746b420ec6d6e59657, type: 3}
+    - {fileID: 8300000, guid: 4842a5e53f7c8a845895f7e066f37138, type: 3}
+    - {fileID: 8300000, guid: da691f688f09ae8498237579420b5fdc, type: 3}
+    - {fileID: 8300000, guid: 546f34ce8301a53448134e42ea56ac28, type: 3}
+    - {fileID: 8300000, guid: 51c99254c6cd14d42948e5798d098dbf, type: 3}
+    - {fileID: 8300000, guid: c982e4ebfdb59a34eb7e8d41b233556c, type: 3}
+    - {fileID: 8300000, guid: 23d84f2310c79e6429a5f5a56dc6f000, type: 3}
+    - {fileID: 8300000, guid: 0cd979fd16de6604d98d8672b76ec658, type: 3}
+    - {fileID: 8300000, guid: 1eb3d6ec658ec3648afc58bff4d49a3c, type: 3}
+    - {fileID: 8300000, guid: 1d19193ad7a3caa4e926e697a509d2d5, type: 3}
+    - {fileID: 8300000, guid: ad78990524dc27043b5c999288395ee9, type: 3}
+    - {fileID: 8300000, guid: 4d0019d7d9592464e8c497338aa396f4, type: 3}
+    - {fileID: 8300000, guid: d46e06e6db7c07845b14e7ab40ae241a, type: 3}
+  - Name: ginataang mais
+    MainAudioClips:
+    - {fileID: 8300000, guid: 19ce3be33e092c74cab7cf2114c21337, type: 3}
+    - {fileID: 8300000, guid: 34f5bfd8d236e5441adea80a0fc2966b, type: 3}
+    - {fileID: 8300000, guid: 5e61bd266a94f5946ab7ef3b89605d80, type: 3}
+    - {fileID: 8300000, guid: 067466b7a077f7140ac85226c85f9c8e, type: 3}
+    - {fileID: 8300000, guid: 0fa2dd2f67e392149979d693e7f0abe5, type: 3}
+    - {fileID: 8300000, guid: 80742479ce9ba97459c4e1444c981bb4, type: 3}
+    - {fileID: 8300000, guid: 2cd70399caf77e64ea551a7b275e2044, type: 3}
+    - {fileID: 8300000, guid: 23f1edd4821daa84f87452fd1b952420, type: 3}
+    - {fileID: 8300000, guid: 09dfa1cb2b7058649903fee0c1de5a44, type: 3}
+  - Name: ginataang monggo
+    MainAudioClips:
+    - {fileID: 8300000, guid: 34321a7b53b09ba4b9b45ecc51cac600, type: 3}
+    - {fileID: 8300000, guid: 698cb3bcedf070648a9b53ef9c2ad90b, type: 3}
+    - {fileID: 8300000, guid: 4689afa2cb1e5bf408b9d03a62a81c05, type: 3}
+    - {fileID: 8300000, guid: fca2108c82e169f46b015a88bf66c937, type: 3}
+    - {fileID: 8300000, guid: 893f670598336fa47a843b0b85f70e2d, type: 3}
+    - {fileID: 8300000, guid: dad7cd16babf68c4f9a9aa4573cc95c4, type: 3}
+    - {fileID: 8300000, guid: caf1c8ecb9b88664487ac2e7e82c4131, type: 3}
+    - {fileID: 8300000, guid: b7aaa35b5ef19724583179d5db17c583, type: 3}
+    - {fileID: 8300000, guid: cf0968cf372002d4fb3792b6a961f3e3, type: 3}
+    - {fileID: 8300000, guid: 04972aea2d76325409a8d45d06497a54, type: 3}
+    - {fileID: 8300000, guid: bd0900a3d9eb6cf4fa3fb95718d3f6a6, type: 3}
+    - {fileID: 8300000, guid: 9a3dc1fdbbbb34e48bb3fe8d61211ae2, type: 3}
+  - Name: palitaw
+    MainAudioClips:
+    - {fileID: 8300000, guid: 862e96e483a506e42b35606fbfe370a3, type: 3}
+    - {fileID: 8300000, guid: d8eec065ed1ae8246a85173c9d2c6212, type: 3}
+    - {fileID: 8300000, guid: 8ffe8802bb18f0140b4c9c61780b5422, type: 3}
+    - {fileID: 8300000, guid: bbb8f4d6ae86f084f82fce0e252d27d7, type: 3}
+    - {fileID: 8300000, guid: a12fb9db7270a8c41aa611f15193eb61, type: 3}
+    - {fileID: 8300000, guid: 1597b4a65ba9913419c032720d5ce480, type: 3}
+    - {fileID: 8300000, guid: cfb10320ddd95164ab1b58b6d1dc8de2, type: 3}
+    - {fileID: 8300000, guid: 4ae19f1334c63914887f86646238cfdf, type: 3}
+    - {fileID: 8300000, guid: 7b2de9af87d2478489b8cabc7cb15460, type: 3}
+    - {fileID: 8300000, guid: eca725bf4fef26e4c96de306832697c0, type: 3}
+    - {fileID: 8300000, guid: 93c23b9d545bc8848a182a9b08228aa4, type: 3}
+    - {fileID: 8300000, guid: fb07b35a1da186b45a16e0eaac1b2b5d, type: 3}
+  - Name: kutsinta
+    MainAudioClips:
+    - {fileID: 8300000, guid: d5d751e273b35fb43b4d0691f55e8a02, type: 3}
+    - {fileID: 8300000, guid: 0959d63becc5e3146a8d97cf3b286c54, type: 3}
+    - {fileID: 8300000, guid: 179444affa7a6724cae214ae595e2fca, type: 3}
+    - {fileID: 8300000, guid: 48d2231ca0222c24da25a8e981c83ee3, type: 3}
+    - {fileID: 8300000, guid: d6ada87c93f0bc142bd382280dd62ebf, type: 3}
+    - {fileID: 8300000, guid: c00c1ba7f8218b242bd5084fd7b81c0d, type: 3}
+    - {fileID: 8300000, guid: d75f7717addc4d04fbfcf885fe3b2e3c, type: 3}
+    - {fileID: 8300000, guid: 4dba12620810089448890bf9ae6155cd, type: 3}
+    - {fileID: 8300000, guid: bb33ce298a29da0429ca9186d46ecc37, type: 3}
+    - {fileID: 8300000, guid: 48ae7e716b34c1f45ab3f5b325af0e57, type: 3}
+    - {fileID: 8300000, guid: 97f4288b8bfd73b49935bd15dbf09677, type: 3}
+    - {fileID: 8300000, guid: 1418cffd2de744e4d8eac8a64af9f0fb, type: 3}
+  - Name: lunis
+    MainAudioClips:
+    - {fileID: 8300000, guid: 98dd2b21634fb03448257190d3926a33, type: 3}
+    - {fileID: 8300000, guid: 514bf1995e3b21741b3db3a08fb1f54a, type: 3}
+    - {fileID: 8300000, guid: f83ab3762aec6c34182018e7df80ad06, type: 3}
+    - {fileID: 8300000, guid: 675fcf2d54b88874f96ec9350e034720, type: 3}
+    - {fileID: 8300000, guid: 9db3e5825a267fb468a2aaa1de5f62e3, type: 3}
+  - Name: igado
+    MainAudioClips:
+    - {fileID: 8300000, guid: edde5dd1e40441b46925a9f8fa9234c3, type: 3}
+    - {fileID: 8300000, guid: c2922486799f4084a83082a7f083731a, type: 3}
+    - {fileID: 8300000, guid: 655d55cea3a740f47b4632ff07806f69, type: 3}
+    - {fileID: 8300000, guid: 25fd5b370f285154cb28388e013c5602, type: 3}
+    - {fileID: 8300000, guid: 4db9818661fe0af4f8b2f93e4c2aaf12, type: 3}
+    - {fileID: 8300000, guid: 0986fc0f0e6a20d4f8dd8d4e24d37597, type: 3}
+    - {fileID: 8300000, guid: 1616aba724822e74ca592084bcb7b313, type: 3}
+    - {fileID: 8300000, guid: 1ee0155f2569615429714d94f303d19c, type: 3}
+    - {fileID: 8300000, guid: d40dcb9a1967a224b99efb5c378ba5dd, type: 3}
+    - {fileID: 8300000, guid: 9a0e07c8a84516f428dfde0a18ed8056, type: 3}
+    - {fileID: 8300000, guid: 17b8e7541a4549947927032bc18883a8, type: 3}
+    - {fileID: 8300000, guid: 7acbf627e23c16549bbba584d1ee9e7d, type: 3}
+    - {fileID: 8300000, guid: fba58dccfe7a13c47ba0b22765477e4f, type: 3}
+    - {fileID: 8300000, guid: 41deef1e1be67e54eb2b75039213c9c1, type: 3}
+    - {fileID: 8300000, guid: 6aa99df351f7ac3488d897cee9a53cf8, type: 3}
+    - {fileID: 8300000, guid: f53b260920b94cc4c8996900ca4dbb15, type: 3}
+  - Name: crispy hito
+    MainAudioClips:
+    - {fileID: 8300000, guid: 731efefccc060b64f8204844f260747c, type: 3}
+    - {fileID: 8300000, guid: b674a1c53963ddf45a305cf6ba3bd032, type: 3}
+    - {fileID: 8300000, guid: 9af49fa0461bf1b4a95ff2e4c059642e, type: 3}
+    - {fileID: 8300000, guid: a9ddb112152e19e4db2735b7bb490c06, type: 3}
+  - Name: kinilaw na guso
+    MainAudioClips:
+    - {fileID: 8300000, guid: 1807d8ecdc7557b489c1ae452bd087ed, type: 3}
+    - {fileID: 8300000, guid: 9fb39b21059a3e14f9a2b30d74a1f687, type: 3}
+    - {fileID: 8300000, guid: bfd0ffb204a538d4ea59445fb34b48f8, type: 3}
+    - {fileID: 8300000, guid: 4bdb7a13879fd834cb4ca8098dc75669, type: 3}
+    - {fileID: 8300000, guid: fa2f22b9f7c80a0479fdb035c902697f, type: 3}
+    - {fileID: 8300000, guid: 2340b00d30f6a0441a1e66e1f2e62659, type: 3}
+    - {fileID: 8300000, guid: 5c4cd9d4534f8754c8785d4108675352, type: 3}
+    - {fileID: 8300000, guid: 3fb60e688df4ce445a287e0a0dc9dc34, type: 3}
+    - {fileID: 8300000, guid: 54f44dd070bfc7f43bf573a9592bb108, type: 3}
+    - {fileID: 8300000, guid: c0f769fb650173b49bfce55e4edf9260, type: 3}
+    - {fileID: 8300000, guid: ca3e5048329eacc46b792334a468795d, type: 3}
+    - {fileID: 8300000, guid: f5ab389b99a8a574895b24e8672b25d4, type: 3}
+  - Name: pickled balut
+    MainAudioClips:
+    - {fileID: 8300000, guid: 75c44f52c0b4dc2408d94e22881fde46, type: 3}
+    - {fileID: 8300000, guid: 6cc1fe49ceb9a2c418fe05b474b719d6, type: 3}
+    - {fileID: 8300000, guid: 043afc5e8928d114eaa33ca44cc7b87f, type: 3}
+    - {fileID: 8300000, guid: ed11331a76ec5254c95d65c62a821984, type: 3}
+    - {fileID: 8300000, guid: 0e6a1ae8c6b545b479fa6b4efdc9c3b5, type: 3}
+    - {fileID: 8300000, guid: c4dbbd7b590cd2549aa5802d6b9d8163, type: 3}
+    - {fileID: 8300000, guid: afcc611d8ff7a864fa0f9e775fd5ea53, type: 3}
+    - {fileID: 8300000, guid: 95c782bfa1972c64586b79f06da61d08, type: 3}
+  - Name: ginisang bihod ng bariles
+    MainAudioClips:
+    - {fileID: 8300000, guid: 95da44fe6c6db2843aa7b01a1c369dad, type: 3}
+    - {fileID: 8300000, guid: b28774e156176f643aea969f7ed636ec, type: 3}
+    - {fileID: 8300000, guid: 87881b3285fe52d4ba6c74ea8c769e5f, type: 3}
+    - {fileID: 8300000, guid: b0328374913f29f42aefe6c5306d9e52, type: 3}
+    - {fileID: 8300000, guid: 6fee10ce189ddc1448a12fafe6d867f3, type: 3}
+    - {fileID: 8300000, guid: 032aa95bd5ff87a4a83f81b3704fb0f8, type: 3}
+    - {fileID: 8300000, guid: ad281f88778f81847ba8fc9352b296de, type: 3}
+  - Name: laswa
+    MainAudioClips:
+    - {fileID: 8300000, guid: cf96cbbd838e9134d82f3e4486737aa0, type: 3}
+    - {fileID: 8300000, guid: d087202590ee50b4e9d82b41b59fa0f3, type: 3}
+    - {fileID: 8300000, guid: f268a0ac98bc8874cbf50058cf35b54a, type: 3}
+    - {fileID: 8300000, guid: e67c150027de07a4c9770d19df1ff45a, type: 3}
+    - {fileID: 8300000, guid: 8df28e0098c0ef643bd6141c6193959f, type: 3}
+    - {fileID: 8300000, guid: 5ccc9b83a1dc86c479971ac7ae7ce149, type: 3}
+    - {fileID: 8300000, guid: 0eac85528c5847a478b91e13e3c94f12, type: 3}
+    - {fileID: 8300000, guid: e18a752be7253ed4488fef3438336f49, type: 3}
+    - {fileID: 8300000, guid: 16bcf249c84976547b7f76970accef4b, type: 3}
+  - Name: kinulob
+    MainAudioClips:
+    - {fileID: 8300000, guid: 047def914aa120842a73b220776ee3e1, type: 3}
+    - {fileID: 8300000, guid: 9431698ff15d62842956011285105ceb, type: 3}
+    - {fileID: 8300000, guid: 64046237bea46804ea32fbc743d02180, type: 3}
+    - {fileID: 8300000, guid: 6baecfd155fa1784ea3588bfdacee251, type: 3}
+    - {fileID: 8300000, guid: cd75608e7200fdc4ea5d24a37db03545, type: 3}
+    - {fileID: 8300000, guid: a697b8fd83275f343a0c88fe16f83be0, type: 3}
+    - {fileID: 8300000, guid: fffeb4c9e2bc364498851517d74c0a86, type: 3}
+    - {fileID: 8300000, guid: f8c51bb1c225f624ca1ba7b2484d18c6, type: 3}
+    - {fileID: 8300000, guid: 46c9618bae0964448ba1dae44b102693, type: 3}
+    - {fileID: 8300000, guid: 6749fd7f12e6dbd47a98b1f8e5f731b0, type: 3}
+    - {fileID: 8300000, guid: 058cae6cbc34a314dba6b202d2fe15f0, type: 3}
+    - {fileID: 8300000, guid: 61824d3378e43614488baf48e883dd9c, type: 3}
+  - Name: ginarep
+    MainAudioClips:
+    - {fileID: 8300000, guid: 58b230bf5c227f54b959131633fec10e, type: 3}
+    - {fileID: 8300000, guid: ac86b45a20011b245b28b82cef6836dc, type: 3}
+    - {fileID: 8300000, guid: 3c7dd930d2ea94749bf6c0598e5fa334, type: 3}
+    - {fileID: 8300000, guid: 7ec978f94af4b3044abceb250d52a490, type: 3}
+    - {fileID: 8300000, guid: 4c7fb76649f12d147b8bae8168f49858, type: 3}
+    - {fileID: 8300000, guid: 3b10ae71c36f68f439b892467f4af7e3, type: 3}
+    - {fileID: 8300000, guid: f20841379761f9d418d507b62a0d756a, type: 3}
+    - {fileID: 8300000, guid: 57b68fd4347feec4fb25f30fa13ab70b, type: 3}
+    - {fileID: 8300000, guid: 4e583dcb88e0491428cf5956ef6a4531, type: 3}
+    - {fileID: 8300000, guid: d24304eceadc8104e911973822d00457, type: 3}
+  - Name: pamplina
+    MainAudioClips:
+    - {fileID: 8300000, guid: 8843c256b9b07e04d903aba1c643fa76, type: 3}
+    - {fileID: 8300000, guid: d862498d24e2c0541a5314bf890e8a2d, type: 3}
+    - {fileID: 8300000, guid: 7200d848108b4fd429ae8c568c5a4e11, type: 3}
+    - {fileID: 8300000, guid: fb632975331a346418824cb056d507c2, type: 3}
+    - {fileID: 8300000, guid: 85aeec23733d38e488d35e094877e839, type: 3}
+    - {fileID: 8300000, guid: 47c8ef7c56a6ac64aadc69b3d0b4531d, type: 3}
+    - {fileID: 8300000, guid: 330df22bb767d174da1e7aae746bb737, type: 3}
+    - {fileID: 8300000, guid: dfff8bb9c3333494e92f088d3aa2cc26, type: 3}
+    - {fileID: 8300000, guid: 6aef2f1257cd3c94196e50a90e2d9650, type: 3}
