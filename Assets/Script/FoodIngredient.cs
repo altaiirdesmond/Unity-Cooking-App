@@ -78,7 +78,7 @@ public class FoodIngredient : IEnumerator {
 
                 // Get the instances of the word in the ingredient
                 var collection = databaseManager.GetIngredient(food.FoodId).
-                    Where(x => x.RawName.StartsWith(words[i]) && x.RawName.Contains(words[i]));
+                    Where(x => x.RawName.StartsWith(words[i].ToLower()) && x.RawName.Contains(words[i].ToLower()));
 
                 Debug.Log("current word:" + words[i]);
                 foreach (var item in collection) {
@@ -99,7 +99,7 @@ public class FoodIngredient : IEnumerator {
                     Debug.Log("Getting the two words: " + fullRawName);
 
                     foreach (var item in databaseManager.GetIngredient(food.FoodId).
-                        Where(x => x.RawName == fullRawName)) {
+                        Where(x => x.RawName == fullRawName.ToLower())) {
                         Debug.Log("<color=green>adding..." + item.RawName + "</color>");
                         // Avoid duplication
                         if (!dictionary.ContainsKey(item.RawName)) {
