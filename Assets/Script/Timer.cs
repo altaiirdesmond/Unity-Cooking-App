@@ -13,15 +13,9 @@ public class Timer : MonoBehaviour {
 
     public int Until { get; set; }
 
-    // Check if a random generated limit has been reached
-    public bool RandomLimitReached {
+    public bool TriviaLimit {
         get {
-            bool state = false;
-            if(randomLimit > 0) { // Make sure to return true if and only if we have randomlimit set to > 0
-                state = min == randomLimit && sec == 0;
-            }
-
-            return state;
+            return Until == 2f;
         }
     }
 
@@ -94,10 +88,5 @@ public class Timer : MonoBehaviour {
         }
 
         TmPro.SetText(string.Format("{0:00}:{1:00}:{2:00}", hour, min, sec));
-    }
-
-    public void GenerateRandomLimit() {
-        randomLimit = Random.Range(1, Until - 1);
-        Debug.Log("randome:" + randomLimit);
     }
 }

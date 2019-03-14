@@ -23,6 +23,13 @@ public class CookingManager : MonoBehaviour {
     private FoodIngredient foodIngredient;
     private bool stop = false;
     private int clipCountForCurInstruction = 0;
+    private string[] bottled = {
+        "cooking oil",
+        "fish sauce",
+        "food coloring(violet)",
+        "food coloring(yellow)",
+        "ube extract"
+    }; 
 
     public string Trivia { get; set; }
 
@@ -33,7 +40,6 @@ public class CookingManager : MonoBehaviour {
         // Pass only translated instruction. Tagalog not supported
         foodIngredient = new FoodIngredient(food, food.InstructionTranslated);
 
-        // ...
         if (Lean.Localization.LeanLocalization.CurrentLanguage.Equals("English")) {
             trivia.SetText(food.TriviaTranslated);
         } else {
@@ -106,17 +112,13 @@ public class CookingManager : MonoBehaviour {
                     foodIngredient.Time = 0; // Clear the time from foodIngredient
                     timer.Start = true;
 
-                    if (timer.Until > 3) { // Generate a random limit if the WAIT_TIME is more than 3 mins
-                        timer.GenerateRandomLimit();
-                    }
-
                     while (!timer.NormalLimitReached) {
                         if (timer.Min == timer.Until - 1 && timer.Sec == 0) {
                             // Start animation of timer
                             timer.GetComponent<Animator>().SetTrigger("show");
                         }
 
-                        if (timer.RandomLimitReached) { 
+                        if (timer.TriviaLimit) {
                             // Show trivia by script
                             FindObjectOfType<CategorySceneManager>()
                                 .Panels[7]
@@ -152,17 +154,13 @@ public class CookingManager : MonoBehaviour {
                     foodIngredient.Time = 0; // Clear the time from foodIngredient
                     timer.Start = true;
 
-                    if (timer.Until > 3) {
-                        timer.GenerateRandomLimit();
-                    }
-
                     while (!timer.NormalLimitReached) {
                         if (timer.Min == timer.Until - 1 && timer.Sec == 0) {
                             // Start animation of timer
                             timer.GetComponent<Animator>().SetTrigger("show");
                         }
 
-                        if (timer.RandomLimitReached) { // Listen to a random limit if the WAIT_TIME is more than 3 mins
+                        if (timer.TriviaLimit) { // Listen to a random limit if the WAIT_TIME is more than 3 mins
                             // Show trivia by script
                             FindObjectOfType<CategorySceneManager>()
                                 .Panels[7]
