@@ -23,13 +23,6 @@ public class CookingManager : MonoBehaviour {
     private FoodIngredient foodIngredient;
     private bool stop = false;
     private int clipCountForCurInstruction = 0;
-    private string[] bottled = {
-        "cooking oil",
-        "fish sauce",
-        "food coloring(violet)",
-        "food coloring(yellow)",
-        "ube extract"
-    }; 
 
     public string Trivia { get; set; }
 
@@ -183,7 +176,7 @@ public class CookingManager : MonoBehaviour {
                         yield return null;
                     }
 
-                    // Show trivia by script
+                    // Hide trivia by script
                     FindObjectOfType<CategorySceneManager>()
                         .Panels[7]
                         .GetComponent<UIAnimation>()
