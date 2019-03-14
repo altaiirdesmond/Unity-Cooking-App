@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour {
 
     public bool TriviaLimit {
         get {
-            return Until == 2f;
+            return min == 2f && sec == 0f;
         }
     }
 

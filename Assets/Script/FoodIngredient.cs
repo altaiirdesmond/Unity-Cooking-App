@@ -61,7 +61,7 @@ public class FoodIngredient : IEnumerator {
                 // If the ingredient is not instructed to be used. Checks for tag {skip}
                 if (words[i].Contains("skip")) {
                     foreach (var item in databaseManager.GetIngredient(food.FoodId).
-                    Where(x => x.RawName.StartsWith(words[i + 1]) && x.RawName.Contains(words[i + 1])).Take(1)) {
+                    Where(x => x.RawName.StartsWith(words[i + 1].ToLower()) && x.RawName.Contains(words[i + 1].ToLower())).Take(1)) {
                         // Blacklist that ingredient
                         exclude = item.RawName + " " + "{skip}";
 
@@ -85,19 +85,34 @@ public class FoodIngredient : IEnumerator {
                     Debug.Log("searched word: " + item.RawName);
                 }
 
-                // We are checking for multiple instance of that ingredient with 
-                // word that starts with word[i]
-                if(collection.Count() > 1) {
-                    // If there are two or more instances found from the database
-                    // then we should get not only the first
-                    // word but the whole word to be accurate on what we are getting in the 
-                    // database
-                    string fullRawName = words[i] + " " + words[i + 1];
+                string fullRawName = string.Empty;
+                if (collection.Count() > 1) {
+                    // First we have to compare the first word to each instance
+                    foreach (var item in collection) {
+                        if(item.RawName == words[i]) {
+                            // Avoid duplication
+                            if (!dictionary.ContainsKey(item.RawName)) {
+                                // If the word[i] is on Blacklist skip it
+                                if (exclude.Contains(words[i])) {
+                                    Debug.Log("<color=red>" + words[i] + "</color> cannot be added");
+                                    continue;
+                                } else {
+                                    Debug.Log("<color=green>adding..." + item.RawName + "</color>");
+                                    dictionary.Add(item.RawName, item.Method);
+                                }
+                            }
+
+                            break;
+                        }
+                    }
+
+                    // If none found we should probably get the second word too
+                    fullRawName = words[i] + " " + words[i + 1];
                     fullRawName = fullRawName.Replace(".", string.Empty);
+                    fullRawName = fullRawName.Replace(",", string.Empty);
                     fullRawName = fullRawName.Trim();
 
                     Debug.Log("Getting the two words: " + fullRawName);
-
                     foreach (var item in databaseManager.GetIngredient(food.FoodId).
                         Where(x => x.RawName == fullRawName.ToLower())) {
                         Debug.Log("<color=green>adding..." + item.RawName + "</color>");
@@ -122,7 +137,7 @@ public class FoodIngredient : IEnumerator {
                                 Debug.Log("<color=red>" + words[i] + "</color> cannot be added");
                                 continue;
                             } else {
-                                Debug.Log(words[i] + "has been added");
+                                Debug.Log("<color=green>adding..." + item.RawName + "</color>");
                                 dictionary.Add(item.RawName, item.Method);
                             }
                         }
@@ -138,5 +153,9 @@ public class FoodIngredient : IEnumerator {
         get {
             return Current;
         }
+    }
+
+    private void AddToDictionary(string raw) {
+        // TODO
     }
 }

@@ -169,6 +169,7 @@ public class CookingManager : MonoBehaviour {
                                 .SetBool("show", true);
                             FindObjectOfType<AudioManager>().TriviaSFXPlay();
                         }
+
                         while (stop) {
                             // Pause timer
                             if (timer.Start) {
@@ -181,6 +182,13 @@ public class CookingManager : MonoBehaviour {
                         timer.Start = true;
                         yield return null;
                     }
+
+                    // Show trivia by script
+                    FindObjectOfType<CategorySceneManager>()
+                        .Panels[7]
+                        .GetComponent<UIAnimation>()
+                        .Animator
+                        .SetBool("show", false);
 
                     FindObjectOfType<AudioManager>().TimerDoneSFXPlay();
 
