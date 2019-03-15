@@ -20,6 +20,9 @@ public class AudioManager : MonoBehaviour {
             dontDestroy = this;
         }
 
+        // Let the display never sleep
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         DontDestroyOnLoad(gameObject);
 
         foreach (GameObject button in GameObject.FindGameObjectsWithTag("Button")) {

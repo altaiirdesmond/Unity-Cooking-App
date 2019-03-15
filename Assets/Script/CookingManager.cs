@@ -11,6 +11,8 @@ public class CookingManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI instruction;
     [SerializeField] private SpriteRenderer rawImage;
     [SerializeField] private SpriteRenderer plateImage;
+    [SerializeField] private Transform bowlImage;
+    [SerializeField] private Transform potImage;
     [SerializeField] private Timer timer;
     [SerializeField] private TextMeshProUGUI trivia;
     [SerializeField] private TextMeshProUGUI finish;
@@ -28,6 +30,14 @@ public class CookingManager : MonoBehaviour {
 
     private void Start() {
         food = MenuManager.Food;
+
+        if(food.FoodName == "kinilaw na guso") {
+            potImage.gameObject.SetActive(false);
+            bowlImage.gameObject.SetActive(true);
+        } else {
+            potImage.gameObject.SetActive(true);
+            bowlImage.gameObject.SetActive(false);
+        }
 
         // Ready the ingredients after knowing the instruction
         // Pass only translated instruction. Tagalog not supported

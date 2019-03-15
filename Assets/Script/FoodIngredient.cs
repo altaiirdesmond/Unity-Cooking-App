@@ -133,7 +133,7 @@ public class FoodIngredient : IEnumerator {
                         // Avoid duplication
                         if (!dictionary.ContainsKey(item.RawName)) {
                             // If the word[i] is on Blacklist skip it
-                            if (exclude.Contains(words[i])) {
+                            if (exclude.Contains(words[i].ToLower())) {
                                 Debug.Log("<color=red>" + words[i] + "</color> cannot be added");
                                 continue;
                             } else {
