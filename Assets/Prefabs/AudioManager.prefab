@@ -62,6 +62,9 @@ MonoBehaviour:
     AudioSource: {fileID: 0}
   - Name: Background
     AudioClip: {fileID: 8300000, guid: 63961c170c7de0541899b199b7e3b17a, type: 3}
-    Volume: 0.2
+    Volume: 0.098
     AudioSource: {fileID: 0}
-  backgroundClipAudioSource: {fileID: 0}
+  - Name: TimerNearing
+    AudioClip: {fileID: 8300000, guid: bbb157d7f3e38244bb7afc8f5f662867, type: 3}
+    Volume: 0.5
+    AudioSource: {fileID: 0}
