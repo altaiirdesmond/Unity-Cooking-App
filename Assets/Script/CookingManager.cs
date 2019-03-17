@@ -120,13 +120,13 @@ namespace Assets.Script {
                 if (food.FoodName == "chicken adobo sa gata" && idx == 1 ||
                     food.FoodName == "kutsinta" && idx == 3 ||
                     food.FoodName == "palitaw" && idx == 3 ||
-                    food.FoodName == "sapin sapin" && idx == 6) {
+                    food.FoodName == "sapin sapin" && idx == 5) {
                     // Display pot
                     potImage.gameObject.SetActive(true);
                     bowlImage.gameObject.SetActive(false);
                     panImage.gameObject.SetActive(false);
                 }
-                else if (food.FoodName == "sapin sapin" && idx == 7) {
+                else if (food.FoodName == "sapin sapin" && idx == 6) {
                     // Display pan
                     panImage.gameObject.SetActive(true);
                     potImage.gameObject.SetActive(false);
