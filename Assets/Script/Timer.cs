@@ -32,7 +32,7 @@
         /// </summary>
         public bool TriviaLimit {
             get {
-                return Mathf.RoundToInt(Min) == 0 && Mathf.RoundToInt(Sec) == 0;
+                return Mathf.RoundToInt(Min) == 2 && Mathf.RoundToInt(Sec) == 0;
             }
         }
 
@@ -53,7 +53,7 @@
         public bool NormalLimitReached {
             get {
                 bool state = false;
-                if (Min >= Until - 1) {
+                if (Min >= Until - 1 && Sec >= 59) {
                     // Clear all values
                     timerDisplay.SetText("00:00:00");
                     start = false;
