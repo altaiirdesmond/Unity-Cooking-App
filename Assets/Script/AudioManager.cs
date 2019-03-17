@@ -62,6 +62,11 @@ public class AudioManager : MonoBehaviour {
         Array.Find(sounds, sounds => sounds.Name == "TimerDone").AudioSource.Play();
     }
 
+    public void TimerNearingSFXPlay() {
+        // This is where we assign what clip should be played on Timer SFX
+        Array.Find(sounds, sounds => sounds.Name == "TimerNearing").AudioSource.Play();
+    }
+
     private void ChangedActiveScene(Scene current, Scene next) {
         string currentName = current.name;
          
