@@ -1,92 +1,121 @@
-﻿using TMPro;
-using UnityEngine;
+﻿namespace Assets.Script {
+    using TMPro;
+    using UnityEngine;
 
-public class Timer : MonoBehaviour {
+    /// <summary>
+    /// Defines the <see cref="Timer" />
+    /// </summary>
+    public class Timer : MonoBehaviour {
+        /// <summary>
+        /// Defines the timerDisplay
+        /// </summary>
+        [SerializeField] private TextMeshProUGUI timerDisplay;
 
-    [SerializeField] private TextMeshProUGUI timerDisplay;
-    [SerializeField] private bool start = false;
+        /// <summary>
+        /// Defines the start
+        /// </summary>
+        [SerializeField] private bool start;
 
-    private int randomLimit = 0;
-    private float hour = 0;
-    private float min = 0;
-    private float sec = 0;
+        /// <summary>
+        /// Defines the hour
+        /// </summary>
+        private float hour;
 
-    public int Until { get; set; }
+        /// <summary>
+        /// Gets or sets the Until
+        /// </summary>
+        public float Until { get; set; }
 
-    public bool TriviaLimit {
-        get {
-            return min == 2f && sec == 0f;
+        /// <summary>
+        /// Gets a value indicating whether TriviaLimit
+        /// <para>TriviaLimit needs, for example 60 minutes, 60 - 1 value to be invoked</para>
+        /// </summary>
+        public bool TriviaLimit {
+            get {
+                return Mathf.RoundToInt(Min) == 0 && Mathf.RoundToInt(Sec) == 0;
+            }
         }
-    }
 
-    public float Min {
-        get {
-            return min;
+        /// <summary>
+        /// Gets the Min
+        /// </summary>
+        public float Min { get; private set; }
+
+        /// <summary>
+        /// Gets the Sec
+        /// </summary>
+        public float Sec { get; private set; }
+
+        /// <summary>
+        /// <para>Gets a value indicating whether NormalLimitReached</para> 
+        /// <para>NormalLimitReached needs, for example 60 minutes, 60 - 1 value to be invoked</para>
+        /// </summary>
+        public bool NormalLimitReached {
+            get {
+                bool state = false;
+                if (Min >= Until - 1) {
+                    // Clear all values
+                    timerDisplay.SetText("00:00:00");
+                    start = false;
+                    Min = 0;
+                    hour = 0;
+                    Sec = 0;
+
+                    state = true; // Limit has been reached
+                }
+
+                return state;
+            }
         }
-    }
 
-    public float Sec {
-        get {
-            return sec;
-        }
-    }
-
-    public bool NormalLimitReached {
-        get {
-            bool state = false;
-            if(min >= Until) {
-                // Clear all values
-                timerDisplay.SetText("00:00:00");
-                start = false;
-                min = 0;
-                hour = 0;
-                sec = 0;
-
-                state = true; // Limit has been reached
+        /// <summary>
+        /// Gets or sets a value indicating whether Start
+        /// </summary>
+        public bool Start {
+            get {
+                return start;
             }
 
-            return state;
-        }
-    }
-
-    public bool Start {
-        get {
-            return start;
+            set {
+                start = value;
+            }
         }
 
-        set {
-            start = value;
-        }
-    }
+        /// <summary>
+        /// Gets or sets the timerDisplay
+        /// </summary>
+        public TextMeshProUGUI TmPro {
+            get {
+                return timerDisplay;
+            }
 
-    public TextMeshProUGUI TmPro {
-        get {
-            return timerDisplay;
-        }
-
-        set {
-            timerDisplay = value;
-        }
-    }
-
-    private void Update() {
-        if (start) {
-            GoTimer();
-        } 
-    }
-
-    private void GoTimer() {
-        sec += Time.deltaTime;
-
-        if(sec >= 59) {
-            min++;
-            sec = 0;
-        }
-        if(min > 59) {
-            hour++;
-            min = 0;
+            set {
+                timerDisplay = value;
+            }
         }
 
-        TmPro.SetText(string.Format("{0:00}:{1:00}:{2:00}", hour, min, sec));
+        private void Update() {
+            if (start) {
+                GoTimer();
+            }
+        }
+
+        /// <summary>
+        /// Starts timer
+        /// </summary>
+        private void GoTimer() {
+            Sec += Time.deltaTime;
+
+            if (Sec >= 59) {
+                Min++;
+                Sec = 0;
+            }
+            if (Min >= 59) {
+                hour++;
+                Min = 0;
+            }
+
+            TmPro.SetText(string.Format("{0:00}:{1:00}:{2:00}", hour, Min, Sec));
+        }
     }
 }
