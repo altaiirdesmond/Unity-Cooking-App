@@ -1,12 +1,12 @@
 ﻿using TMPro;
 using UnityEngine;
 
-public class IngredientText : MonoBehaviour {
-	void Start () {
-        if (Lean.Localization.LeanLocalization.CurrentLanguage.Equals("English")) {
-            //GetComponent<TextMeshProUGUI>().SetText(MenuManager.Food.IngredientsTranslated);
-        } else {
-            //GetComponent<TextMeshProUGUI>().SetText(MenuManager.Food.Ingredients);
+namespace Assets.Script {
+    public class IngredientText : MonoBehaviour {
+        private void Start () {
+            GetComponent<TextMeshProUGUI>().SetText(Lean.Localization.LeanLocalization.CurrentLanguage.Equals("English")
+                ? MenuManager.Food.IngredientsTranslated
+                : MenuManager.Food.Ingredients);
         }
     }
 }
