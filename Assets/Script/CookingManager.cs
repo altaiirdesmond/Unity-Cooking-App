@@ -12,6 +12,7 @@ namespace Assets.Script {
         [Header("This will contain all the action within the cooking session")]
         [SerializeField] private Transform bowlImage;
         [SerializeField] private GameObject chickenAdobo;
+        [SerializeField] private GameObject bananaLeaf;
         [SerializeField] private Animator cookingAnimator;
         [SerializeField] private TextMeshProUGUI finish;
         [SerializeField] private GameObject foodResult;
@@ -23,6 +24,9 @@ namespace Assets.Script {
         [SerializeField] private SpriteRenderer plateImage;
         [SerializeField] private Transform potImage;
         [SerializeField] private SpriteRenderer rawImage;
+        [SerializeField] private Transform fryPanImage;
+        [SerializeField] private Transform jarImage;
+        [SerializeField] private Transform leafImage;
         [SerializeField] private Timer timer;
         [SerializeField] private TextMeshProUGUI trivia;
 
@@ -39,14 +43,29 @@ namespace Assets.Script {
             food = MenuManager.Food;
 
             if (food.FoodName == "kinilaw na guso" ||
-                food.FoodName == "chicken adobo sa gata" ||
                 food.FoodName == "kutsinta" ||
                 food.FoodName == "palitaw" ||
-                food.FoodName == "sapin sapin") {
+                food.FoodName == "sapin sapin" ||
+                food.FoodName == "crispy hito") {
                 // Display bowl at start
                 potImage.gameObject.SetActive(false);
                 bowlImage.gameObject.SetActive(true);
                 panImage.gameObject.SetActive(false);
+                fryPanImage.gameObject.SetActive(false);
+                jarImage.gameObject.SetActive(false);
+                leafImage.gameObject.SetActive(false);
+            } else if (food.FoodName == "lunis" ||
+                       food.FoodName == "pickled balut" ||
+                       food.FoodName == "ginataang tilapia" ||
+                       food.FoodName == "chicken adobo sa gata" ||
+                       food.FoodName == "ginataang hipon, sitaw, kalabasa") {
+                // Display frypan at start
+                potImage.gameObject.SetActive(false);
+                bowlImage.gameObject.SetActive(false);
+                panImage.gameObject.SetActive(false);
+                fryPanImage.gameObject.SetActive(true);
+                jarImage.gameObject.SetActive(false);
+                leafImage.gameObject.SetActive(false);
             }
 
             // Ready the ingredients after knowing the instruction
@@ -88,24 +107,32 @@ namespace Assets.Script {
             }
         }
 
+        // TODO: Compress this function
+        private IEnumerator BananaLeaf() {
+            bananaLeaf.GetComponent<Animator>().SetTrigger("show");
+            yield return new WaitUntil(() =>
+                bananaLeaf.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BananaLeafIdle"));
+            while (stop) {
+                yield return null;
+            }
+        }
+        // TODO: Compress this function
         private IEnumerator ChickenAdobo() {
             chickenAdobo.GetComponent<Animator>().SetTrigger("show");
             yield return new WaitUntil(() =>
                 chickenAdobo.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("ChickenAdoboIdle"));
             while (stop) {
-                // yield null when using while loops within coroutine to prevent freezing
                 yield return null;
             }
 
             yield return null;
         }
-
+        // TODO: Compress this function
         private IEnumerator Palitaw() {
             palitaw.GetComponent<Animator>().SetTrigger("show");
             yield return new WaitUntil(() =>
                 palitaw.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("PalitawIdle"));
             while (stop) {
-                // yield null when using while loops within coroutine to prevent freezing
                 yield return null;
             }
 
@@ -125,12 +152,45 @@ namespace Assets.Script {
                     potImage.gameObject.SetActive(true);
                     bowlImage.gameObject.SetActive(false);
                     panImage.gameObject.SetActive(false);
+                    fryPanImage.gameObject.SetActive(false);
+                    jarImage.gameObject.SetActive(false);
+                    leafImage.gameObject.SetActive(false);
                 }
                 else if (food.FoodName == "sapin sapin" && idx == 6) {
                     // Display pan
                     panImage.gameObject.SetActive(true);
                     potImage.gameObject.SetActive(false);
                     bowlImage.gameObject.SetActive(false);
+                    fryPanImage.gameObject.SetActive(false);
+                    jarImage.gameObject.SetActive(false);
+                    leafImage.gameObject.SetActive(false);
+                }
+                else if (food.FoodName == "crispy hito" && idx == 2) {
+                    // Display fry pan
+                    panImage.gameObject.SetActive(false);
+                    potImage.gameObject.SetActive(false);
+                    bowlImage.gameObject.SetActive(false);
+                    fryPanImage.gameObject.SetActive(true);
+                    jarImage.gameObject.SetActive(false);
+                    leafImage.gameObject.SetActive(false);
+                }
+                else if (food.FoodName == "pickled balut" && idx == 1) {
+                    // Display jar
+                    panImage.gameObject.SetActive(false);
+                    potImage.gameObject.SetActive(false);
+                    bowlImage.gameObject.SetActive(false);
+                    fryPanImage.gameObject.SetActive(false);
+                    jarImage.gameObject.SetActive(true);
+                    leafImage.gameObject.SetActive(false);
+                }
+                else if (food.FoodName == "sapin sapin" && idx == 10) {
+                    // Display leaf
+                    panImage.gameObject.SetActive(false);
+                    potImage.gameObject.SetActive(false);
+                    bowlImage.gameObject.SetActive(false);
+                    fryPanImage.gameObject.SetActive(false);
+                    jarImage.gameObject.SetActive(false);
+                    leafImage.gameObject.SetActive(true);
                 }
 
                 clipCountForCurInstruction = speechManager.ClipsForCurrentInstruction(speechManager.ClipName);
@@ -161,7 +221,7 @@ namespace Assets.Script {
                         FindObjectOfType<AudioManager>().TimerStartSFXPlay();
                         timer.Until = foodIngredient.Time;
                         Debug.Log("<color=green>Starting time and until " + timer.Until + "</color>");
-                        foodIngredient.Time = 0; // Clear the time from foodIngredient
+                        foodIngredient.Time = 0f; // Clear the time from foodIngredient
                         timer.Start = true;
 
                         while (!timer.NormalLimitReached) {
@@ -207,7 +267,7 @@ namespace Assets.Script {
                         FindObjectOfType<AudioManager>().TimerStartSFXPlay();
                         timer.Until = foodIngredient.Time;
                         Debug.Log("<color=green>Starting time and until " + timer.Until + "</color>");
-                        foodIngredient.Time = 0; // Clear the time from foodIngredient
+                        foodIngredient.Time = 0f; // Clear the time from foodIngredient
                         timer.Start = true;
 
                         while (!timer.NormalLimitReached) {
@@ -321,6 +381,8 @@ namespace Assets.Script {
 
                 if (food.FoodName == "palitaw" && idx == 3) {
                     StartCoroutine(Palitaw());
+                } else if (food.FoodName == "sapin sapin" && idx == 10) {
+                    StartCoroutine(BananaLeaf());
                 }
 
                 idx++;
