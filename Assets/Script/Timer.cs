@@ -52,19 +52,18 @@
         /// </summary>
         public bool NormalLimitReached {
             get {
-                bool state = false;
-                if (Min >= Until - 1 && Sec >= 59) {
-                    // Clear all values
-                    timerDisplay.SetText("00:00:00");
-                    start = false;
-                    Min = 0;
-                    hour = 0;
-                    Sec = 0;
-
-                    state = true; // Limit has been reached
+                if (!(Mathf.RoundToInt(Min) >= Mathf.RoundToInt(Until) - 1f) || !(Mathf.RoundToInt(Sec) >= 60f)) {
+                    return false;
                 }
 
-                return state;
+                // Clear all values
+                timerDisplay.SetText("00:00:00");
+                start = false;
+                Min = 0;
+                hour = 0;
+                Sec = 0;
+
+                return true;
             }
         }
 
@@ -106,11 +105,11 @@
         private void GoTimer() {
             Sec += Time.deltaTime;
 
-            if (Sec >= 59) {
+            if (Sec >= 60f) {
                 Min++;
                 Sec = 0;
             }
-            if (Min >= 59) {
+            if (Min >= 60) {
                 hour++;
                 Min = 0;
             }
