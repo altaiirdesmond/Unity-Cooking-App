@@ -20,7 +20,7 @@ namespace Assets.Script {
         private readonly string[] instruction;
         private int position = -1;
 
-        public float Time { get; set; }
+        public int Time { get; set; }
 
         public FoodIngredient(Food food, string instruction) {
             this.food = food; // Let see what food we get
@@ -82,29 +82,32 @@ namespace Assets.Script {
                         Where(x => x.RawName.StartsWith(words[i].ToLower()) && x.RawName.Contains(words[i].ToLower()));
 
                     Debug.Log("current word:" + words[i]);
-                    foreach (var item in collection) {
+                    var ingredients = collection as Ingredient[] ?? collection.ToArray();
+                    foreach (var item in ingredients) {
                         Debug.Log("searched word: " + item.RawName);
                     }
 
-                    string fullRawName = string.Empty;
-                    if (collection.Count() > 1) {
+                    string fullRawName;
+                    if (ingredients.Length > 1) {
                         // First we have to compare the first word to each instance
-                        foreach (var item in collection) {
-                            if(item.RawName == words[i]) {
-                                // Avoid duplication
-                                if (!dictionary.ContainsKey(item.RawName)) {
-                                    // If the word[i] is on Blacklist skip it
-                                    if (exclude.Contains(words[i])) {
-                                        Debug.Log("<color=red>" + words[i] + "</color> cannot be added");
-                                        continue;
-                                    } else {
-                                        Debug.Log("<color=green>adding..." + item.RawName + "</color>");
-                                        dictionary.Add(item.RawName, item.Method);
-                                    }
+                        foreach (var item in ingredients) {
+                            if (item.RawName != words[i]) {
+                                continue;
+                            }
+
+                            // Avoid duplication
+                            if (!dictionary.ContainsKey(item.RawName)) {
+                                // If the word[i] is on Blacklist skip it
+                                if (exclude.Contains(words[i])) {
+                                    Debug.Log("<color=red>" + words[i] + "</color> cannot be added");
+                                    continue;
                                 }
 
-                                break;
+                                Debug.Log("<color=green>adding..." + item.RawName + "</color>");
+                                dictionary.Add(item.RawName, item.Method);
                             }
+
+                            break;
                         }
 
                         // If none found we should probably get the second word too
@@ -118,30 +121,34 @@ namespace Assets.Script {
                             Where(x => x.RawName == fullRawName.ToLower())) {
                             Debug.Log("<color=green>adding..." + item.RawName + "</color>");
                             // Avoid duplication
-                            if (!dictionary.ContainsKey(item.RawName)) {
-                                // If the word[i] is on Blacklist skip it
-                                if (exclude.Contains(words[i])) {
-                                    Debug.Log("<color=red>" + words[i] + "</color> cannot be added");
-                                    continue;
-                                } else {
-                                    dictionary.Add(item.RawName, item.Method);
-                                }
+                            if (dictionary.ContainsKey(item.RawName)) {
+                                continue;
                             }
+
+                            // If the word[i] is on Blacklist skip it
+                            if (exclude.Contains(words[i])) {
+                                Debug.Log("<color=red>" + words[i] + "</color> cannot be added");
+                                continue;
+                            }
+
+                            dictionary.Add(item.RawName, item.Method);
                         }
                     } else {
                         // This will only retrieve one item
-                        foreach (var item in collection) {
+                        foreach (var item in ingredients) {
                             // Avoid duplication
-                            if (!dictionary.ContainsKey(item.RawName)) {
-                                // If the word[i] is on Blacklist skip it
-                                if (exclude.Contains(words[i].ToLower())) {
-                                    Debug.Log("<color=red>" + words[i] + "</color> cannot be added");
-                                    continue;
-                                } else {
-                                    Debug.Log("<color=green>adding..." + item.RawName + "</color>");
-                                    dictionary.Add(item.RawName, item.Method);
-                                }
+                            if (dictionary.ContainsKey(item.RawName)) {
+                                continue;
                             }
+
+                            // If the word[i] is on Blacklist skip it
+                            if (exclude.Contains(words[i].ToLower())) {
+                                Debug.Log("<color=red>" + words[i] + "</color> cannot be added");
+                                continue;
+                            }
+
+                            Debug.Log("<color=green>adding..." + item.RawName + "</color>");
+                            dictionary.Add(item.RawName, item.Method);
                         }
                     }
                 }
