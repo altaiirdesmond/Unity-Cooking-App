@@ -60,8 +60,6 @@ namespace Assets.Script {
 
             loadingScreen.SetActive(true);
 
-            yield return new WaitForSeconds(4f);
-
             while (!asyncOperation.isDone) {
                 yield return null;
             }
