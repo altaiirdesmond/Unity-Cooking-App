@@ -6,6 +6,9 @@
     /// Defines the <see cref="Timer" />
     /// </summary>
     public class Timer : MonoBehaviour {
+
+        [SerializeField] private float t;
+
         /// <summary>
         /// Defines the timerDisplay
         /// </summary>
@@ -52,7 +55,7 @@
         /// </summary>
         public bool NormalLimitReached {
             get {
-                if (!(Mathf.RoundToInt(Min) >= Mathf.RoundToInt(Until) - 1f) || !(Mathf.RoundToInt(Sec) >= 60f)) {
+                if (Mathf.RoundToInt(Min) <= Mathf.RoundToInt(Until) - 1 || (int) (t % 60) != 0) {
                     return false;
                 }
 
@@ -62,6 +65,8 @@
                 Min = 0;
                 hour = 0;
                 Sec = 0;
+
+                t = 0;
 
                 return true;
             }
@@ -103,16 +108,10 @@
         /// Starts timer
         /// </summary>
         private void GoTimer() {
-            Sec += Time.deltaTime;
+            t += Time.deltaTime;
 
-            if (Sec >= 60f) {
-                Min++;
-                Sec = 0;
-            }
-            if (Min >= 60) {
-                hour++;
-                Min = 0;
-            }
+            Min = (int) (t / 60);
+            Sec = (int) (t % 60);
 
             TmPro.SetText(string.Format("{0:00}:{1:00}:{2:00}", hour, Min, Sec));
         }
