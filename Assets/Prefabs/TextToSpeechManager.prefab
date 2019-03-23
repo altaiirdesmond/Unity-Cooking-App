@@ -171,14 +171,10 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 21f1427181addbb478c806b900e065f5, type: 3}
     - {fileID: 8300000, guid: 6edec27ec4184ec4db2bb7ace3edff4f, type: 3}
     - {fileID: 8300000, guid: c3727e44f37cdb44eb7d432c486d7084, type: 3}
-    - {fileID: 8300000, guid: 4bbeeb5fd58d2d749a99fc7461c36580, type: 3}
     - {fileID: 8300000, guid: 6f3b515261c59874dbc64a997af328b5, type: 3}
     - {fileID: 8300000, guid: c98f4ef4f6243b94f9aa466582940aa9, type: 3}
-    - {fileID: 8300000, guid: 4888e15b810af6949827c4264da5b7b3, type: 3}
     - {fileID: 8300000, guid: 59c268f0d97f859439d69d5ac9f8abb1, type: 3}
-    - {fileID: 8300000, guid: 052010b8d4226f5449f0884201ccdf84, type: 3}
     - {fileID: 8300000, guid: 784cb1febd92c2b4da409db3c3620e7d, type: 3}
-    - {fileID: 8300000, guid: 797de95c8f93b0b4ea63420f3fe55e25, type: 3}
     - {fileID: 8300000, guid: 5b94aad226cedc94dae514b0acdc0022, type: 3}
   - Name: ginataang tilapia
     MainAudioClips:
@@ -202,7 +198,6 @@ MonoBehaviour:
   - Name: laing
     MainAudioClips:
     - {fileID: 8300000, guid: 73fcd5fb9358ae2498c5eb918897a614, type: 3}
-    - {fileID: 8300000, guid: 300200cd6a26f0d44b69dff6f275911f, type: 3}
     - {fileID: 8300000, guid: 092b4869c5e7dcf4bb0709afe5c0243c, type: 3}
     - {fileID: 8300000, guid: 843b35c0334df8b4d998cd64c76cba31, type: 3}
     - {fileID: 8300000, guid: 9f92470f128aab54cb4e4090449262c2, type: 3}
@@ -446,14 +441,10 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 5d71c3b8128efd24d9c3e6cf18ac90cb, type: 3}
     - {fileID: 8300000, guid: 0d84ed779a7ec7f44a99f00e56a72ea9, type: 3}
     - {fileID: 8300000, guid: c9b56d06f5c561349b44e9f5e3b46f6f, type: 3}
-    - {fileID: 8300000, guid: cf9b125ab9f47354bb133ddce3bcef6d, type: 3}
     - {fileID: 8300000, guid: 9c12205e04b7b4b4caf356539ecdfd25, type: 3}
     - {fileID: 8300000, guid: 7a38d4a3c76e22045a7d3f34495e8a02, type: 3}
-    - {fileID: 8300000, guid: 948c970ef0e24b540ae60f1dce426c48, type: 3}
-    - {fileID: 8300000, guid: 66ea0b9d73b77c94c92463f1ddf8f46a, type: 3}
-    - {fileID: 8300000, guid: ead0f656b11ef994f811799a9526ebfc, type: 3}
+    - {fileID: 8300000, guid: 2285a2591a1e3f84889ef1ebfe9e81c2, type: 3}
     - {fileID: 8300000, guid: 598f7e7fe5d123e4b852dfdb741ce606, type: 3}
-    - {fileID: 8300000, guid: 2b89b60e1478b08448b0dddedf687654, type: 3}
     - {fileID: 8300000, guid: 7db4a14e3b7b99e449ee7a5e6159d0f1, type: 3}
   - Name: ginataang tilapia tagalog
     MainAudioClips:
@@ -475,7 +466,6 @@ MonoBehaviour:
   - Name: laing tagalog
     MainAudioClips:
     - {fileID: 8300000, guid: 7b6fba300ba085841a6d1f980706941a, type: 3}
-    - {fileID: 8300000, guid: 822977bebbfd5f34db2658d3447077e8, type: 3}
     - {fileID: 8300000, guid: 6a8bcf38739b1ea4593d442354adc8ae, type: 3}
     - {fileID: 8300000, guid: fb9c821dae982104e9a2c2085c67f8b9, type: 3}
     - {fileID: 8300000, guid: f8545f373620d22438e1e15f21bafb99, type: 3}
@@ -629,7 +619,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 4dd0cd337d7ca9e41b706c4d89c16193, type: 3}
     - {fileID: 8300000, guid: 9487749b7f3a7064b834e084ac9729b3, type: 3}
     - {fileID: 8300000, guid: db88f43d61702d140a2cb046858de1e3, type: 3}
-    - {fileID: 8300000, guid: 85d818ce33b19a94c8e9a7b0bdd05e9d, type: 3}
+    - {fileID: 8300000, guid: 481aa27087287a44990fead216af1039, type: 3}
   - Name: laswa tagalog
     MainAudioClips:
     - {fileID: 8300000, guid: d7a8df267d9d1194c9b4dc164b9721f8, type: 3}
