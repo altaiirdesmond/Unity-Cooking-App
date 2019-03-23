@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour {
     private GameObject[] buttons;
 
     [Header("Misc. fx")]
-    public Sound[] sounds;
+    public Sound[] Sounds;
 
     private void Awake() {
         // Singleton. This prevents multiple instances
@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour {
             button.GetComponent<Button>().onClick.AddListener(TaskOnClick);
         }
 
-        foreach (var sound in sounds) {
+        foreach (var sound in Sounds) {
             // We will setup each clip
             sound.AudioSource = gameObject.AddComponent<AudioSource>();
             sound.AudioSource.clip = sound.AudioClip;
@@ -44,27 +44,27 @@ public class AudioManager : MonoBehaviour {
 
     private void TaskOnClick() {
         // This is where we assign what clip should be played on button click
-        Array.Find(sounds, sounds => sounds.Name == "ButtonClip").AudioSource.Play();
+        Array.Find(Sounds, s => s.Name == "ButtonClip").AudioSource.Play();
     }
 
-    public void TriviaSFXPlay() {
+    public void TriviaSfxPlay() {
         // This is where we assign what clip should be played on Trivia SFX
-        Array.Find(sounds, sounds => sounds.Name == "Trivia").AudioSource.Play();
+        Array.Find(Sounds, s => s.Name == "Trivia").AudioSource.Play();
     }
 
-    public void TimerStartSFXPlay() {
+    public void TimerStartSfxPlay() {
         // This is where we assign what clip should be played on Timer SFX
-        Array.Find(sounds, sounds => sounds.Name == "TimerStart").AudioSource.Play();
+        Array.Find(Sounds, s => s.Name == "TimerStart").AudioSource.Play();
     }
 
-    public void TimerDoneSFXPlay() {
+    public void TimerDoneSfxPlay() {
         // This is where we assign what clip should be played on Timer SFX
-        Array.Find(sounds, sounds => sounds.Name == "TimerDone").AudioSource.Play();
+        Array.Find(Sounds, s => s.Name == "TimerDone").AudioSource.Play();
     }
 
-    public void TimerNearingSFXPlay() {
+    public void TimerNearingSfxPlay() {
         // This is where we assign what clip should be played on Timer SFX
-        Array.Find(sounds, sounds => sounds.Name == "TimerNearing").AudioSource.Play();
+        Array.Find(Sounds, s => s.Name == "TimerNearing").AudioSource.Play();
     }
 
     private void ChangedActiveScene(Scene current, Scene next) {
@@ -96,7 +96,7 @@ public class AudioManager : MonoBehaviour {
 
     public AudioSource BackgroundTheme(float volume) {
         // This is where we assign what clip should be played on Timer SFX
-        AudioSource audioSource = Array.Find(sounds, sounds => sounds.Name == "Background").AudioSource;
+        AudioSource audioSource = Array.Find(Sounds, sounds => sounds.Name == "Background").AudioSource;
         audioSource.volume = volume;
 
         return audioSource;
@@ -104,6 +104,6 @@ public class AudioManager : MonoBehaviour {
 
     public AudioSource BackgroundTheme() {
         // This is where we assign what clip should be played on Timer SFX
-        return Array.Find(sounds, sounds => sounds.Name == "Background").AudioSource;
+        return Array.Find(Sounds, sounds => sounds.Name == "Background").AudioSource;
     }
 }
