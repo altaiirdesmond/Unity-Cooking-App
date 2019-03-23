@@ -20,13 +20,14 @@ namespace Assets.Script {
         [SerializeField] private GameObject foodResultName;
         [SerializeField] private TextMeshProUGUI instruction;
         [SerializeField] private GameObject palitaw;
-        [SerializeField] private Transform panImage;
         [SerializeField] private SpriteRenderer plateImage;
-        [SerializeField] private Transform potImage;
         [SerializeField] private SpriteRenderer rawImage;
+        [SerializeField] private Transform panImage;
+        [SerializeField] private Transform potImage;
         [SerializeField] private Transform fryPanImage;
         [SerializeField] private Transform jarImage;
         [SerializeField] private Transform leafImage;
+        [SerializeField] private Transform palayokImage;
         [SerializeField] private Timer timer;
         [SerializeField] private TextMeshProUGUI trivia;
 
@@ -43,6 +44,7 @@ namespace Assets.Script {
             food = MenuManager.Food;
 
             if (food.FoodName == "kinilaw na guso" ||
+                food.FoodName == "chicken adobo sa gata" ||
                 food.FoodName == "kutsinta" ||
                 food.FoodName == "palitaw" ||
                 food.FoodName == "sapin sapin" ||
@@ -54,18 +56,32 @@ namespace Assets.Script {
                 fryPanImage.gameObject.SetActive(false);
                 jarImage.gameObject.SetActive(false);
                 leafImage.gameObject.SetActive(false);
+                palayokImage.gameObject.SetActive(false);
             } else if (food.FoodName == "lunis" ||
                        food.FoodName == "pickled balut" ||
                        food.FoodName == "ginataang tilapia" ||
-                       food.FoodName == "chicken adobo sa gata" ||
-                       food.FoodName == "ginataang hipon, sitaw, kalabasa") {
-                // Display frypan at start
+                       food.FoodName == "ginataang hipon, sitaw, kalabasa" ||
+                       food.FoodName == "ginataang yapyap" ||
+                       food.FoodName == "ginataang monggo" ||
+                       food.FoodName == "igado" ||
+                       food.FoodName == "ginisang bihod ng bariles") {
+                // Display frypan/kawali at start
                 potImage.gameObject.SetActive(false);
                 bowlImage.gameObject.SetActive(false);
                 panImage.gameObject.SetActive(false);
                 fryPanImage.gameObject.SetActive(true);
                 jarImage.gameObject.SetActive(false);
                 leafImage.gameObject.SetActive(false);
+                palayokImage.gameObject.SetActive(false);
+            } else if (food.FoodName == "kinulob") {
+                // Display palayok at start
+                potImage.gameObject.SetActive(false);
+                bowlImage.gameObject.SetActive(false);
+                panImage.gameObject.SetActive(false);
+                fryPanImage.gameObject.SetActive(false);
+                jarImage.gameObject.SetActive(false);
+                leafImage.gameObject.SetActive(false);
+                palayokImage.gameObject.SetActive(true);
             }
 
             // Ready the ingredients after knowing the instruction
@@ -144,17 +160,18 @@ namespace Assets.Script {
             var idx = 0;
             // We will move to the next instruction
             while (foodIngredient.MoveNext()) {
-                if (food.FoodName == "chicken adobo sa gata" && idx == 1 ||
-                    food.FoodName == "kutsinta" && idx == 3 ||
+                if (food.FoodName == "kutsinta" && idx == 3 ||
                     food.FoodName == "palitaw" && idx == 3 ||
-                    food.FoodName == "sapin sapin" && idx == 5) {
-                    // Display pot
+                    food.FoodName == "sapin sapin" && idx == 5 ||
+                    food.FoodName == "ginataang monggo" && idx == 4) {
+                    // Display pot/kaserola
                     potImage.gameObject.SetActive(true);
                     bowlImage.gameObject.SetActive(false);
                     panImage.gameObject.SetActive(false);
                     fryPanImage.gameObject.SetActive(false);
                     jarImage.gameObject.SetActive(false);
                     leafImage.gameObject.SetActive(false);
+                    palayokImage.gameObject.SetActive(false);
                 }
                 else if (food.FoodName == "sapin sapin" && idx == 6) {
                     // Display pan
@@ -164,33 +181,38 @@ namespace Assets.Script {
                     fryPanImage.gameObject.SetActive(false);
                     jarImage.gameObject.SetActive(false);
                     leafImage.gameObject.SetActive(false);
+                    palayokImage.gameObject.SetActive(false);
                 }
-                else if (food.FoodName == "crispy hito" && idx == 2) {
-                    // Display fry pan
+                else if (food.FoodName == "crispy hito" && idx == 2 ||
+                         food.FoodName == "chicken adobo sa gata" && idx == 1) {
+                    // Display fry pan/kawali
                     panImage.gameObject.SetActive(false);
                     potImage.gameObject.SetActive(false);
                     bowlImage.gameObject.SetActive(false);
                     fryPanImage.gameObject.SetActive(true);
                     jarImage.gameObject.SetActive(false);
                     leafImage.gameObject.SetActive(false);
+                    palayokImage.gameObject.SetActive(false);
                 }
                 else if (food.FoodName == "pickled balut" && idx == 1) {
-                    // Display jar
+                    // Display jar/garapon
                     panImage.gameObject.SetActive(false);
                     potImage.gameObject.SetActive(false);
                     bowlImage.gameObject.SetActive(false);
                     fryPanImage.gameObject.SetActive(false);
                     jarImage.gameObject.SetActive(true);
                     leafImage.gameObject.SetActive(false);
+                    palayokImage.gameObject.SetActive(false);
                 }
                 else if (food.FoodName == "sapin sapin" && idx == 10) {
-                    // Display leaf
+                    // Display leaf/dahon ng saging
                     panImage.gameObject.SetActive(false);
                     potImage.gameObject.SetActive(false);
                     bowlImage.gameObject.SetActive(false);
                     fryPanImage.gameObject.SetActive(false);
                     jarImage.gameObject.SetActive(false);
                     leafImage.gameObject.SetActive(true);
+                    palayokImage.gameObject.SetActive(false);
                 }
 
                 clipCountForCurInstruction = speechManager.ClipsForCurrentInstruction(speechManager.ClipName);
@@ -218,10 +240,10 @@ namespace Assets.Script {
                         clipCountForCurInstruction--;
 
                         // And since time is only the content immediately start timer
-                        FindObjectOfType<AudioManager>().TimerStartSFXPlay();
+                        FindObjectOfType<AudioManager>().TimerStartSfxPlay();
                         timer.Until = foodIngredient.Time;
                         Debug.Log("<color=green>Starting time and until " + timer.Until + "</color>");
-                        foodIngredient.Time = 0f; // Clear the time from foodIngredient
+                        foodIngredient.Time = 0; // Clear the time from foodIngredient
                         timer.Start = true;
 
                         while (!timer.NormalLimitReached) {
@@ -230,7 +252,7 @@ namespace Assets.Script {
                                 // Start animation of timer
                                 timer.GetComponent<Animator>().SetTrigger("show");
 
-                                FindObjectOfType<AudioManager>().TimerNearingSFXPlay();
+                                FindObjectOfType<AudioManager>().TimerNearingSfxPlay();
                             }
 
                             if (timer.TriviaLimit) {
@@ -240,7 +262,7 @@ namespace Assets.Script {
                                     .GetComponent<UIAnimation>()
                                     .Animator
                                     .SetBool("show", true);
-                                FindObjectOfType<AudioManager>().TriviaSFXPlay();
+                                FindObjectOfType<AudioManager>().TriviaSfxPlay();
                             }
 
                             while (stop) {
@@ -256,7 +278,7 @@ namespace Assets.Script {
                             yield return null;
                         }
 
-                        FindObjectOfType<AudioManager>().TimerDoneSFXPlay();
+                        FindObjectOfType<AudioManager>().TimerDoneSfxPlay();
 
                         // There's nothing else in the content just string no image so continue to the next iteration
                         break;
@@ -264,10 +286,10 @@ namespace Assets.Script {
 
                     // If the content key contains Time
                     if (content.Key.Contains("Time")) {
-                        FindObjectOfType<AudioManager>().TimerStartSFXPlay();
+                        FindObjectOfType<AudioManager>().TimerStartSfxPlay();
                         timer.Until = foodIngredient.Time;
                         Debug.Log("<color=green>Starting time and until " + timer.Until + "</color>");
-                        foodIngredient.Time = 0f; // Clear the time from foodIngredient
+                        foodIngredient.Time = 0; // Clear the time from foodIngredient
                         timer.Start = true;
 
                         while (!timer.NormalLimitReached) {
@@ -276,7 +298,7 @@ namespace Assets.Script {
                                 // Start nearing signal animation of timer 
                                 timer.GetComponent<Animator>().SetTrigger("show");
 
-                                FindObjectOfType<AudioManager>().TimerNearingSFXPlay();
+                                FindObjectOfType<AudioManager>().TimerNearingSfxPlay();
                             }
 
                             if (timer.TriviaLimit) {
@@ -287,7 +309,7 @@ namespace Assets.Script {
                                     .GetComponent<UIAnimation>()
                                     .Animator
                                     .SetBool("show", true);
-                                FindObjectOfType<AudioManager>().TriviaSFXPlay();
+                                FindObjectOfType<AudioManager>().TriviaSfxPlay();
                             }
 
                             while (stop) {
@@ -310,7 +332,7 @@ namespace Assets.Script {
                             .Animator
                             .SetBool("show", false);
 
-                        FindObjectOfType<AudioManager>().TimerDoneSFXPlay();
+                        FindObjectOfType<AudioManager>().TimerDoneSfxPlay();
 
                         // There's nothing else in the content just string no image so continue to the next iteration
                     }
@@ -389,7 +411,7 @@ namespace Assets.Script {
             }
 
             // We'll gonna use the same sfx of trivia on done cooking
-            FindObjectOfType<AudioManager>().TriviaSFXPlay();
+            FindObjectOfType<AudioManager>().TriviaSfxPlay();
             // Show "COOKING DONE!" text
             finish.GetComponent<Animator>().SetBool("done", true);
             // Enable white background
@@ -418,6 +440,16 @@ namespace Assets.Script {
             stop = false;
             cookingAnimator.speed = 1f;
             FindObjectOfType<AudioManager>().BackgroundTheme().Play();
+        }
+
+        private void SetVisible(string ware) {
+            // Display pot
+            potImage.gameObject.SetActive(true);
+            bowlImage.gameObject.SetActive(false);
+            panImage.gameObject.SetActive(false);
+            fryPanImage.gameObject.SetActive(false);
+            jarImage.gameObject.SetActive(false);
+            leafImage.gameObject.SetActive(false);
         }
     }
 }
