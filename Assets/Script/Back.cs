@@ -24,6 +24,12 @@ namespace Assets.Script {
                     FindObjectOfType<MenuManager>().ShowBlockingPanel();
                     FindObjectOfType<MenuManager>().ShowQuit();
                 }
+
+                if (SceneManager.GetActiveScene().name == "Categories" &&
+                    GameObject.Find("SceneManager").GetComponent<CategorySceneManager>().Panels[5].activeSelf) {
+                    Debug.Log("test");
+                    GameObject.Find("ButtonManager").GetComponent<MenuManager>().GotoCategories();
+                }
             }
         }
     }
