@@ -4132,7 +4132,7 @@ RectTransform:
   - {fileID: 248379230}
   - {fileID: 2112476754}
   m_Father: {fileID: 1307547255}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4924,7 +4924,7 @@ RectTransform:
   - {fileID: 210622894}
   - {fileID: 1620485452}
   m_Father: {fileID: 1307547255}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5263,8 +5263,8 @@ RectTransform:
   - {fileID: 465225875}
   - {fileID: 2013323613}
   - {fileID: 1561555566}
-  - {fileID: 1208050363}
   - {fileID: 1011370615}
+  - {fileID: 1208050363}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5867,6 +5867,14 @@ MonoBehaviour:
     - Language: English
       Text: DONE COOKING!!!
       Object: {fileID: 0}
+  - Name: home
+    Translations:
+    - Language: English
+      Text: home
+      Object: {fileID: 0}
+    - Language: Tagalog
+      Text: 
+      Object: {fileID: 0}
 --- !u!4 &1509809052
 Transform:
   m_ObjectHideFlags: 0
@@ -6177,7 +6185,7 @@ GameObject:
   - component: {fileID: 1620485454}
   - component: {fileID: 1620485453}
   m_Layer: 0
-  m_Name: ButtonCategory
+  m_Name: ButtonHome
   m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6245,7 +6253,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114639559107424554, guid: a5ae08a1846e8b447b3efa93688fd806,
           type: 3}
-        m_MethodName: GotoCategories
+        m_MethodName: GoToHome
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6305,7 +6313,6 @@ GameObject:
   - component: {fileID: 1643544514}
   - component: {fileID: 1643544516}
   - component: {fileID: 1643544515}
-  - component: {fileID: 1643544517}
   m_Layer: 10
   m_Name: TextMeshPro Text
   m_TagString: Untagged
@@ -6352,7 +6359,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Kategorya
+  m_text: Home page
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -6424,8 +6431,8 @@ MonoBehaviour:
     textComponent: {fileID: 1643544515}
     characterCount: 9
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -6435,7 +6442,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -6456,21 +6463,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643544513}
   m_CullTransparentMesh: 0
---- !u!114 &1643544517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1643544513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ee4021ce59f313499a5cab041f02aba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  phraseName: category
-  FallbackText: KATEGORYA
-  Args: []
 --- !u!1 &1694744073
 GameObject:
   m_ObjectHideFlags: 0

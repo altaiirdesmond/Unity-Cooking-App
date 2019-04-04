@@ -154,6 +154,14 @@ namespace Assets.Script {
         public void HideTrivia() {
             FindObjectOfType<CategorySceneManager>().Panels[7].GetComponent<UIAnimation>().Animator.SetBool("show", false);
         }
+
+        public void ShowHelp(){
+            FindObjectOfType<CategorySceneManager>().Panels[9].SetActive(true);
+        }
+
+        public void HideHelp(){
+            FindObjectOfType<CategorySceneManager>().Panels[9].SetActive(false);
+        }
         #endregion
     }
 }
