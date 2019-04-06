@@ -89,6 +89,10 @@ namespace Assets.Script {
                 GameObject.Find("Canvas/CategoryResult_Panel").transform.GetChild(i++).GetChild(0).GetChild(0).GetComponent<Image>().sprite = 
                     Sprite.Create(texture2D, new Rect(0, 0, texture2D.width, texture2D.height), new Vector2());
             }
+
+            foreach (var buttons in GameObject.FindGameObjectsWithTag("Button")) {
+                buttons.GetComponent<Button>().onClick.AddListener(FindObjectOfType<AudioManager>().TaskOnClick);
+            }
         }
 
         public void ShowSearch() {

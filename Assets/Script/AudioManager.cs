@@ -24,10 +24,14 @@ public class AudioManager : MonoBehaviour {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
         DontDestroyOnLoad(gameObject);
-
+        
         foreach (GameObject button in GameObject.FindGameObjectsWithTag("Button")) {
             // Ready buttons to listen for clicks
             button.GetComponent<Button>().onClick.AddListener(TaskOnClick);
+
+            if(button.transform.parent.name == "Help_Panel"){
+                button.transform.parent.gameObject.SetActive(false);
+            }
         }
 
         foreach (var sound in Sounds) {
@@ -42,7 +46,7 @@ public class AudioManager : MonoBehaviour {
         SceneManager.activeSceneChanged += ChangedActiveScene;
     }
 
-    private void TaskOnClick() {
+    public void TaskOnClick() {
         // This is where we assign what clip should be played on button click
         Array.Find(Sounds, s => s.Name == "ButtonClip").AudioSource.Play();
     }
@@ -105,5 +109,9 @@ public class AudioManager : MonoBehaviour {
     public AudioSource BackgroundTheme() {
         // This is where we assign what clip should be played on Timer SFX
         return Array.Find(Sounds, sounds => sounds.Name == "Background").AudioSource;
+    }
+
+    public void PlayButton(){
+        Array.Find(Sounds, i => i.Name == "ButtonClip").AudioSource.Play();
     }
 }
