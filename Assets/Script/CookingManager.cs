@@ -241,13 +241,16 @@ namespace Assets.Script {
 
                         // And since time is only the content immediately start timer
                         FindObjectOfType<AudioManager>().TimerStartSfxPlay();
-                        timer.Until = foodIngredient.Time;
+
+                        timer.StartTimerAt(foodIngredient.Time);
+                        timer.CountDecreasing = true;
+
                         Debug.Log("<color=green>Starting time and until " + timer.Until + "</color>");
                         foodIngredient.Time = 0; // Clear the time from foodIngredient
                         timer.Start = true;
 
-                        while (!timer.NormalLimitReached) {
-                            if (Mathf.RoundToInt(timer.Min) == Mathf.RoundToInt(timer.Until) - 2 && 
+                        while (!timer.TimerUp()) {
+                            if (Mathf.RoundToInt(timer.Min) == Mathf.RoundToInt(1f) && 
                                 Mathf.RoundToInt(timer.Sec) == 0) {
                                 // Start animation of timer
                                 timer.GetComponent<Animator>().SetTrigger("show");
@@ -255,7 +258,7 @@ namespace Assets.Script {
                                 FindObjectOfType<AudioManager>().TimerNearingSfxPlay();
                             }
 
-                            if (timer.TriviaLimit) {
+                            if (timer.TriviaLimit()) {
                                 // Show trivia by script
                                 FindObjectOfType<CategorySceneManager>()
                                     .Panels[7]
@@ -287,13 +290,16 @@ namespace Assets.Script {
                     // If the content key contains Time
                     if (content.Key.Contains("Time")) {
                         FindObjectOfType<AudioManager>().TimerStartSfxPlay();
-                        timer.Until = foodIngredient.Time;
+
+                        timer.StartTimerAt(foodIngredient.Time);
+                        timer.CountDecreasing = true;
+
                         Debug.Log("<color=green>Starting time and until " + timer.Until + "</color>");
                         foodIngredient.Time = 0; // Clear the time from foodIngredient
                         timer.Start = true;
 
-                        while (!timer.NormalLimitReached) {
-                            if (Mathf.RoundToInt(timer.Min) == Mathf.RoundToInt(timer.Until) - 2 && 
+                        while (!timer.TimerUp()) {
+                            if (Mathf.RoundToInt(timer.Min) == Mathf.RoundToInt(0f) &&
                                 Mathf.RoundToInt(timer.Sec) == 0) {
                                 // Start nearing signal animation of timer 
                                 timer.GetComponent<Animator>().SetTrigger("show");
@@ -301,7 +307,7 @@ namespace Assets.Script {
                                 FindObjectOfType<AudioManager>().TimerNearingSfxPlay();
                             }
 
-                            if (timer.TriviaLimit) {
+                            if (timer.TriviaLimit()) {
                                 // Listen to a random limit if the WAIT_TIME is more than 3 mins
                                 // Show trivia by script
                                 FindObjectOfType<CategorySceneManager>()
