@@ -21,5 +21,9 @@
         public string Trivia { get; set; }
 
         public byte[] Image { get; set; }
+
+        public string History { get; set; }
+
+        public string HistoryTranslated { get; set; }
     }
 }
