@@ -3,7 +3,6 @@ using Assets.Script.DatabaseModel;
 using Lean.Localization;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 

@@ -199,20 +199,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "MGA HABANG UPANG GAMITIN ANG APPLICATION NA ITO: \r\n\r\nStep 1:  Pindutin
-    ang button magsimula.\r\n\r\nStep 2: Mamimili sa 4 na kategorya ng anong klaseng
-    putahe ng pagkain ang gustong\r\nmatutunan na iluto.\r\n\r\nStep 3: Mamili ng
-    klase ng putahe ng pagkain ang gustong matutunang iluto.\r\n\r\nStep 4: Pindutin
-    ang button magsimula (bahaging itaas sa kanan) para magsimula ang pagtuturo\r\nsa
-    pagluluto. \r\n\r\nStep 5: Makinig sa voice instruction o basahin ang nakadisplay
-    na procedure ng pagkain\r\nupang malaman ang step by step procedure ng pagluluto.\r\n\r\nStep
-    6: Pindutin ang pause button upang ihinto pansamantala ang pagluluto o kung gustong\r\npalitan
-    ang klase ng pagkaing gustong matutunan o kung gustong umalis sa pag-aaral\r\nkung
-    paano magluto.\r\n\r\nStep 7: Maghintay na matapos ang timer o voice instruction
-    para sa mga susunod na step na\r\ngagawin na procedure sa pagluluto. \r\n\r\nStep
-    8: Kada 2 minuto may mga lalabas na trivia para sa mga bawat pagkain na napiling\r\nmatutunan
-    iluto.\r\n\r\nStep 9: Hintayin matapos ang procedure sa pagluluto upang makita
-    ang picture ng natapos na\r\nnapiling gustong matutunan na iluto.        \r\n"
+  m_text: "STEPS HOW TO USE THIS APPLICATION:\r\n\r\nStep 1: Press the start button.\r\n\r\nStep
+    2: Choose in the 4 categories of food wants learn how to cook.\r\n\r\nStep 3:
+    Choose a kind of food you want to learn how to cook.\r\n\r\nStep 4: Press the
+    start button to start the tutorial.\r\n\r\nStep 5: Listen to voice instruction
+    or read the application's displayed procedure to learn the step\r\nby step cooking
+    procedure.\r\n\r\nStep 6: Press the pause button to stop cooking temporarily or
+    if desired change the class of food\r\nyou would like to learn or if you want
+    to leave the cooking procedure.\r\n\r\nStep 7: Wait for the timer or voice instruction
+    for the next steps to-do cooking procedure.\r\n\r\nStep 8: Every 2 minutes will
+    appear trivia for each meal selected learn to cook.\r\n\r\nStep 9: Wait for the
+    cooking procedure to see the picture finished for the selected food that has\r\nbeen
+    cooked.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -282,12 +280,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 52349687}
-    characterCount: 1110
+    characterCount: 861
     spriteCount: 0
-    spaceCount: 196
-    wordCount: 175
+    spaceCount: 162
+    wordCount: 153
     linkCount: 0
-    lineCount: 36
+    lineCount: 27
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -589,7 +587,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Sigurado ka ba?
+  m_text: Are you sure?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -659,7 +657,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 197986021}
-    characterCount: 15
+    characterCount: 13
     spriteCount: 0
     spaceCount: 2
     wordCount: 3
@@ -977,6 +975,7 @@ RectTransform:
   - {fileID: 661551579}
   - {fileID: 1110729746}
   - {fileID: 1836444659}
+  - {fileID: 648437068}
   m_Father: {fileID: 679775742}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1054,6 +1053,147 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 522213928}
+--- !u!1 &648437067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 648437068}
+  - component: {fileID: 648437071}
+  - component: {fileID: 648437070}
+  - component: {fileID: 648437069}
+  m_Layer: 0
+  m_Name: ButtonClose
+  m_TagString: Button
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &648437068
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648437067}
+  m_LocalRotation: {x: -0, y: -0, z: -0.13617086, w: 0.99068534}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 522213925}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15.653001}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 264, y: 273}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &648437069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648437067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.6981132, g: 0.18521373, b: 0, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 648437070}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114639559107424554, guid: a5ae08a1846e8b447b3efa93688fd806,
+          type: 3}
+        m_MethodName: HideOptions
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114639559107424554, guid: a5ae08a1846e8b447b3efa93688fd806,
+          type: 3}
+        m_MethodName: HideBlockingPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &648437070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648437067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 4ae55c4ac037fe4458d90b455f6d64f1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &648437071
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648437067}
+  m_CullTransparentMesh: 0
 --- !u!1 &648831196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,7 +1365,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Wika
+  m_text: Language
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -1295,7 +1435,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 661551580}
-    characterCount: 4
+    characterCount: 8
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -1665,7 +1805,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Magsimula
+  m_text: Start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -1735,7 +1875,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 710670159}
-    characterCount: 9
+    characterCount: 5
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -2077,7 +2217,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Oo
+  m_text: Yes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -2147,7 +2287,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 784099303}
-    characterCount: 2
+    characterCount: 3
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -2999,7 +3139,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: PAGTATAKDA
+  m_text: SETTINGS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -3069,7 +3209,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1185374649}
-    characterCount: 10
+    characterCount: 8
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -3305,7 +3445,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Umalis
+  m_text: Quit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -3375,7 +3515,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1335548053}
-    characterCount: 6
+    characterCount: 4
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -4456,7 +4596,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Hindi
+  m_text: No
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -4526,7 +4666,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1893964172}
-    characterCount: 5
+    characterCount: 2
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -4633,7 +4773,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Umalis
+  m_text: Quit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196f445a2cd62cd40acb26450a97e7b6, type: 2}
   m_sharedMaterial: {fileID: 21383305255670060, guid: 196f445a2cd62cd40acb26450a97e7b6,
@@ -4703,7 +4843,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2065579500}
-    characterCount: 6
+    characterCount: 4
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
